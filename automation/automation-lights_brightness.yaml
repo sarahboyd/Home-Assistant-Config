@@ -1,0 +1,84 @@
+- alias: Monitor living room brightness
+  trigger:
+  - platform: state
+    entity_id: sensor.living_room_main_light_brightness
+  condition: 
+  # - condition: template
+  #   value_template: > # onlt update brightness if it has been at least 1 seconds since the light was updated
+  #       {% set duration_seconds = 1  %}
+  #       {% set last_changed_seconds = as_timestamp(states.light.living_room_main_lights.last_changed) %}
+  #       {% set current_time_seconds = as_timestamp(strptime(states('sensor.date_time'),'%Y-%m-%d, %H:%M')) %}
+  #       {{ last_changed_seconds + duration_seconds < current_time_seconds }}
+  - condition: template
+    value_template: > 
+        {{ trigger.from_state.state != 'None' }}
+  action:
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.living_room_main_light_brightness
+      value: "{{ state_attr('light.living_room_main_lights', 'brightness') }}"
+- alias: Restore living room brightness
+  trigger:
+  - platform: state
+    entity_id: light.living_room_main_lights
+    from: "off"
+    to: "on"
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.living_room_main_lights
+    data_template:
+      brightness: "{{ states.input_number.living_room_main_light_brightness.state | int }}"
+- alias: Monitor dining room brightness
+  trigger:
+  - platform: state
+    entity_id: sensor.dining_room_light_brightness
+  condition: 
+  - condition: template
+    value_template: > 
+        {{ trigger.from_state.state != 'None' }}
+  action:
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.dining_room_light_brightness
+      value: "{{ state_attr('light.dining_room_chandelier', 'brightness') }}"
+- alias: Restore dining room brightness
+  trigger:
+  - platform: state
+    entity_id: light.dining_room_chandelier
+    from: "off"
+    to: "on"
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.dining_room_chandelier
+    data_template:
+      brightness: "{{ states.input_number.dining_room_light_brightness.state | int }}"
+- alias: Monitor front door brightness
+  trigger:
+  - platform: state
+    entity_id: sensor.front_hall_light_brightness
+  condition: 
+  - condition: template
+    value_template: > 
+        {{ trigger.from_state.state != 'None' }}
+  action:
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.front_hall_light_brightness
+      value: "{{ state_attr('light.front_foyer_main_lights', 'brightness') }}"
+- alias: Restore front door brightness
+  trigger:
+  - platform: state
+    entity_id: light.front_foyer_main_lights
+    from: "off"
+    to: "on"
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.front_foyer_main_lights
+    data_template:
+      brightness: "{{ states.input_number.front_hall_light_brightness.state | int }}"
