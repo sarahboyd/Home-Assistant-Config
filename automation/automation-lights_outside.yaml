@@ -1,0 +1,118 @@
+- alias: Turn on outside lights after dark when someone is away
+  trigger:
+    - platform: sun
+      event: sunset
+    - entity_id: sensor.sarah_status
+      platform: state
+      to: Away
+    - entity_id: sensor.scott_status
+      platform: state
+      to: Away
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: sensor.sarah_status
+      state: Away
+    - condition: state
+      entity_id: sensor.scott_status
+      state: Away
+  - condition: or
+    conditions:
+    - condition: sun
+      after: sunset
+    - condition: sun
+      before: sunrise
+      before_offset: "-01:00:00"
+  action:
+    service: homeassistant.turn_on
+    entity_id: light.outside
+- alias: Turn on outside lights after dark when door is unlocked
+  trigger:
+    platform: state
+    entity_id: lock.front_door
+    to: unlocked
+  condition: 
+  - condition: state
+    entity_id: light.outside
+    state: 'off'
+  - condition: or
+    conditions:
+    - condition: sun
+      after: sunset
+    - condition: sun
+      before: sunrise
+      before_offset: "-00:30:00"
+  action:
+    service: homeassistant.turn_on
+    entity_id: light.outside
+- alias: Turn on outside lights before work
+  trigger:
+  - at: "06:40:00"
+    platform: time
+  condition:
+  - condition: sun
+    before: sunrise
+  - condition: state
+    entity_id: light.outside
+    state: 'off'
+  - condition: or
+    conditions:
+      - condition: time
+        weekday:          
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: state
+        entity_id: calendar.off_work
+        state: 'on'
+  action: 
+    service: homeassistant.turn_on
+    entity_id: light.outside
+- alias: Turn off outside lights at sunrise
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: "-00:05:00"
+  condition: []
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.outside
+- alias: Turn off outside lights at 2am
+  trigger:
+  - at: "02:00:00"
+    platform: time
+  condition: []
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.outside
+- alias: Turn off outside lights when the door locks if we are both home
+  trigger:
+  - platform: state
+    entity_id: lock.front_door
+    to: locked
+    from: unlocked
+  condition:
+  - condition: state
+    entity_id: light.outside
+    state: 'on'
+  - condition: or
+    conditions: 
+      - condition: state
+        entity_id: sensor.sarah_status
+        state: 'Home'
+      - condition: state
+        entity_id: sensor.sarah_status
+        state: 'Just Arrived'
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.scott_status
+        state: 'Home'
+      - condition: state
+        entity_id: sensor.scott_status
+        state: 'Just Arrived'
+  action:
+    service: script.turn_lights_off_delay
