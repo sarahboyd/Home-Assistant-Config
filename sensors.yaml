@@ -168,6 +168,25 @@
       friendly_name: Sun Elevation
       value_template: '{{states.sun.sun.attributes.elevation}}'
       unit_of_measurement: '°'
+- platform: darksky
+  api_key: !secret darksky_api
+  forecast:
+    - 0
+  hourly_forecast:
+    - 0
+    - 1
+  monitored_conditions:
+    - summary
+    - icon
+    - temperature
+    - apparent_temperature
+    - precip_probability
+    - precip_type
+    - humidity
+    - cloud_cover
+    - nearest_storm_distance
+    - precip_intensity
+    - wind_speed
 - platform: systemmonitor
   resources:
   - type: processor_use
