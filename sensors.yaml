@@ -215,6 +215,7 @@
   name: "Washer State"
   state_topic: "hass/state/washer"
   icon: mdi:washing-machine
+- platform: mqtt
   name: "Dryer State"
   state_topic: "hass/state/dryer"
   icon: mdi:tumble-dryer
