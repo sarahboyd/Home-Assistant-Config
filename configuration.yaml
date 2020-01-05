@@ -5,6 +5,10 @@ default_config:
 homeassistant:
   customize: !include customize.yaml
 
+discovery:
+  ignore:
+    - homekit
+
 map:
 
 system_health:
