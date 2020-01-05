@@ -329,37 +329,37 @@ views:
         - type: custom:vertical-style-card
           title: Pi-Hole
           cards:
-          - type: horizontal-stack
-            cards:
-              - type: custom:mini-graph-card
-                entities:
-                  - sensor.pi_hole_ads_blocked_today
-                name: Ads Blocked Today
-                hours_to_show: 24
-                line_width: 4
-              - type: custom:mini-graph-card
-                entities:
-                  - sensor.pi_hole_ads_percentage_blocked_today
-                name: Percentage Blocked
-                hours_to_show: 24
-                line_width: 4
-          - type: vertical-stack
-            cards:
-              - type: custom:bar-card
-                entity: sensor.pi_hole_dns_queries_today
-                title: DNS Queries Today
-                title_position: inside
-                align: split
-                show_icon: true 
-                max: '50000'
-              - type: custom:bar-card
-                entity: sensor.pi_hole_domains_blocked
-                title: Domains Blocked
-                title_position: inside
-                align: split
-                show_icon: true 
-                max: '2000000'
-                icon: mdi:cancel
+          # - type: horizontal-stack
+          #   cards:
+          #     - type: custom:mini-graph-card
+          #       entities:
+          #         - sensor.pi_hole_ads_blocked_today
+          #       name: Ads Blocked Today
+          #       hours_to_show: 24
+          #       line_width: 4
+          #     - type: custom:mini-graph-card
+          #       entities:
+          #         - sensor.pi_hole_ads_percentage_blocked_today
+          #       name: Percentage Blocked
+          #       hours_to_show: 24
+          #       line_width: 4
+          # - type: vertical-stack
+          #   cards:
+          #     - type: custom:bar-card
+          #       entity: sensor.pi_hole_dns_queries_today
+          #       title: DNS Queries Today
+          #       title_position: inside
+          #       align: split
+          #       show_icon: true 
+          #       max: '50000'
+          #     - type: custom:bar-card
+          #       entity: sensor.pi_hole_domains_blocked
+          #       title: Domains Blocked
+          #       title_position: inside
+          #       align: split
+          #       show_icon: true 
+          #       max: '2000000'
+          #       icon: mdi:cancel
         - type: custom:auto-entities
           card:
             type: entities
