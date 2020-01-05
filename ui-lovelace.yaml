@@ -81,15 +81,6 @@ views:
             line_color: '#2980b9'
             align_icon: left
             align_header: left
-        - type: custom:mini-graph-card
-          name: Washing Machine Energy Consumption
-          entities:
-          - entity: sensor.washer_energy_yesterday
-          hours_to_show: 168
-          aggregate_func: max
-          points_per_hour: 0.04
-          show:
-            graph: bar
       - type: vertical-stack
         cards:
         - type: horizontal-stack
@@ -197,6 +188,15 @@ views:
                       service: light.toggle
                       service_data:
                         entity_id: light.outside
+        - type: custom:mini-graph-card
+          name: Washing Machine Energy Consumption
+          entities:
+          - entity: sensor.washer_energy_yesterday
+          hours_to_show: 168
+          aggregate_func: max
+          points_per_hour: 0.04
+          show:
+            graph: bar
       - type: vertical-stack
         cards:
           - type: custom:mini-media-player
