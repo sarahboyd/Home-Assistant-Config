@@ -1,26 +1,25 @@
 title: Home
 
 resources:
-  - url: /local/mini-graph-card-bundle.js?v=0.8.2
+  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
     type: module
-  - url: /local/simple-weather-card.bundle.js
+  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
     type: module
   - url: /local/vertical-style-card.js?v=0.1
     type: js
-  - url: /local/button-card.js
+  - url: /community_plugin/button-card/button-card.js
     type: module
-  - url: /local/mini-media-player-bundle.js
+  - url: /community_plugin/mini-media-player/mini-media-player-bundle.js
     type: module
-  - url: /local/bar-card.js?v=1.0.0
+  - url: /community_plugin/bar-card/bar-card.js
     type: js
-  - url: /customcards/github/custom-cards/tracker-card.js?track=true
+  - url: /community_plugin/lovelace-auto-entities/auto-entities.js
+    type: module  
+  - url: /community_plugin/lovelace-layout-card/layout-card.js
     type: module
-  - url: /local/monster-card.js?v=1
-    type: js  
-  - url: /customcards/github/thomasloven/card-tools.js?track=true
-    type: js
-  - url: /customcards/github/thomasloven/layout-card.js?track=true
-    type: js
+
+  # - url: /customcards/github/thomasloven/card-tools.js?track=true
+  #   type: js
 
 views:
   - path: default_view
@@ -385,8 +384,7 @@ views:
                 show_icon: true 
                 max: '2000000'
                 icon: mdi:cancel
-        - type: custom:tracker-card
-        - type: custom:monster-card
+        - type: custom:auto-entities
           card:
             type: entities
             title: Things that are broken
@@ -399,7 +397,7 @@ views:
               - entity_id: sensor.tilt_angle_158d0002b7ba92
               - entity_id: sensor.bed_activity_158d0002b7ba92
               - entity_id: sensor.coordination_158d0002b7ba92
-        - type: "custom:monster-card"
+        - type: custom:auto-entities
           show_empty: false
           card:
             type: glance
@@ -418,7 +416,7 @@ views:
     icon: 'mdi:auto-fix'
     badges: []
     cards:
-      - type: custom:monster-card
+      - type: custom:auto-entities
         card: 
           type: entities
           title: Lights Automations
@@ -426,7 +424,7 @@ views:
         filter: 
           include:
           - entity_id: automation.*light*
-      - type: custom:monster-card
+      - type: custom:auto-entities
         card: 
           type: entities
           title: Christmas Automations
@@ -434,7 +432,7 @@ views:
         filter: 
           include:
           - entity_id: automation.*christmas*
-      - type: custom:monster-card
+      - type: custom:auto-entities
         card: 
           type: entities
           title: House Automations
@@ -444,7 +442,7 @@ views:
           - entity_id: automation.*door*
           - entity_id: automation.set_washing_machine*
           - entity_id: automation.set_dryer*
-      - type: custom:monster-card
+      - type: custom:auto-entities
         card: 
           type: entities
           title: Calendar Automations
@@ -452,7 +450,7 @@ views:
         filter: 
           include:
           - entity_id: automation.calendar*
-      - type: custom:monster-card
+      - type: custom:auto-entities
         card: 
           type: entities
           title: Presence Detection
@@ -462,7 +460,7 @@ views:
           - entity_id: automation.mark_person*
           - entity_id: automation.*extended_away
           - entity_id: automation.turn_on_automations*
-      - type: custom:monster-card
+      - type: custom:auto-entities
         card: 
           type: entities
           title: Notifications
