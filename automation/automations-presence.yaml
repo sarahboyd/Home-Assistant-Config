@@ -1,4 +1,4 @@
-[]- alias: Mark person as just arrived
+- alias: Mark person as just arrived
   trigger:
   - entity_id: device_tracker.life360_sarah_boyd
     platform: state
