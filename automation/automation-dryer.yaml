@@ -1,59 +1,59 @@
-- alias: Set dryer to running when vibration detected and state was Idle
-  trigger:
-    platform: state
-    entity_id: sensor.dryer_vibration
-    to: 'vibration detected'
-  condition:
-    - condition: template
-      value_template: "{{ states.sensor.dryer_state.state != 'Running' }}"
-  action:
-    - service: mqtt.publish
-      data:
-        topic: hass/state/dryer
-        payload: 'Running'
-        retain: 'true'
-- alias: Set dryer to Finishing when no vibration detected for 3 minutes
-  trigger:
-    platform: template
-    value_template: >
-        {% set duration_minutes = 3 %}
-        {% set limit_minutes = duration_minutes + 4 %} 
-        {% set last_changed_seconds = as_timestamp(states.sensor.dryer_vibration.last_updated) %}
-        {% set current_time_seconds = as_timestamp(strptime(states('sensor.date_time'),'%Y-%m-%d, %H:%M')) %}
-        {{ last_changed_seconds + duration_minutes * 60 < current_time_seconds and last_changed_seconds + limit_minutes * 60 > current_time_seconds }}
-  condition:
-    - condition: state
-      entity_id: sensor.dryer_state
-      state: 'Running'
-  action:
-  - service: mqtt.publish
-    data:
-      topic: hass/state/dryer
-      payload: 'Finishing'
-      retain: 'true'
-- alias: Set dryer to Done when no vibration detected for 5 minutes
-  trigger:
-    platform: template
-    value_template: >
-        {% set duration_minutes = 5 %}
-        {% set last_changed_seconds = as_timestamp(states.sensor.dryer_vibration.last_updated) %}
-        {% set current_time_seconds = as_timestamp(strptime(states('sensor.date_time'),'%Y-%m-%d, %H:%M')) %}
-        {{ last_changed_seconds + duration_minutes * 60 < current_time_seconds }}
-  condition:
-    - condition: state
-      entity_id: sensor.dryer_state
-      state: 'Finishing'
-  action:
-  - service: mqtt.publish
-    data:
-      topic: hass/state/dryer
-      payload: 'Done'
-      retain: 'true'
-  - service: mqtt.publish
-    data:
-      topic: tasker/notification/sensor/dryer
-      payload: 'Done'
-      retain: 'true'
+# - alias: Set dryer to running when vibration detected and state was Idle
+#   trigger:
+#     platform: state
+#     entity_id: sensor.dryer_vibration
+#     to: 'vibration detected'
+#   condition:
+#     - condition: template
+#       value_template: "{{ states.sensor.dryer_state.state != 'Running' }}"
+#   action:
+#     - service: mqtt.publish
+#       data:
+#         topic: hass/state/dryer
+#         payload: 'Running'
+#         retain: 'true'
+# - alias: Set dryer to Finishing when no vibration detected for 3 minutes
+#   trigger:
+#     platform: template
+#     value_template: >
+#         {% set duration_minutes = 3 %}
+#         {% set limit_minutes = duration_minutes + 4 %} 
+#         {% set last_changed_seconds = as_timestamp(states.sensor.dryer_vibration.last_updated) %}
+#         {% set current_time_seconds = as_timestamp(strptime(states('sensor.date_time'),'%Y-%m-%d, %H:%M')) %}
+#         {{ last_changed_seconds + duration_minutes * 60 < current_time_seconds and last_changed_seconds + limit_minutes * 60 > current_time_seconds }}
+#   condition:
+#     - condition: state
+#       entity_id: sensor.dryer_state
+#       state: 'Running'
+#   action:
+#   - service: mqtt.publish
+#     data:
+#       topic: hass/state/dryer
+#       payload: 'Finishing'
+#       retain: 'true'
+# - alias: Set dryer to Done when no vibration detected for 5 minutes
+#   trigger:
+#     platform: template
+#     value_template: >
+#         {% set duration_minutes = 5 %}
+#         {% set last_changed_seconds = as_timestamp(states.sensor.dryer_vibration.last_updated) %}
+#         {% set current_time_seconds = as_timestamp(strptime(states('sensor.date_time'),'%Y-%m-%d, %H:%M')) %}
+#         {{ last_changed_seconds + duration_minutes * 60 < current_time_seconds }}
+#   condition:
+#     - condition: state
+#       entity_id: sensor.dryer_state
+#       state: 'Finishing'
+#   action:
+#   - service: mqtt.publish
+#     data:
+#       topic: hass/state/dryer
+#       payload: 'Done'
+#       retain: 'true'
+#   - service: mqtt.publish
+#     data:
+#       topic: tasker/notification/sensor/dryer
+#       payload: 'Done'
+#       retain: 'true'
 
 
 ## dryer states
