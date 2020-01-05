@@ -48,9 +48,14 @@ tts:
 logger:
   default: warning
 
+################
+# Files to include
+################
 group: !include groups.yaml
-automation: !include automations.yaml
+automation: !include_dir_merge_list automation/
 script: !include scripts.yaml
-scene: !include scenes.yaml
-
-
+sensor: !include sensors.yaml
+input_select: !include input_select.yaml
+input_number: !include input_number.yaml
+input_boolean: !include input_boolean.yaml
+notify: !include notify.yaml
