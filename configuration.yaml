@@ -16,6 +16,7 @@ frontend:
   themes: !include themes.yaml
   javascript_version: latest
 
+
 weather:
   - platform: darksky
     api_key: !secret darksky_api
