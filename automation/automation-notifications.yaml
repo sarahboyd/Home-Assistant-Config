@@ -1,0 +1,205 @@
+- alias: Send alert to google home when washing machine is finished
+  trigger:
+    - platform: state
+      entity_id: sensor.washer_state
+      to: Clean
+      for:
+        minutes: 1
+    - platform: state
+      entity_id: sensor.sarah_status
+      to: 'Home'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: sensor.scott_status
+      to: 'Home'
+      for:
+        minutes: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '22:00:00'
+        after: '09:00:00'
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+      - condition: state
+        entity_id: sensor.washer_state
+        state: Clean
+      - condition: template
+        value_template: "{{ states.sensor.dryer_state.state != 'Running' }}"
+  action:
+    - service: tts.google_say
+      entity_id: media_player.living_room_speaker
+      data:
+        message: 'Hey, the washing machine has finished and is ready to be emptied'
+- alias: Send alert to google home when dryer is finished
+  trigger:
+    - platform: state
+      entity_id: sensor.dryer_state
+      to: Done
+      for:
+        minutes: 1
+    - platform: state
+      entity_id: sensor.sarah_status
+      to: 'Home'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: sensor.scott_status
+      to: 'Home'
+      for:
+        minutes: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '22:00:00'
+        after: '09:00:00'
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+      - condition: state
+        entity_id: sensor.dryer_state
+        state: Done
+  action:
+    - service: tts.google_say
+      entity_id: media_player.living_room_speaker
+      data:
+        message: 'Hey, the dryer has finished and is ready to be emptied'
+- alias: Send alert to phones when washing machine has not been emptied
+  trigger:
+    - platform: state
+      entity_id: sensor.washer_state
+      to: Clean
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: sensor.sarah_status
+      to: 'Home'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: sensor.scott_status
+      to: 'Home'
+      for:
+        minutes: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '22:00:00'
+        after: '09:00:00'
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+      - condition: state
+        entity_id: sensor.washer_state
+        state: Clean
+      - condition: template
+        value_template: "{{ states.sensor.dryer_state.state != 'Running' }}"
+  action:
+    - service_template: >
+        {% if (is_state('sensor.sarah_status', 'Home')) and (is_state('sensor.scott_status', 'Home'))  %}
+           notify.telegram_sarah
+        {% elif is_state('sensor.sarah_status', 'Home') %}
+           notify.telegram_sarah
+        {% elif is_state('sensor.scott_status', 'Home') %}
+          
+        {% endif %}
+      data_template:
+        message: 'Hey, the washing machine has finished and is ready to be emptied'
+        data:
+          inline_keyboard:
+          - '30 Minutes:/30m, 1 Hour:/1h, already empty:/empty_washer'
+          - 'No reminder:/removekeyboard'
+- alias: Send alert to phones when dryer has not been emptied
+  trigger:
+    - platform: state
+      entity_id: sensor.dryer_state
+      to: Done
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: sensor.sarah_status
+      to: 'Home'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: sensor.scott_status
+      to: 'Home'
+      for:
+        minutes: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '22:00:00'
+        after: '09:00:00'
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+      - condition: state
+        entity_id: sensor.dryer_state
+        state: Done
+  action:
+    - service_template: >
+        {% if (is_state('sensor.sarah_status', 'Home')) and (is_state('sensor.scott_status', 'Home'))  %}
+           notify.telegram_sarah
+        {% elif is_state('sensor.sarah_status', 'Home') %}
+           notify.telegram_sarah
+        {% elif is_state('sensor.scott_status', 'Home') %}
+          
+        {% endif %}
+      data_template:
+        message: 'Hey, the dryer has finished and is ready to be emptied'
+        data:
+          inline_keyboard:
+          - '30 Minutes:/30mdryer, 1 Hour:/1hdryer, already empty:/empty_dryer'
+          - 'No reminder:/removekeyboard'
+- alias: Send alert to Sarahs phone when outside lights turn on
+  trigger:
+    platform: state
+    entity_id: light.outside
+    to: 'on'
+  condition: []
+  action:
+    - service_template: notify.telegram_sarah
+      data_template:
+        message: 'Hey the outside light just turned on'
+- alias: Send alert to Sarahs phone when outside lights turn off
+  trigger:
+    platform: state
+    entity_id: light.outside
+    to: 'off'
+  condition: []
+  action:
+    - service_template: notify.telegram_sarah
+      data_template:
+        message: 'Hey the outside light just turned off'
+- alias: Send alert to google home if we should start the cars before work
+  trigger:
+    platform: time
+    at: "06:40:00"
+  condition:
+  - condition: template
+    value_template: "{{ states.sensor.dark_sky_temperature.state | float < 2 }}"
+  - condition: or
+    conditions:
+      - condition: time
+        weekday:          
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: state
+        entity_id: calendar.off_work
+        state: 'on'
+  action:
+    - service: tts.google_say
+      entity_id: media_player.living_room_speaker
+      data_template:
+        message: 'The temperature outside is currently {{ states.sensor.dark_sky_temperature.state }} degrees, consider starting the cars'
+        cache: false
