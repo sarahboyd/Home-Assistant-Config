@@ -1,0 +1,51 @@
+wakeup_bedroom:
+  alias: 'Wakeup lighting, smooth transition'
+  sequence:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_color_lamp_1
+        brightness: 1
+        kelvin: 1000
+    - delay:
+        seconds: 1
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_color_lamp_1
+        brightness: 64
+        kelvin: 2000
+        transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_color_lamp_1
+        brightness: 128
+        kelvin: 3000
+        transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_color_lamp_1
+        brightness: 191
+        kelvin: 4000
+        transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
+    - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.hue_color_lamp_1
+        brightness: 255
+        kelvin: 5000
+        transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
+turn_washer_idle:
+  alias: 'Turn washer to idle'
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: hass/state/washer
+        payload: 'Idle'
+        retain: 'true'
+turn_lights_off_delay:
+  alias: 'Turn outdoor lights off after 30 minutes'
+  sequence:
+    - delay: '00:30:00'
+    - service: homeassistant.turn_off
+      entity_id: light.outside
