@@ -88,6 +88,7 @@
     wakeup_start_time_lights:
       friendly_name: 'Fade-in start time'
       value_template: >
+        {% if states.sensor.wakeup_alarm_time is defined %}
         {% if states.sensor.wakeup_alarm_time and states.input_number.wakeup_duration %}
         {% set alarmtime = states.sensor.wakeup_alarm_time.state %}
         {% set alarm_hour = alarmtime.split(":")[0] | int %}
@@ -101,6 +102,7 @@
         {% if alarm_hour_light < 10 %}0{% endif %}{{ alarm_hour_light}}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
         {% else %}
         {% if alarm_hour < 10 %}0{% endif %}{{ alarm_hour }}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% endif %}
         {% endif %}
         {% endif %}
 - platform: template
