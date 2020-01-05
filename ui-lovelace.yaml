@@ -90,15 +90,6 @@ views:
           points_per_hour: 0.04
           show:
             graph: bar
-        - type: custom:mini-graph-card
-          name: Christmas Tree Energy Consumption
-          entities:
-          - entity: sensor.plug_1_energy_yesterday
-          hours_to_show: 168
-          aggregate_func: max
-          points_per_hour: 0.04
-          show:
-            graph: bar
       - type: vertical-stack
         cards:
         - type: horizontal-stack
@@ -208,10 +199,6 @@ views:
                         entity_id: light.outside
       - type: vertical-stack
         cards:
-          - type: picture-entity
-            entity: sensor.plex_young_pc
-            name: Plex
-            image: /local/images/plex.svg
           - type: custom:mini-media-player
             entity: media_player.plex_plex_for_vizio
           - type: custom:mini-media-player
