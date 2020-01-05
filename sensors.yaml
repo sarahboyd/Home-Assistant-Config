@@ -19,16 +19,6 @@
     - 'beat'
 - platform: template
   sensors:
-    sarah_status:
-      value_template: '{{ states.input_select.sarah_status_dropdown.state }}'
-      friendly_name: 'Sarah'
-- platform: template
-  sensors:
-    scott_status:
-      value_template: '{{ states.input_select.scott_status_dropdown.state }}'
-      friendly_name: 'Scott'
-- platform: template
-  sensors:
     wakeup_alarm_time:
       friendly_name: 'Alarm time'
       value_template: '{% if states.input_number.wakeup_hour.state|length == 3 %}0{% endif %}{{ states.input_number.wakeup_hour.state | int }}:{% if states.input_number.wakeup_minutes.state|length == 3 %}0{% endif %}{{ states.input_number.wakeup_minutes.state | int }}'
@@ -65,7 +55,7 @@
     wakeup_lights_off_time:
       friendly_name: 'Morning lights off time'
       value_template: >
-        {% if states.sensor.wakeup_alarm_time is defined %}
+        {% if states.sensor.wakeup_alarm_time is defined and states.input_number.wakeup_duration is defined %}
         {% if states.sensor.wakeup_alarm_time and states.input_number.wakeup_duration %}
         {% set alarmtime = states.sensor.wakeup_alarm_time.state %}
         {% set alarm_hour = alarmtime.split(":")[0] | int %}
@@ -82,15 +72,6 @@
         {% endif %}
         {% endif %}
         {% endif %}
-- platform: time_date
-  display_options:
-    - 'time'
-    - 'date'
-    - 'date_time'
-    - 'date_time_iso'
-    - 'time_date'
-    - 'time_utc'
-    - 'beat'
 - platform: template
   sensors:
     sarah_phone:
