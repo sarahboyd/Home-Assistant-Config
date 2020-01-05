@@ -9,6 +9,14 @@ map:
 
 system_health:
 
+speedtestdotnet: 
+  scan_interval:
+    hours: 6
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
 lovelace:
   mode: yaml
 
