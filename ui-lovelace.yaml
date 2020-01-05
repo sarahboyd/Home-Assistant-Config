@@ -198,8 +198,6 @@ views:
                       service: light.toggle
                       service_data:
                         entity_id: light.bedroom
-                - type: horizontal-stack
-                  cards:
                   - type: custom:button-card 
                     icon: mdi:lightbulb
                     entity: light.outside
@@ -208,15 +206,6 @@ views:
                       service: light.toggle
                       service_data:
                         entity_id: light.outside
-                  - type: custom:button-card
-                    icon: mdi:pine-tree
-                    name: Christmas Tree
-                    entity: sensor.plug_1_power_state
-                    state:
-                    - value: "ON"
-                      color: rgb(117, 189, 111)
-                    - value: "OFF"
-                      color: rgb(117,35,35)
       - type: vertical-stack
         cards:
           - type: picture-entity
