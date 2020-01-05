@@ -11,7 +11,7 @@ system_health:
 
 lovelace:
   mode: yaml
-  
+
 frontend:
   themes: !include themes.yaml
   javascript_version: latest
@@ -44,6 +44,10 @@ life360:
   warning_threshold: 2
   error_threshold: 3
 
+################
+# Media
+################
+
 # Text to speech
 tts:
   - platform: google_translate
@@ -52,7 +56,14 @@ tts:
     cache_dir: /tmp/tts
     time_memory: 300
 
+media_player:
+  - platform: vizio
+    host: 192.168.1.9
+    access_token: !secret vizio_token    
 
+################
+# Logging
+################
 logger:
   default: warning
 
