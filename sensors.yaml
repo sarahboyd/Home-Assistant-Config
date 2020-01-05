@@ -1,0 +1,194 @@
+- platform: template
+  sensors:
+    sarah_status:
+      value_template: '{{ states.input_select.sarah_status_dropdown.state }}'
+      friendly_name: 'Sarah'
+- platform: template
+  sensors:
+    scott_status:
+      value_template: '{{ states.input_select.scott_status_dropdown.state }}'
+      friendly_name: 'Scott'
+- platform: template
+  sensors:
+    wakeup_alarm_time:
+      friendly_name: 'Alarm time'
+      value_template: '{% if states.input_number.wakeup_hour.state|length == 3 %}0{% endif %}{{ states.input_number.wakeup_hour.state | int }}:{% if states.input_number.wakeup_minutes.state|length == 3 %}0{% endif %}{{ states.input_number.wakeup_minutes.state | int }}'
+- platform: template
+  sensors:
+    wakeup_start_time_lights:
+      friendly_name: 'Fade-in start time'
+      value_template: >
+        {% if states.sensor.wakeup_alarm_time and states.input_number.wakeup_duration %}
+        {% set alarmtime = states.sensor.wakeup_alarm_time.state %}
+        {% set alarm_hour = alarmtime.split(":")[0] | int %}
+        {% set alarm_min = alarmtime.split(":")[1] | int %}
+        {% set light_dur = states.input_number.wakeup_duration.state | int %}
+        {% set alarm_min_light = alarm_min - light_dur %}
+        {% if alarm_min_light  < 0 %}
+        {% set alarm_min_light = alarm_min_light + 60 %}
+        {% set alarm_hour_light = alarm_hour - 1 %}
+        {% if alarm_hour_light < 0 %}{% set alarm_hour_light = 23 %}{% endif %}
+        {% if alarm_hour_light < 10 %}0{% endif %}{{ alarm_hour_light}}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% else %}
+        {% if alarm_hour < 10 %}0{% endif %}{{ alarm_hour }}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% endif %}
+        {% endif %}
+- platform: template
+  sensors:
+    wakeup_fadein_duration:
+      friendly_name: 'Fade-in duration'
+      value_template: '{{ states.input_number.wakeup_duration.state | int }}'
+      unit_of_measurement: 'min'
+- platform: template
+  sensors:
+    wakeup_lights_off_time:
+      friendly_name: 'Morning lights off time'
+      value_template: >
+        {% if states.sensor.wakeup_alarm_time and states.input_number.wakeup_duration %}
+        {% set alarmtime = states.sensor.wakeup_alarm_time.state %}
+        {% set alarm_hour = alarmtime.split(":")[0] | int %}
+        {% set alarm_min = alarmtime.split(":")[1] | int %}
+        {% set light_dur = 60 | int %}
+        {% set alarm_min_light = alarm_min + light_dur %}
+        {% if alarm_min_light  > 60 %}
+        {% set alarm_min_light = alarm_min_light - 60 %}
+        {% set alarm_hour_light = alarm_hour + 1 %}
+        {% if alarm_hour_light < 0 %}{% set alarm_hour_light = 23 %}{% endif %}
+        {% if alarm_hour_light < 10 %}0{% endif %}{{ alarm_hour_light}}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% else %}
+        {% if alarm_hour < 10 %}0{% endif %}{{ alarm_hour }}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% endif %}
+        {% endif %}
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+    - 'date_time'
+    - 'date_time_iso'
+    - 'time_date'
+    - 'time_utc'
+    - 'beat'
+- platform: template
+  sensors:
+    sarah_status:
+      value_template: '{{ states.input_select.sarah_status_dropdown.state }}'
+      friendly_name: 'Sarah'
+- platform: template
+  sensors:
+    scott_status:
+      value_template: '{{ states.input_select.scott_status_dropdown.state }}'
+      friendly_name: 'Scott'
+- platform: template
+  sensors:
+    wakeup_alarm_time:
+      friendly_name: 'Alarm time'
+      value_template: '{% if states.input_number.wakeup_hour.state|length == 3 %}0{% endif %}{{ states.input_number.wakeup_hour.state | int }}:{% if states.input_number.wakeup_minutes.state|length == 3 %}0{% endif %}{{ states.input_number.wakeup_minutes.state | int }}'
+- platform: template
+  sensors:
+    wakeup_start_time_lights:
+      friendly_name: 'Fade-in start time'
+      value_template: >
+        {% if states.sensor.wakeup_alarm_time and states.input_number.wakeup_duration %}
+        {% set alarmtime = states.sensor.wakeup_alarm_time.state %}
+        {% set alarm_hour = alarmtime.split(":")[0] | int %}
+        {% set alarm_min = alarmtime.split(":")[1] | int %}
+        {% set light_dur = states.input_number.wakeup_duration.state | int %}
+        {% set alarm_min_light = alarm_min - light_dur %}
+        {% if alarm_min_light  < 0 %}
+        {% set alarm_min_light = alarm_min_light + 60 %}
+        {% set alarm_hour_light = alarm_hour - 1 %}
+        {% if alarm_hour_light < 0 %}{% set alarm_hour_light = 23 %}{% endif %}
+        {% if alarm_hour_light < 10 %}0{% endif %}{{ alarm_hour_light}}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% else %}
+        {% if alarm_hour < 10 %}0{% endif %}{{ alarm_hour }}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% endif %}
+        {% endif %}
+- platform: template
+  sensors:
+    wakeup_fadein_duration:
+      friendly_name: 'Fade-in duration'
+      value_template: '{{ states.input_number.wakeup_duration.state | int }}'
+      unit_of_measurement: 'min'
+- platform: template
+  sensors:
+    wakeup_lights_off_time:
+      friendly_name: 'Morning lights off time'
+      value_template: >
+        {% if states.sensor.wakeup_alarm_time and states.input_number.wakeup_duration %}
+        {% set alarmtime = states.sensor.wakeup_alarm_time.state %}
+        {% set alarm_hour = alarmtime.split(":")[0] | int %}
+        {% set alarm_min = alarmtime.split(":")[1] | int %}
+        {% set light_dur = 60 | int %}
+        {% set alarm_min_light = alarm_min + light_dur %}
+        {% if alarm_min_light  > 60 %}
+        {% set alarm_min_light = alarm_min_light - 60 %}
+        {% set alarm_hour_light = alarm_hour + 1 %}
+        {% if alarm_hour_light < 0 %}{% set alarm_hour_light = 23 %}{% endif %}
+        {% if alarm_hour_light < 10 %}0{% endif %}{{ alarm_hour_light}}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% else %}
+        {% if alarm_hour < 10 %}0{% endif %}{{ alarm_hour }}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% endif %}
+        {% endif %}
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+    - 'date_time'
+    - 'date_time_iso'
+    - 'time_date'
+    - 'time_utc'
+    - 'beat'
+- platform: template
+  sensors:
+    sarah_phone:
+      friendly_name: Sarah's phone
+      unit_of_measurement: '%'
+      value_template: >-
+        {%- if states.device_tracker.life360_sarah_boyd.attributes.battery %}
+          {{ states.device_tracker.life360_sarah_boyd.attributes.battery|round }}
+        {% else %}
+          {{ states.sensor.sarah_phone.state }}
+        {%- endif %}
+      device_class: battery
+- platform: template
+  sensors:
+    scott_phone:
+      friendly_name: Scott's phone
+      unit_of_measurement: '%'
+      value_template: >-
+          {%- if states.device_tracker.life360_scott_young.attributes.battery %}
+              {{ states.device_tracker.life360_scott_young.attributes.battery|round }}
+          {% else %}
+              {{ states.sensor.scott_phone.state }}
+          {%- endif %}
+      device_class: battery
+- platform: template
+  sensors:
+    sun_elevation:
+      friendly_name: Sun Elevation
+      value_template: '{{states.sun.sun.attributes.elevation}}'
+      unit_of_measurement: '°'
+- platform: systemmonitor
+  resources:
+  - type: processor_use
+  - type: disk_use_percent
+    arg: /
+  - type: memory_use_percent
+  - type: ipv4_address
+    arg: enp0s3
+  - type: network_in
+    arg: enp0s3
+  - type: network_out
+    arg: enp0s3
+  - type: last_boot
+- platform: template
+  sensors:
+    living_room_main_light_brightness:
+      friendly_name: "Living Room Brightness"
+      value_template: "{{ state_attr('light.living_room_main_lights', 'brightness') }}"
+    dining_room_light_brightness:
+      friendly_name: "Dining Room Brightness"
+      value_template: "{{ state_attr('light.dining_room_chandelier', 'brightness') }}"
+    front_hall_light_brightness:
+      friendly_name: "Front Hall Brightness"
+      value_template: "{{ state_attr('light.front_foyer_main_lights',	'brightness') }}"
