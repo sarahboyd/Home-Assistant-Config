@@ -3,7 +3,7 @@ title: Home
 resources:
   - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
     type: module
-  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+  - url: /community_plugin/simple-weather-card/simple-weather-card-bundle.js
     type: module
   - url: /local/vertical-style-card.js?v=0.1
     type: js
