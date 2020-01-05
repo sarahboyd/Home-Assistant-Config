@@ -194,11 +194,11 @@
     arg: /
   - type: memory_use_percent
   - type: ipv4_address
-    arg: enp0s3
+    arg: eth0
   - type: network_in
-    arg: enp0s3
+    arg: eth0
   - type: network_out
-    arg: enp0s3
+    arg: eth0
   - type: last_boot
 - platform: template
   sensors:
