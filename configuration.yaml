@@ -44,6 +44,10 @@ life360:
   warning_threshold: 2
   error_threshold: 3
 
+google:
+  client_id: !secret google_cal_client_id
+  client_secret: !secret google_cal_client_secret
+
 ################
 # Notifications
 ################
