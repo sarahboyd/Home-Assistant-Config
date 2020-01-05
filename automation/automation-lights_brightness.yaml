@@ -12,6 +12,9 @@
   - condition: template
     value_template: > 
         {{ trigger.from_state.state != 'None' }}
+  - condition: state
+    entity_id: light.living_room_main_lights
+    state: 'on'
   action:
   - service: input_number.set_value
     data_template:
@@ -35,6 +38,9 @@
   - platform: state
     entity_id: sensor.dining_room_light_brightness
   condition: 
+  - condition: state
+    entity_id: light.dining_room_chandelier
+    state: 'on'
   - condition: template
     value_template: > 
         {{ trigger.from_state.state != 'None' }}
@@ -61,6 +67,9 @@
   - platform: state
     entity_id: sensor.front_hall_light_brightness
   condition: 
+  - condition: state
+    entity_id: light.front_foyer_main_lights
+    state: 'on'
   - condition: template
     value_template: > 
         {{ trigger.from_state.state != 'None' }}
