@@ -215,17 +215,9 @@
   name: "Washer State"
   state_topic: "hass/state/washer"
   icon: mdi:washing-machine
-- platform: mqtt
-  name: "Washer Door State"
-  state_topic: "tasker/notification/sensor/washer"
-- platform: mqtt
   name: "Dryer State"
   state_topic: "hass/state/dryer"
   icon: mdi:tumble-dryer
-- platform: mqtt
-  name: "Dryer Vibration"
-  state_topic: "tasker/notification/sensor/dryer"
-  force_update: 'true' 
 - platform: mqtt
   name: Dryer Start Stop
   state_topic: "gBridge/u4099/dryer/startstop"
