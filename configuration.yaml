@@ -9,8 +9,8 @@ map:
 
 system_health:
 
-# lovelace:
-#   mode: yaml
+lovelace:
+  mode: yaml
 
 frontend:
   themes: !include themes.yaml
