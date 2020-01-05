@@ -326,9 +326,9 @@ views:
           - type: entities
             entities:
             - sensor.last_boot
-        - type: custom:vertical-style-card
-          title: Pi-Hole
-          cards:
+        # - type: custom:vertical-style-card
+        #   title: Pi-Hole
+        #   cards:
           # - type: horizontal-stack
           #   cards:
           #     - type: custom:mini-graph-card
@@ -359,7 +359,7 @@ views:
           #       align: split
           #       show_icon: true 
           #       max: '2000000'
-          #       icon: mdi:cancel
+          #       icon: mdi:cancel 
         - type: custom:auto-entities
           card:
             type: entities
