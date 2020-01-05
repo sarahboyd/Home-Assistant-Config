@@ -13,9 +13,11 @@ frontend:
   themes: !include themes.yaml
   javascript_version: latest
 
-logger:
-  default: warning
 
+august:
+  login_method: phone
+  username: !secret august_username
+  password: !secret august_password
 
 # Text to speech
 tts:
@@ -25,6 +27,9 @@ tts:
     cache_dir: /tmp/tts
     time_memory: 300
 
+
+logger:
+  default: warning
 
 group: !include groups.yaml
 automation: !include automations.yaml
