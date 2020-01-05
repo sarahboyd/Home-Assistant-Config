@@ -1,0 +1,15 @@
+# Set theme on HA start
+  - alias: Set theme and dryer state at startup
+    initial_state: 'on'
+    trigger:
+     - platform: homeassistant
+       event: start
+    action:
+      - service: frontend.set_theme
+        data:
+          name: Dark - Blue
+      - service: mqtt.publish
+        data:
+          topic: hass/state/dryer
+          payload: 'Idle'
+          retain: 'true'
