@@ -117,6 +117,17 @@ influxdb:
   password: !secret influxdb_password
   max_retries: 3
   default_measurement: state
+  exclude:
+    entities:
+      - sensor.last_boot
+      - sensor.date
+      - sensor.date_time
+      - sensor.date_iso
+      - sensor.time_date
+    domains:
+      - input_select
+      - input_number
+      - weather
 
 history:
 
