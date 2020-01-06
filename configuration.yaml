@@ -12,16 +12,6 @@ discovery:
 
 map:
 
-system_health:
-
-speedtestdotnet: 
-  scan_interval:
-    hours: 6
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-
 lovelace:
   mode: yaml
 
@@ -98,6 +88,28 @@ media_player:
 ################
 logger:
   default: warning
+
+recorder: 
+  db_url: mysql://hass:TTa44K69W%&IqAaHcmZ@core-mariadb/homeassistant?charset=utf8
+  purge_keep_days: 10
+  exclude: 
+    domains:
+      - media_player
+      - weather
+      - input_select
+      - input_number
+
+history:
+
+system_health:
+
+speedtestdotnet: 
+  scan_interval:
+    hours: 6
+  monitored_conditions:
+    - ping
+    - download
+    - upload
 
 ################
 # Files to include
