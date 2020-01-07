@@ -99,7 +99,7 @@ logbook:
       - sensor.time_date
     domains:
       - sun
-#recorder: 
+recorder: 
   #db_url: !secret db_url
  # purge_keep_days: 7
   # exclude: 
@@ -110,7 +110,7 @@ logbook:
   #     - input_number
 
 
-#history:
+history:
 
 breaking_changes:
 
