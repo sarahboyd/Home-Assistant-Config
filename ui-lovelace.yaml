@@ -195,14 +195,14 @@ views:
             - type: custom:mini-media-player
               entity: media_player.vizio_smartcast
       - type: custom:mini-graph-card
-          #name: Washing Machine Energy Consumption
-          entities:
-          - entity: sensor.washer_energy_yesterday
-          hours_to_show: 168
-          aggregate_func: max
-          points_per_hour: 0.04
-          show:
-            graph: bar
+        name: Washing Machine Energy Consumption
+        entities:
+        - entity: sensor.washer_energy_yesterday
+        hours_to_show: 168
+        aggregate_func: max
+        points_per_hour: 0.04
+        show:
+          graph: bar
       # - type: custom:mini-graph-card
       #     name: 3D Printer Energy Consumption
       #     entities:
