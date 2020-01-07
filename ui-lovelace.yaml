@@ -188,7 +188,13 @@ views:
                       service: light.toggle
                       service_data:
                         entity_id: light.outside
-        - type: custom:mini-graph-card
+        - type: vertical-stack
+          cards:
+            - type: custom:mini-media-player
+              entity: media_player.plex_plex_for_vizio
+            - type: custom:mini-media-player
+              entity: media_player.vizio_smartcast
+      - type: custom:mini-graph-card
           name: Washing Machine Energy Consumption
           entities:
           - entity: sensor.washer_energy_yesterday
@@ -197,12 +203,15 @@ views:
           points_per_hour: 0.04
           show:
             graph: bar
-      - type: vertical-stack
-        cards:
-          - type: custom:mini-media-player
-            entity: media_player.plex_plex_for_vizio
-          - type: custom:mini-media-player
-            entity: media_player.vizio_smartcast
+      - type: custom:mini-graph-card
+          name: 3D Printer Energy Consumption
+          entities:
+          - entity: sensor.plug_1_energy_yesterday
+          hours_to_show: 168
+          aggregate_func: max
+          points_per_hour: 0.04
+          show:
+            graph: bar
   - path: living
     title: Living Room
     icon: 'mdi:sofa'
