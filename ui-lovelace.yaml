@@ -203,15 +203,15 @@ views:
         points_per_hour: 0.04
         show:
           graph: bar
-      # - type: custom:mini-graph-card
-      #     name: 3D Printer Energy Consumption
-      #     entities:
-      #     - entity: sensor.plug_1_energy_yesterday
-      #     hours_to_show: 168
-      #     aggregate_func: max
-      #     points_per_hour: 0.04
-      #     show:
-      #       graph: bar
+      - type: custom:mini-graph-card
+        name: 3D Printer Energy Consumption
+        entities:
+        - entity: sensor.plug_1_energy_yesterday
+        hours_to_show: 168
+        aggregate_func: max
+        points_per_hour: 0.04
+        show:
+          graph: bar
   - path: living
     title: Living Room
     icon: 'mdi:sofa'
