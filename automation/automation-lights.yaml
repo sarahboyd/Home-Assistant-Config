@@ -2,6 +2,7 @@
   trigger:
   - entity_id: media_player.vizio_smartcast
     platform: state
+    from: "on"
     to: "off"
     for: 00:01:00
   condition: 
