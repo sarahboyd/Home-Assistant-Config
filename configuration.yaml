@@ -80,6 +80,11 @@ utility_meter:
       - midpeak
       - onpeak
 
+binary_sensor:
+  - platform: workday
+    country: CA
+    province: "ON"
+
 
 ################
 # Notifications

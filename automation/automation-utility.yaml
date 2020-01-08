@@ -16,6 +16,10 @@
   trigger:
     - platform: time
       at: '11:00:00'
+  condition:
+    condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
   action:
     - service: utility_meter.select_tariff
       entity_id: utility_meter.printer_daily
@@ -32,6 +36,10 @@
       at: '07:00:00'
     - platform: time
       at: '17:00:00'
+  condition:
+    condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
   action:
     - service: utility_meter.select_tariff
       entity_id: utility_meter.printer_daily
