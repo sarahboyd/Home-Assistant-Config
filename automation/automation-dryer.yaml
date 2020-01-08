@@ -89,7 +89,7 @@
     to: 'stop'
   condition:
     - condition: template
-      value_template: "{{ states.sensor.dryer_state.state = 'Running' }}"
+      value_template: "{{ states.sensor.dryer_state.state == 'Running' }}"
   action:
     - service: mqtt.publish
       data:
