@@ -62,23 +62,23 @@ utility_meter:
     source:  sensor.plug_1_energy_today
     cycle: daily
     tariffs:
-      - peak
-      - midpeak
       - onpeak
+      - midpeak
+      - offpeak
   printer_weekly:
     source:  sensor.plug_1_energy_today
     cycle: weekly
     tariffs:
-      - peak
-      - midpeak
       - onpeak
+      - midpeak
+      - offpeak
   printer_monthly:
     source:  sensor.plug_1_energy_today
     cycle: monthly
     tariffs:
-      - peak
-      - midpeak
       - onpeak
+      - midpeak
+      - offpeak
 
 binary_sensor:
   - platform: workday
