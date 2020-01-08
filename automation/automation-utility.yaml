@@ -1,17 +1,17 @@
-# - alias: Set off peak hydro hours
-#   trigger:
-#     - platform: time
-#       at: '19:00:00'
-#   action:
-#     - service: utility_meter.select_tariff
-#       entity_id: utility_meter.printer_daily
-#       tariff: offpeak
-#     - service: utility_meter.select_tariff
-#       entity_id: utility_meter.printer_weekly
-#       tariff: offpeak
-#     - service: utility_meter.select_tariff
-#       entity_id: utility_meter.printer_monthly
-#       tariff: offpeak
+- alias: Set off peak hydro hours
+  trigger:
+    - platform: time
+      at: '19:00:00'
+  action:
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.printer_daily
+      tariff: offpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.printer_weekly
+      tariff: offpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.printer_monthly
+      tariff: offpeak
 # - alias: Set mid peak hydro hours
 #   trigger:
 #     - platform: time
