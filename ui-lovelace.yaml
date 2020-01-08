@@ -335,6 +335,33 @@ views:
           - type: entities
             entities:
             - sensor.last_boot
+        - type: custom:vertical-style-card
+          title: Network
+          cards:
+          - card: custom:mini-graph-card
+            name: Download
+            entities:
+              -  sensor.speedtest_download
+            line_width: 4
+            line_color: '#2980b9'
+            align_icon: left
+            align_header: left
+          - card: custom:mini-graph-card
+            name: Upload
+            entities:
+              -  sensor.speedtest_upload
+            line_width: 4
+            line_color: '#2980b9'
+            align_icon: left
+            align_header: left
+          - card: custom:mini-graph-card
+            name: Ping
+            entities:
+              -  sensor.speedtest_ping
+            line_width: 4
+            line_color: '#2980b9'
+            align_icon: left
+            align_header: left
         # - type: custom:vertical-style-card
         #   title: Pi-Hole
         #   cards:
@@ -382,6 +409,7 @@ views:
               - entity_id: sensor.tilt_angle_158d0002b7ba92
               - entity_id: sensor.bed_activity_158d0002b7ba92
               - entity_id: sensor.coordination_158d0002b7ba92
+              - entity_id: sensor.dryer_start_stop
         - type: custom:auto-entities
           show_empty: false
           card:
