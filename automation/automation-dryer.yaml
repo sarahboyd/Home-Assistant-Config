@@ -82,6 +82,25 @@
         topic: gBridge/u4099/dryer/startstop/set
         payload: 'start'
         retain: 'true'
+- alias: Set dryer to idle when google says to
+  trigger:
+    platform: state
+    entity_id: sensor.dryer_start_stop
+    to: 'stop'
+  condition:
+    - condition: template
+      value_template: "{{ states.sensor.dryer_state.state = 'Running' }}"
+  action:
+    - service: mqtt.publish
+      data:
+        topic: hass/state/dryer
+        payload: 'Idle'
+        retain: 'true'
+    - service: mqtt.publish
+      data: 
+        topic: gBridge/u4099/dryer/startstop/set
+        payload: 'start'
+        retain: 'true'
 - alias: Set dryer to done after running for an hour
   trigger: 
     platform: template
