@@ -343,7 +343,7 @@ views:
           line_color: '#2980b9'
           align_icon: left
           align_header: left
-        - type: custom:vertical-style-card
+        - type: horizontal-stack
           title: Network
           cards:
           - type: custom:mini-graph-card
