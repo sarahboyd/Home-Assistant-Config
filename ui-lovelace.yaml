@@ -342,7 +342,7 @@ views:
           line_color: '#2980b9'
           align_icon: left
           align_header: left
-          hours_to_show: 168
+          hours_to_show: 72
         - break
         - type: horizontal-stack
           cards:
@@ -354,7 +354,7 @@ views:
             line_color: '#2980b9'
             align_icon: left
             align_header: left
-            hours_to_show: 168
+            hours_to_show: 72
           - type: custom:mini-graph-card
             name: Upload
             entities:
@@ -363,7 +363,7 @@ views:
             line_color: '#2980b9'
             align_icon: left
             align_header: left
-            hours_to_show: 168
+            hours_to_show: 72
           - type: custom:mini-graph-card
             name: Ping
             entities:
@@ -372,7 +372,7 @@ views:
             line_color: '#2980b9'
             align_icon: left
             align_header: left
-            hours_to_show: 168
+            hours_to_show: 72
         # - type: custom:vertical-style-card
         #   title: Pi-Hole
         #   cards:
