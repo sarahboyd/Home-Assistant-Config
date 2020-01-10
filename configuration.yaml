@@ -148,11 +148,15 @@ system_health:
 
 speedtestdotnet: 
   scan_interval:
-    minutes: 360
+    hours: 12
   monitored_conditions:
     - ping
     - download
     - upload
+
+fastdotcom:
+  scan_interval:
+      hours: 12
 
 ################
 # Files to include
