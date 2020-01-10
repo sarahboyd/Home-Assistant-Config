@@ -148,7 +148,7 @@ system_health:
 
 speedtestdotnet: 
   scan_interval:
-    hours: 12
+    minutes: 360
   monitored_conditions:
     - ping
     - download
