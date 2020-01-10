@@ -342,6 +342,7 @@ views:
           line_color: '#2980b9'
           align_icon: left
           align_header: left
+        - break
         - type: horizontal-stack
           cards:
           - type: custom:mini-graph-card
