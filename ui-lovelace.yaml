@@ -332,9 +332,9 @@ views:
             align: split
             show_icon: true
             color: '#00ba6a'
-          - type: entities
-            entities:
-            - sensor.last_boot
+        - type: entities
+          entities:
+          - sensor.last_boot
         - type: custom:mini-graph-card
           name: CPU Temperature
           entities:
@@ -344,7 +344,6 @@ views:
           align_icon: left
           align_header: left
         - type: horizontal-stack
-          title: Network
           cards:
           - type: custom:mini-graph-card
             name: Download
