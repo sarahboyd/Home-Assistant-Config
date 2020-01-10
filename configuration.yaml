@@ -156,7 +156,7 @@ speedtestdotnet:
 
 fastdotcom:
   scan_interval:
-      hours: 6
+      minutes: 30
 
 ################
 # Files to include
