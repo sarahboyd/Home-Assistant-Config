@@ -310,15 +310,14 @@ views:
         layout: horizontal
         cards:
         - type: custom:vertical-style-card
-          title: System
           cards:
-          - type: "custom:bar-card"
-            entity: sensor.processor_use
-            title: CPU
-            title_position: inside 
-            align: split
-            show_icon: true
-            color: '#2980b9'
+          - type: custom:mini-graph-card
+            entities: 
+            - sensor.processor_use
+            line_width: 4
+            line_color: '#2980b9'
+            align_icon: left
+            align_header: left
           - type: "custom:bar-card"
             entity: sensor.memory_use_percent
             title: RAM
