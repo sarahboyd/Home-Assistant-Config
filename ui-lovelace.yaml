@@ -332,6 +332,14 @@ views:
             align: split
             show_icon: true
             color: '#00ba6a'
+          - type: custom:mini-graph-card
+            name: CPU Temperature
+            entities:
+              - sensor.cpu_temperature
+            line_width: 4
+            line_color: '#2980b9'
+            align_icon: left
+            align_header: left
           - type: entities
             entities:
             - sensor.last_boot
