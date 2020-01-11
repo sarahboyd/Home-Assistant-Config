@@ -35,6 +35,11 @@ august:
   username: !secret august_username
   password: !secret august_password
 
+badnest:
+  issue_token: !secret badnest_issue_token
+  cookie: !secret badnest_cookie
+  region: ca
+
 life360:
   accounts:
     username: !secret life360_username
