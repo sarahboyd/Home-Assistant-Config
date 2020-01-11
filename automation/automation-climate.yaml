@@ -25,17 +25,17 @@
         value_template: '{{ states.proximity.home.attributes.dir_of_travel == "towards" }}'
   action:
     - service: climate.set_preset_mode
-        data:
-          entity_id: climate.kitchen_thermostat
-          preset_mode: 'none'
+      data:
+        entity_id: climate.kitchen_thermostat
+        preset_mode: 'none'
     - service: climate.set_hvac_mode
-        data_template:
-          entity_id: climate.kitchen_thermostat
-          hvac_mode: >
-            {% if states('sensor.season') == 'spring' or states('sensor.season') == 'summer' %}
-              cool
-            {% elif states('sensor.season') == 'autumn' %}
-              auto
-            {% else %}
-              heat
-            {% endif %}
+      data_template:
+        entity_id: climate.kitchen_thermostat
+        hvac_mode: >
+          {% if states('sensor.season') == 'spring' or states('sensor.season') == 'summer' %}
+            cool
+          {% elif states('sensor.season') == 'autumn' %}
+            auto
+          {% else %}
+            heat
+          {% endif %}
