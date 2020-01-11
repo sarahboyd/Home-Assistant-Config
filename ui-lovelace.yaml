@@ -349,25 +349,7 @@ views:
           - type: custom:mini-graph-card
             name: Download
             entities:
-              -  sensor.speedtest_download
-            line_width: 4
-            line_color: '#2980b9'
-            align_icon: left
-            align_header: left
-            hours_to_show: 72
-          - type: custom:mini-graph-card
-            name: Upload
-            entities:
-              -  sensor.speedtest_upload
-            line_width: 4
-            line_color: '#2980b9'
-            align_icon: left
-            align_header: left
-            hours_to_show: 72
-          - type: custom:mini-graph-card
-            name: Ping
-            entities:
-              -  sensor.speedtest_ping
+              -  sensor.fastcom_download
             line_width: 4
             line_color: '#2980b9'
             align_icon: left

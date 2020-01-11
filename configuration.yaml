@@ -158,14 +158,6 @@ breaking_changes:
 
 system_health:
 
-speedtestdotnet: 
-  scan_interval:
-    hours: 12
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-
 fastdotcom:
   scan_interval:
       minutes: 30
