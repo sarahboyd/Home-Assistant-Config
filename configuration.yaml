@@ -40,6 +40,13 @@ badnest:
   cookie: !secret badnest_cookie
   region: ca
 
+climate:
+  - platform: badnest
+    scan_interval: 10
+
+sensor:
+  - platform: badnest
+
 life360:
   accounts:
     username: !secret life360_username
