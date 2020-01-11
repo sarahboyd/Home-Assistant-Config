@@ -349,7 +349,7 @@ views:
           - type: custom:mini-graph-card
             name: Download
             entities:
-              -  sensor.fastcom_download
+              -  sensor.fast_com_download
             line_width: 4
             line_color: '#2980b9'
             align_icon: left
