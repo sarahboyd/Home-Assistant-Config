@@ -12,6 +12,20 @@ discovery:
 
 map:
 
+zone:
+  - name: home
+    latitude: !secret latitude
+    longitude: !secret longitude
+    radius: 200 #In meters
+
+proximity:
+  home:
+    devices:
+      - device_tracker.life360_sarah_boyd
+      - device_tracker.life360_scott_young
+    tolerance: 100 #In meters
+    unit_of_measurement: mi #Used for travel distances
+
 lovelace:
   mode: yaml
 
@@ -160,7 +174,7 @@ system_health:
 
 fastdotcom:
   scan_interval:
-      minutes: 30
+      minutes: 120
 
 ################
 # Files to include
