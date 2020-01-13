@@ -136,10 +136,10 @@ telegram_bot:
 # Media
 ################
 
-# media_player:
-#   - platform: vizio
-#     host: 192.168.1.9
-#     access_token: !secret vizio_token    
+media_player:
+  - platform: vizio
+    host: 192.168.1.9
+    access_token: !secret vizio_token    
 
 ################
 # Logging
