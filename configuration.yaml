@@ -58,8 +58,6 @@ climate:
   - platform: badnest
     scan_interval: 10
 
-sensor:
-  - platform: badnest
 
 life360:
   accounts:

@@ -260,3 +260,4 @@
   value_template: '{{ value | multiply(0.001) | round(1) }}'
 - platform: season
   type: astronomical
+- platform: badnest
