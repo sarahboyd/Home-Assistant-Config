@@ -124,11 +124,11 @@ tts:
     cache_dir: /tmp/tts
     time_memory: 300
 
-# telegram_bot:
-#   - platform: polling
-#     api_key: !secret telegram_api
-#     allowed_chat_ids:
-#       - !secret sarah_chat
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api
+    allowed_chat_ids:
+      - !secret sarah_chat
 
 ################
 # Media
@@ -155,7 +155,7 @@ logbook:
       - sensor.time_date
     domains:
       - sun
-recorder: 
+#recorder: 
   #db_url: !secret db_url
  # purge_keep_days: 7
   # exclude: 
@@ -166,7 +166,7 @@ recorder:
   #     - input_number
 
 
-history:
+#history:
 
 breaking_changes:
 
