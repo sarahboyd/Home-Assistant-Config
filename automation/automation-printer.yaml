@@ -28,7 +28,7 @@
         retain: 'true'
 - alias: Set 3D printer to off when power changes
   trigger:
-    - platform: numeric_state
+    - platform: state
       entity_id: sensor.plug_1_power_state
       to: 'OFF'
   condition: []
@@ -40,7 +40,7 @@
         retain: 'true'
 - alias: Set 3D printer to idle when power changes to ON
   trigger:
-    - platform: numeric_state
+    - platform: state
       entity_id: sensor.plug_1_power_state
       to: 'ON'
       from: 'OFF'
