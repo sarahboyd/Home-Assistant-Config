@@ -154,6 +154,9 @@
   state_topic: "hass/state/dryer"
   icon: mdi:tumble-dryer
 - platform: mqtt
+  name: "Printer State"
+  state_topic: "hass/state/printer"
+- platform: mqtt
   name: Dryer Start Stop
   state_topic: "gBridge/u4099/dryer/startstop"
 - platform: mqtt
