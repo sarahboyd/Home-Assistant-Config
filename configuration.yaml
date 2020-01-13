@@ -82,6 +82,8 @@ life360:
 #   client_id: !secret google_cal_client_id
 #   client_secret: !secret google_cal_client_secret
 
+mqtt:
+  broker: 192.168.1.115
 
 utility_meter:
   printer_daily:
