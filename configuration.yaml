@@ -82,6 +82,8 @@ google:
 
 mqtt:
   broker: 192.168.1.115
+  username: !secret mqtt_username
+  password: !secret mqtt_password
 
 utility_meter:
   printer_daily:
