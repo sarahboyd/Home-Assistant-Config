@@ -159,6 +159,7 @@
           - '30 Minutes:/30mdryer, 1 Hour:/1hdryer, already empty:/empty_dryer'
           - 'No reminder:/removekeyboard'
 - alias: Send alert to Sarahs phone when outside lights turn on
+  initial_state: 'off'
   trigger:
     platform: state
     entity_id: light.outside
