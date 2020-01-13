@@ -49,17 +49,17 @@ august:
   username: !secret august_username
   password: !secret august_password
 
-# badnest:
-#   issue_token: !secret badnest_issue_token
-#   cookie: !secret badnest_cookie
-#   region: ca
+badnest:
+  issue_token: !secret badnest_issue_token
+  cookie: !secret badnest_cookie
+  region: ca
 
-# climate:
-#   - platform: badnest
-#     scan_interval: 10
+climate:
+  - platform: badnest
+    scan_interval: 10
 
-# sensor:
-#   - platform: badnest
+sensor:
+  - platform: badnest
 
 life360:
   accounts:
