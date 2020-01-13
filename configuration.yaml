@@ -49,17 +49,17 @@ august:
   username: !secret august_username
   password: !secret august_password
 
-badnest:
-  issue_token: !secret badnest_issue_token
-  cookie: !secret badnest_cookie
-  region: ca
+# badnest:
+#   issue_token: !secret badnest_issue_token
+#   cookie: !secret badnest_cookie
+#   region: ca
 
-climate:
-  - platform: badnest
-    scan_interval: 10
+# climate:
+#   - platform: badnest
+#     scan_interval: 10
 
-sensor:
-  - platform: badnest
+# sensor:
+#   - platform: badnest
 
 life360:
   accounts:
@@ -78,9 +78,9 @@ life360:
   warning_threshold: 2
   error_threshold: 3
 
-google:
-  client_id: !secret google_cal_client_id
-  client_secret: !secret google_cal_client_secret
+# google:
+#   client_id: !secret google_cal_client_id
+#   client_secret: !secret google_cal_client_secret
 
 
 utility_meter:
@@ -124,20 +124,20 @@ tts:
     cache_dir: /tmp/tts
     time_memory: 300
 
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_api
-    allowed_chat_ids:
-      - !secret sarah_chat
+# telegram_bot:
+#   - platform: polling
+#     api_key: !secret telegram_api
+#     allowed_chat_ids:
+#       - !secret sarah_chat
 
 ################
 # Media
 ################
 
-media_player:
-  - platform: vizio
-    host: 192.168.1.9
-    access_token: !secret vizio_token    
+# media_player:
+#   - platform: vizio
+#     host: 192.168.1.9
+#     access_token: !secret vizio_token    
 
 ################
 # Logging
