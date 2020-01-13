@@ -12,3 +12,17 @@
         topic: hass/state/washer
         payload: 'Running'
         retain: 'true'
+- alias: Set 3D printer to finished when power drops
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.plug_1_power
+      below: 10
+  condition:
+    - condition: template
+      value_template: "{{ states.sensor.printer_state.state == 'Printing' }}"
+  action:
+    - service: mqtt.publish
+      data:
+        topic: hass/state/washer
+        payload: 'Finished'
+        retain: 'true'
