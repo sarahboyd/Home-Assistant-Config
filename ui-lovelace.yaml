@@ -275,7 +275,7 @@ views:
       - type: custom:mini-graph-card
         name: Bedroom Temperature
         entities:
-          - sensor.temperature_158d0003a5b2eb
+          - sensor.bedroom_temperature
         line_width: 4
         line_color: '#2980b9'
         align_icon: left
