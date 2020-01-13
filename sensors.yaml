@@ -258,6 +258,36 @@
   # If errors occur, make sure configuration file is encoded as UTF-8
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) | round(1) }}'
+- platform: mqtt
+  name: "Plug 1 Power"
+  state_topic: "tele/sonoff-plug-1/SENSOR"
+  value_template: "{{value_json['ENERGY']['Power'] }}"
+  qos: 2
+  unit_of_measurement: "W"
+  icon: mdi:flash-circle
+  availability_topic: "tele/sonoff-plug-1/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+- platform: mqtt
+  name: "Plug 1 Voltage"
+  state_topic: "tele/sonoff-plug-1/SENSOR"
+  value_template: "{{value_json['ENERGY']['Voltage'] }}"
+  qos: 2
+  unit_of_measurement: "V"
+  icon: mdi:flash-circle
+  availability_topic: "tele/sonoff-plug-1/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline" 
+- platform: mqtt
+  name: "Plug 1 Current"
+  state_topic: "tele/sonoff-plug-1/SENSOR"
+  value_template: "{{value_json['ENERGY']['Current'] }}"
+  qos: 2
+  unit_of_measurement: "A"
+  icon: mdi:flash-circle
+  availability_topic: "tele/sonoff-plug-1/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"   
 - platform: season
   type: astronomical
 - platform: badnest
