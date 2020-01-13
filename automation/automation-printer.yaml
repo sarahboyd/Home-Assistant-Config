@@ -26,3 +26,30 @@
         topic: hass/state/washer
         payload: 'Finished'
         retain: 'true'
+- alias: Set 3D printer to off when power changes
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.plug_1_power_state
+      to: 'OFF'
+  condition: []
+  action:
+    - service: mqtt.publish
+      data:
+        topic: hass/state/washer
+        payload: 'Off'
+        retain: 'true'
+- alias: Set 3D printer to idle when power changes to ON
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.plug_1_power_state
+      to: 'ON'
+      from: 'OFF'
+  condition: 
+    - condition: template
+      value_template: "{{ states.sensor.printer_state.state != 'Printing' }}"
+  action:
+    - service: mqtt.publish
+      data:
+        topic: hass/state/washer
+        payload: 'Idle'
+        retain: 'true'
