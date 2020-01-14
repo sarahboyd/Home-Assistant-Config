@@ -170,6 +170,7 @@
       data_template:
         message: 'Hey the outside light just turned on'
 - alias: Send alert to Sarahs phone when outside lights turn off
+  initial_state: 'off'
   trigger:
     platform: state
     entity_id: light.outside
