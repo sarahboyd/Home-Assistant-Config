@@ -9,8 +9,8 @@
   action:
     - service: mqtt.publish
       data:
-        topic: hass/state/washer
-        payload: 'Running'
+        topic: hass/state/printer
+        payload: 'Printer'
         retain: 'true'
 - alias: Set 3D printer to finished when power drops
   trigger:
@@ -23,7 +23,7 @@
   action:
     - service: mqtt.publish
       data:
-        topic: hass/state/washer
+        topic: hass/state/printer
         payload: 'Finished'
         retain: 'true'
 - alias: Set 3D printer to off when power changes
@@ -35,7 +35,7 @@
   action:
     - service: mqtt.publish
       data:
-        topic: hass/state/washer
+        topic: hass/state/printer
         payload: 'Off'
         retain: 'true'
 - alias: Set 3D printer to idle when power changes to ON
@@ -50,6 +50,6 @@
   action:
     - service: mqtt.publish
       data:
-        topic: hass/state/washer
+        topic: hass/state/printer
         payload: 'Idle'
         retain: 'true'
