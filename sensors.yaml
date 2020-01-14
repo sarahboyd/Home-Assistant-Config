@@ -256,6 +256,7 @@
   name: "Plug 1 Power State"
   state_topic: "stat/sonoff-plug-1/POWER"
   value_template: "{{value_json['POWER']}}"
+  icon: mdi:printer-3d
 - platform: command_line
   name: CPU Temperature
   command: "cat /sys/class/thermal/thermal_zone0/temp"
