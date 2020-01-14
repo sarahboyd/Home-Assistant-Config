@@ -264,7 +264,7 @@
   value_template: '{{ value | multiply(0.001) | round(1) }}'
 - platform: mqtt
   name: "Plug 1 Power"
-  state_topic: "tele/sonoff-plug-1/SENSOR"
+  state_topic: "tele/sonoff-plug-1/STATE"
   value_template: "{{value_json['ENERGY']['Power'] }}"
   qos: 2
   unit_of_measurement: "W"
