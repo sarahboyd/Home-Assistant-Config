@@ -389,6 +389,7 @@ views:
                 show_icon: true 
                 max: '2000000'
                 icon: mdi:cancel 
+        - break
         - type: custom:auto-entities
           card:
             type: entities
