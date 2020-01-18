@@ -310,5 +310,28 @@
       friendly_name: Printer Off-Peak Hours Cost Today
       unit_of_measurement: '¢'
       value_template: '{{  (( states.sensor.printer_daily_offpeak.state | float ) * 10.1) | round(2) }}'
-
+    printer_on_peak_cost_weekly:
+      friendly_name: Printer On-Peak Hours Cost Weekly
+      unit_of_measurement: '¢'
+      value_template: '{{ (( states.sensor.printer_weekly_onpeak.state | float ) * 20.8) | round(2) }}'
+    printer_mid_peak_cost_weekly:
+      friendly_name: Printer Mid-Peak Hours Cost Weekly
+      unit_of_measurement: '¢'
+      value_template: '{{ (( states.sensor.printer_weekly_midpeak.state | float ) * 14.4 ) | round(2) }}'
+    printer_off_peak_cost_weekly:
+      friendly_name: Printer Off-Peak Hours Cost Weekly
+      unit_of_measurement: '¢'
+      value_template: '{{  (( states.sensor.printer_weekly_offpeak.state | float ) * 10.1) | round(2) }}'
+    printer_on_peak_cost_monthly:
+      friendly_name: Printer On-Peak Hours Cost Monthly
+      unit_of_measurement: '¢'
+      value_template: '{{ (( states.sensor.printer_monthly_onpeak.state | float ) * 20.8) | round(2) }}'
+    printer_mid_peak_cost_monthly:
+      friendly_name: Printer Mid-Peak Hours Cost Monthly
+      unit_of_measurement: '¢'
+      value_template: '{{ (( states.sensor.printer_monthly_midpeak.state | float ) * 14.4 ) | round(2) }}'
+    printer_off_peak_cost_monthly:
+      friendly_name: Printer Off-Peak Hours Cost Monthly
+      unit_of_measurement: '¢'
+      value_template: '{{  (( states.sensor.printer_monthly_offpeak.state | float ) * 10.1) | round(2) }}'
       #{{ ((states.sensor.printer_monthly_onpeak.state | float ) * 20.8) | round(2) }}
