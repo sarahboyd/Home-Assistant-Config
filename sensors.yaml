@@ -301,14 +301,14 @@
     printer_on_peak_cost_today:
       friendly_name: Printer On-Peak Hours Cost Today
       unit_of_measurement: '¢'
-      template_value: {{ (( sensor.printer_daily_onpeak * float ) * 20.8) | round(2) }}
+      template_value: {{ (( states.sensor.printer_daily_onpeak.state | float ) * 20.8) | round(2) }}
     printer_mid_peak_cost_today:
       friendly_name: Printer Mid-Peak Hours Cost Today
       unit_of_measurement: '¢'
-      template_value: {{ (( sensor.printer_daily_midpeak |float ) * 14.4 ) | round(2) }}
+      template_value: {{ (( states.sensor.printer_daily_midpeak.state | float ) * 14.4 ) | round(2) }}
     printer_off_peak_cost_today:
       friendly_name: Printer Off-Peak Hours Cost Today
       unit_of_measurement: '¢'
-      template_value: {{  (( sensor.printer_daily_offpeak | float ) * 10.1) | round(2) }}
+      template_value: {{  (( states.sensor.printer_daily_offpeak.state | float ) * 10.1) | round(2) }}
 
       #{{ ((states.sensor.printer_monthly_onpeak.state | float ) * 20.8) | round(2) }}
