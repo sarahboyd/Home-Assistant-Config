@@ -48,3 +48,10 @@
     ignore_availability: true
     name: Holidays in Canada
     track: false
+
+- cal_id: p9et91leuh7evlk0jeqfkdaerck17fj9@import.calendar.google.com
+  entities:
+  - device_id: mcap
+    ignore_availability: true
+    name: MCAP
+    track: true
