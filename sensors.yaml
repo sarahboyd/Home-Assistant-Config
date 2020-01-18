@@ -296,6 +296,15 @@
 - platform: season
   type: astronomical
 - platform: badnest
+- platform: command_line
+  name: OffPeak Hydro Rate
+  command: "cat hydro_rates/offpeak"
+- platform: command_line
+  name: MidPeak Hydro Rate
+  command: "cat hydro_rates/midpeak"
+- platform: command_line
+  name: OnPeak Hydro Rate
+  command: "cat hydro_rates/onpeak"
 - platform: template
   sensors:
     printer_cost_daily:
