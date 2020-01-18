@@ -50,4 +50,16 @@
 #     - service: utility_meter.select_tariff
 #       entity_id: utility_meter.printer_monthly
 #       tariff: onpeak
+- id: '1579319582233'
+  alias: New Automation
+  description: ''
+  trigger:
+  - at: '19:00:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      tariff: offpeak
+    entity_id: utility_meter.printer_daily
+    service: utility_meter.select_tariff
   
