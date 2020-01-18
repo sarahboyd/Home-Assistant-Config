@@ -298,36 +298,30 @@
 - platform: badnest
 - platform: template
   sensors:
-    printer_on_peak_cost_today:
-      friendly_name: Printer On-Peak Hours Cost Today
+    printer_cost_daily:
+      friendly_name: Printer Cost Daily
       unit_of_measurement: '¢'
-      value_template: '{{ (( states.sensor.printer_daily_onpeak.state | float ) * 20.8) | round(2) }}'
-    printer_mid_peak_cost_today:
-      friendly_name: Printer Mid-Peak Hours Cost Today
+      value_template: > 
+        {% set onpeak = ((states.sensor.printer_daily_onpeak.state | float ) * 20.8) %}
+        {% set midpeak = (( states.sensor.printer_daily_midpeak.state | float ) * 14.4 ) %}
+        {% set offpeak = (( states.sensor.printer_daily_offpeak.state | float ) * 10.1) %}
+        {% set total = onpeak + midpeak + offpeak %}
+        {{ total | round(2) }}
+    printer_cost_weekly:
+      friendly_name: Printer Cost Weekly
       unit_of_measurement: '¢'
-      value_template: '{{ (( states.sensor.printer_daily_midpeak.state | float ) * 14.4 ) | round(2) }}'
-    printer_off_peak_cost_today:
-      friendly_name: Printer Off-Peak Hours Cost Today
-      unit_of_measurement: '¢'
-      value_template: '{{  (( states.sensor.printer_daily_offpeak.state | float ) * 10.1) | round(2) }}'
-    printer_on_peak_cost_weekly:
-      friendly_name: Printer On-Peak Hours Cost Weekly
-      unit_of_measurement: '¢'
-      value_template: '{{ (( states.sensor.printer_weekly_onpeak.state | float ) * 20.8) | round(2) }}'
-    printer_mid_peak_cost_weekly:
-      friendly_name: Printer Mid-Peak Hours Cost Weekly
-      unit_of_measurement: '¢'
-      value_template: '{{ (( states.sensor.printer_weekly_midpeak.state | float ) * 14.4 ) | round(2) }}'
-    printer_off_peak_cost_weekly:
-      friendly_name: Printer Off-Peak Hours Cost Weekly
-      unit_of_measurement: '¢'
-      value_template: '{{  (( states.sensor.printer_weekly_offpeak.state | float ) * 10.1) | round(2) }}'
+      value_template: > 
+        {% set onpeak = ((states.sensor.printer_weekly_onpeak.state | float ) * 20.8) %}
+        {% set midpeak = (( states.sensor.printer_weekly_midpeak.state | float ) * 14.4 ) %}
+        {% set offpeak = (( states.sensor.printer_weekly_offpeak.state | float ) * 10.1) %}
+        {% set total = onpeak + midpeak + offpeak %}
+        {{ total | round(2) }}
     printer_cost_monthly:
       friendly_name: Printer Cost Monthly
       unit_of_measurement: '¢'
       value_template: > 
-        {% set monthly_onpeak = ((states.sensor.printer_monthly_onpeak.state | float ) * 20.8) %}
-        {% set monthly_midpeak = (( states.sensor.printer_monthly_midpeak.state | float ) * 14.4 ) %}
-        {% set monthly_offpeak = (( states.sensor.printer_monthly_offpeak.state | float ) * 10.1) %}
-        {% set monthly_total = monthly_onpeak + monthly_midpeak + monthly_offpeak %}
-        {{ monthly_total | round(2) }}
+        {% set onpeak = ((states.sensor.printer_monthly_onpeak.state | float ) * 20.8) %}
+        {% set midpeak = (( states.sensor.printer_monthly_midpeak.state | float ) * 14.4 ) %}
+        {% set offpeak = (( states.sensor.printer_monthly_offpeak.state | float ) * 10.1) %}
+        {% set total = onpeak + midpeak + offpeak %}
+        {{ total | round(2) }}
