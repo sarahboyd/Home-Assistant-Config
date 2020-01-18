@@ -298,13 +298,13 @@
 - platform: badnest
 - platform: command_line
   name: OffPeak Hydro Rate
-  command: "cat ~/hydro_rates/offpeak"
+  command: "cat /home/homeassistant/.homeassistant/hydro_rates/offpeak"
 - platform: command_line
   name: MidPeak Hydro Rate
-  command: "cat ~/hydro_rates/midpeak"
+  command: "cat /home/homeassistant/.homeassistant/hydro_rates/midpeak"
 - platform: command_line
   name: OnPeak Hydro Rate
-  command: "cat ~/hydro_rates/onpeak"
+  command: "cat /home/homeassistant/.homeassistant/hydro_rates/onpeak"
 - platform: template
   sensors:
     printer_cost_daily:
