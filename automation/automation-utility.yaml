@@ -15,6 +15,18 @@
       entity_id: utility_meter.printer_monthly
       data:
         tariff: offpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.washer_daily
+      data:
+        tariff: offpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.washer_weekly
+      data:
+        tariff: offpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.washer_monthly
+      data:
+        tariff: offpeak
 - alias: Set mid peak hydro hours
   trigger:
     - platform: time
@@ -34,6 +46,18 @@
         tariff: midpeak
     - service: utility_meter.select_tariff
       entity_id: utility_meter.printer_monthly
+      data:
+        tariff: midpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.washer_daily
+      data:
+        tariff: midpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.washer_weekly
+      data:
+        tariff: midpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.washer_monthly
       data:
         tariff: midpeak
 - alias: Set on peak hydro hours
@@ -57,5 +81,17 @@
         tariff: onpeak
     - service: utility_meter.select_tariff
       entity_id: utility_meter.printer_monthly
+      data:
+        tariff: onpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.washer_daily
+      data:
+        tariff: onpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.washer_weekly
+      data:
+        tariff: onpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.washer_monthly
       data:
         tariff: onpeak
