@@ -418,6 +418,16 @@ views:
                   battery: '< 25'
               - attributes:
                   battery_level: '< 25'
+        - type: custom:auto-entities
+          show_empty: false
+          card:  
+            title: Home Assistant Update Available
+            type: glance
+            show_header_toggle: false
+          filter:
+            include: 
+              - entity_id: binary_sensor.updator
+                state: 'available'
   - path: auto
     title: Automations
     icon: 'mdi:auto-fix'
