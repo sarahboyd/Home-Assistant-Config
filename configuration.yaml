@@ -107,6 +107,28 @@ utility_meter:
       - onpeak
       - midpeak
       - offpeak
+  washer_daily:
+    source:  sensor.washer_energy_today
+    cycle: daily
+    tariffs:
+      - onpeak
+      - midpeak
+      - offpeak
+  washer_weekly:
+    source:  sensor.washer_energy_today
+    cycle: weekly
+    tariffs:
+      - onpeak
+      - midpeak
+      - offpeak
+  washer_monthly:
+    source:  sensor.washer_energy_today
+    cycle: monthly
+    tariffs:
+      - onpeak
+      - midpeak
+      - offpeak
+
 
 binary_sensor:
   - platform: workday
@@ -178,7 +200,7 @@ fastdotcom:
 
 pi_hole:
   host: 192.168.1.115
-  
+
 
 ################
 # Files to include
