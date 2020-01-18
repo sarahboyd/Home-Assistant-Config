@@ -15,54 +15,47 @@
       entity_id: utility_meter.printer_monthly
       data:
         tariff: offpeak
-# - alias: Set mid peak hydro hours
-#   trigger:
-#     - platform: time
-#       at: '11:00:00'
-#   condition:
-#     condition: state
-#     entity_id: 'binary_sensor.workday_sensor'
-#     state: 'on'
-#   action:
-#     - service: utility_meter.select_tariff
-#       entity_id: utility_meter.printer_daily
-#       tariff: midpeak
-#     - service: utility_meter.select_tariff
-#       entity_id: utility_meter.printer_weekly
-#       tariff: midpeak
-#     - service: utility_meter.select_tariff
-#       entity_id: utility_meter.printer_monthly
-#       tariff: midpeak
-# - alias: Set on peak hydro hours
-#   trigger:
-#     - platform: time
-#       at: '07:00:00'
-#     - platform: time
-#       at: '17:00:00'
-#   condition:
-#     condition: state
-#     entity_id: 'binary_sensor.workday_sensor'
-#     state: 'on'
-#   action:
-#     - service: utility_meter.select_tariff
-#       entity_id: utility_meter.printer_daily
-#       tariff: onpeak
-#     - service: utility_meter.select_tariff
-#       entity_id: utility_meter.printer_weekly
-#       tariff: onpeak
-#     - service: utility_meter.select_tariff
-#       entity_id: utility_meter.printer_monthly
-#       tariff: onpeak
-- id: '1579319582233'
-  alias: New Automation
-  description: ''
+- alias: Set mid peak hydro hours
   trigger:
-  - at: '19:00:00'
-    platform: time
-  condition: []
+    - platform: time
+      at: '11:00:00'
+  condition:
+    condition: state
+    entity_id: 'binary_sensor.workday_sensor'
+    state: 'on'
   action:
-  - data:
-      tariff: offpeak
-    entity_id: utility_meter.printer_daily
-    service: utility_meter.select_tariff
-  
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.printer_daily
+      data:
+        tariff: midpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.printer_weekly
+      data:
+        tariff: midpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.printer_monthly
+      data:
+        tariff: midpeak
+- alias: Set on peak hydro hours
+  trigger:
+    - platform: time
+      at: '07:00:00'
+    - platform: time
+      at: '17:00:00'
+  condition:
+    condition: state
+    entity_id: 'binary_sensor.workday_sensor'
+    state: 'on'
+  action:
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.printer_daily
+      data:
+        tariff: onpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.printer_weekly
+      data:
+        tariff: onpeak
+    - service: utility_meter.select_tariff
+      entity_id: utility_meter.printer_monthly
+      data:
+        tariff: onpeak
