@@ -38,4 +38,4 @@ front_hall_light_brightness:
   initial: 114
   min: 0
   max: 255
-  step: 1S
+  step: 1
