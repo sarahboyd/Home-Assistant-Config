@@ -4,7 +4,6 @@ default_view:
   icon: mdi:home
   entities:
     - group.family
-    - group.all_lights
 
 people_status:
   name: People Status
