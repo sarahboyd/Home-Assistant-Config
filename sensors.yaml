@@ -296,3 +296,17 @@
 - platform: season
   type: astronomical
 - platform: badnest
+- platform: template
+  sensors:
+    printer_on_peak_cost_today:
+      friendly_name: Printer On-Peak Hours Cost Today
+      unit_of_measurement: '¢'
+      template_value: {{ (sensor.printer_daily_onpeak * 20.8)| float }}
+    printer_mid_peak_cost_today:
+      friendly_name: Printer Mid-Peak Hours Cost Today
+      unit_of_measurement: '¢'
+      template_value: {{ (sensor.printer_daily_midpeak * 14.4)| float }}
+    printer_off_peak_cost_today:
+      friendly_name: Printer Off-Peak Hours Cost Today
+      unit_of_measurement: '¢'
+      template_value: {{ (sensor.printer_daily_offpeak * 10.1)| float }}
