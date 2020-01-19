@@ -10,7 +10,7 @@
     - service: mqtt.publish
       data:
         topic: hass/state/printer
-        payload: 'Printer'
+        payload: 'Printing'
         retain: 'true'
 - alias: Set 3D printer to finished when power drops
   trigger:
