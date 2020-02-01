@@ -9,9 +9,6 @@
     data:
       entity_id: climate.kitchen_thermostat
       preset_mode: 'eco'
-  - service: notify.telegram_sarah
-    data:
-      message: Nest set to Away Mode!
 - alias: 'Climate Proximity'
   initial_state: 'on'
   trigger:
@@ -42,9 +39,6 @@
           {% else %}
             heat
           {% endif %}
-    - service: notify.telegram_sarah
-      data:
-        message: Nest - proximity detected, eco turned off
 - alias: Turn off eco mode when we're in the neighborhood 
   trigger:
   - entity_id: sensor.sarah_status
