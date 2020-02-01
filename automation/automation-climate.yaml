@@ -57,7 +57,7 @@
     - condition: template
       value_template: '{{ states.climate.kitchen_thermostat.attributes.preset_mode == "eco" }}'
   action:
-  - service: climate.set_preset_mode
+    - service: climate.set_preset_mode
       data:
         entity_id: climate.kitchen_thermostat
         preset_mode: 'none'
