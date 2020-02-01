@@ -45,3 +45,30 @@
     - service: notify.telegram_sarah
       data:
         message: Nest - proximity detected, eco turned off
+- alias: Turn off eco mode when we're in the neighborhood 
+  trigger:
+  - entity_id: sensor.sarah_status
+    platform: state
+    to: Just Arrived
+  - entity_id: sensor.scott_status
+    platform: state
+    to: Just Arrived
+  condition: 
+    - condition: template
+      value_template: '{{ states.climate.kitchen_thermostat.attributes.preset_mode == "eco" }}'
+  action:
+  - service: climate.set_preset_mode
+      data:
+        entity_id: climate.kitchen_thermostat
+        preset_mode: 'none'
+    - service: climate.set_hvac_mode
+      data_template:
+        entity_id: climate.kitchen_thermostat
+        hvac_mode: >
+          {% if states('sensor.season') == 'spring' or states('sensor.season') == 'summer' %}
+            cool
+          {% elif states('sensor.season') == 'autumn' %}
+            auto
+          {% else %}
+            heat
+          {% endif %}
