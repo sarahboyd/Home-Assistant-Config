@@ -11,7 +11,6 @@
       message: Home Assistant booted!
 - id: 'telegramremoveinline'
   alias: 'Telegram callback to remove keyboard'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_callback
@@ -29,7 +28,6 @@
       inline_keyboard: []
 - id: 'telegramemptywasher'
   alias: 'Telegram callback to change washer to Idle'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_callback
@@ -52,7 +50,6 @@
       retain: 'true'
 - id: 'telegramrepeat30m'
   alias: 'Telegram callback to repeat message in 30 minutes'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_callback
@@ -78,7 +75,6 @@
           - 'No reminder:/removekeyboard'
 - id: 'telegramrepeat1h'
   alias: 'Telegram callback to repeat message in 1 hour'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_callback
@@ -104,7 +100,6 @@
           - 'No reminder:/removekeyboard'
 - id: 'telegramemptydryer'
   alias: 'Telegram callback to change dryer to Idle'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_callback
@@ -127,7 +122,6 @@
       retain: 'true'
 - id: 'telegramrepeat30mdryer'
   alias: 'Telegram callback to repeat message in 30 minutes - dryer'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_callback
@@ -153,7 +147,6 @@
           - 'No reminder:/removekeyboard'
 - id: 'telegramrepeat1hdryer'
   alias: 'Telegram callback to repeat message in 1 hour - dryer'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_callback
