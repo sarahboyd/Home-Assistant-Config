@@ -136,7 +136,7 @@ views:
             icon: mdi:television
             show_state: true 
             show_name: false
-            entity: media_player.vizio_smartcast
+            entity: media_player.living_room_chromecast
             tap_action: 
               action: toggle
             state:
@@ -193,7 +193,7 @@ views:
             - type: custom:mini-media-player
               entity: media_player.plex_plex_for_vizio
             - type: custom:mini-media-player
-              entity: media_player.vizio_smartcast
+              entity: media_player.living_room_chromecast
       - type: custom:mini-graph-card
         name: Washing Machine Daily Cost
         entities:
