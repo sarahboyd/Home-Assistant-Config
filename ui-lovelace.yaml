@@ -136,7 +136,7 @@ views:
             icon: mdi:television
             show_state: true 
             show_name: false
-            entity: media_player.living_room_chromecast
+            entity: media_player.living_room_chromecast2
             tap_action: 
               action: toggle
             state:
