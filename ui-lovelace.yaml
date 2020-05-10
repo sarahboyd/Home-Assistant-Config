@@ -324,6 +324,8 @@ views:
             title_position: inside
             align: split
             show_icon: true
+            positions:
+              icon: inside
           - type: "custom:bar-card"
             entity: sensor.disk_use_percent
             title: HDD
