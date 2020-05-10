@@ -12,7 +12,7 @@ resources:
   - url: /community_plugin/mini-media-player/mini-media-player-bundle.js
     type: module
   - url: /community_plugin/bar-card/bar-card.js
-    type: js
+    type: module
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
     type: module  
   - url: /community_plugin/lovelace-layout-card/layout-card.js
