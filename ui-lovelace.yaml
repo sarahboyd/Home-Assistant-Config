@@ -333,6 +333,8 @@ views:
             align: split
             show_icon: true
             color: '#00ba6a'
+            positions:
+              icon: inside
         - type: entities
           entities:
           - sensor.last_boot
