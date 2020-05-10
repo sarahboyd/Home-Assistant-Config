@@ -325,7 +325,7 @@ views:
             align: split
             show_icon: true
             positions:
-              icon: inside
+              icon: outside
           - type: "custom:bar-card"
             entity: sensor.disk_use_percent
             title: HDD
@@ -334,7 +334,7 @@ views:
             show_icon: true
             color: '#00ba6a'
             positions:
-              icon: inside
+              icon: outside
         - type: entities
           entities:
           - sensor.last_boot
