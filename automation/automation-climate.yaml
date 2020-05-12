@@ -32,9 +32,9 @@
       data_template:
         entity_id: climate.kitchen_thermostat
         hvac_mode: >
-          {% if states('sensor.season') == 'spring' or states('sensor.season') == 'summer' %}
+          {% if states('sensor.season') == 'summer' %}
             cool
-          {% elif states('sensor.season') == 'autumn' %}
+          {% elif states('sensor.season') == 'spring' or states('sensor.season') == 'autumn' %}
             auto
           {% else %}
             heat
@@ -59,9 +59,9 @@
       data_template:
         entity_id: climate.kitchen_thermostat
         hvac_mode: >
-          {% if states('sensor.season') == 'spring' or states('sensor.season') == 'summer' %}
+          {% if states('sensor.season') == 'summer' %}
             cool
-          {% elif states('sensor.season') == 'autumn' %}
+          {% elif states('sensor.season') == 'spring' or states('sensor.season') == 'autumn' %}
             auto
           {% else %}
             heat
