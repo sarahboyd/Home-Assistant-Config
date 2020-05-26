@@ -427,9 +427,23 @@
   state_topic: "octopi/temp"
   unit_of_measurement: "°C"
 - platform: mqtt
-  name: "OctoPi Throttling"
-  state_topic: "octopi/throttling"
-- platform: mqtt
   name: "OctoPi Voltage Level"
   state_topic: "octopi/voltage"
   unit_of_measurement: "V"
+- platform: mqtt
+  name: "OctoPi Throttling Stats"
+  state_topic: "octopi/throttling"
+- platform: mqtt
+  name: "OctoPi Under Voltage"
+  state_topic: "octopi/throttling"
+  value_template: "{{value_json['UnderVoltage']}}"
+- platform: mqtt
+  name: "OctoPi Throttled"
+  state_topic: "octopi/throttling"
+  value_template: "{{value_json['throttled']}}"
+- platform: mqtt
+  name: "OctoPi Software Temp Limit"
+  state_topic: "octopi/throttling"
+  value_template: "{{value_json['softTempLimit']}}"
+
+
