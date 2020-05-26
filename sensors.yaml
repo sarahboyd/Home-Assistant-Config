@@ -422,4 +422,14 @@
         {% set offpeak = (( states.sensor.washer_monthly_offpeak.state | float ) * 0.101) %}
         {% set total = onpeak + midpeak + offpeak %}
         {{ total | round(4) }}
-
+- platform: mqtt
+  name: "OctoPi Temperature"
+  state_topic: "octopi/temp"
+  unit_of_measurement: "°C"
+- platform: mqtt
+  name: "OctoPi Throttling"
+  state_topic: "octopi/throttling"
+- platform: mqtt
+  name: "OctoPi Voltage Level"
+  state_topic: "octopi/voltage"
+  unit_of_measurement: "V"
