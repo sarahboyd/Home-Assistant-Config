@@ -134,11 +134,6 @@ binary_sensor:
   - platform: workday
     country: CA
     province: "ON"
-  - platform: threshold
-    sensors:
-      cpu_temp_spike:
-        entity_id: sensor.cpu_temperature
-        upper: 70
 
 
 ################
