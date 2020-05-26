@@ -135,8 +135,10 @@ binary_sensor:
     country: CA
     province: "ON"
   - platform: threshold
-    entity_id: sensor.cpu_temperature
-    upper: 70
+    sensors:
+      cpu_temp_spike:
+        entity_id: sensor.cpu_temperature
+        upper: 70
 
 
 ################
