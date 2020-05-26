@@ -422,3 +422,11 @@
         {% set offpeak = (( states.sensor.washer_monthly_offpeak.state | float ) * 0.101) %}
         {% set total = onpeak + midpeak + offpeak %}
         {{ total | round(4) }}
+- platform: template
+  sensors:
+    cpu_temp_spike:
+      friendly_name: Raspbery Pi Temperature Spike
+      value_template: >
+        {% if states.sensor.cpu_temperature.state  | float > 70 %} true 
+        {% else %} false
+        {% endif %}
