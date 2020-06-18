@@ -490,7 +490,11 @@ views:
           include:
           - entity_id: automation.*alert*
           - entity_id: automation.*telegram*
-
+  - path: printer
+    title: 3D Printer
+    icon: 'mdi:print'
+    badges: []
+    cards:
 
     
   
