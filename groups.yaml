@@ -1,6 +1,5 @@
 default_view:
   name: Home
-  view: yes
   icon: mdi:home
   entities:
     - group.family
@@ -27,20 +26,17 @@ wakeuplight:
 
 family:
   name: Family
-  view: no 
   entities:
     - group.sarah
     - group.scott
 
 sarah:
   name: Sarah 
-  view: no 
   entities:
     - device_tracker.life360_sarah_boyd
 
 scott: 
-  name: Scott 
-  view: no 
+  name: Scott s
   entities: 
     - device_tracker.life360_scott_young
 
