@@ -28,6 +28,8 @@ proximity:
 lovelace:
   mode: yaml
   resources: !include lovelace/resources/resources.yaml
+    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+      type: module
 
 
 frontend:
