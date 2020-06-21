@@ -1,16 +1,16 @@
-- url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+- url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
   type: module
-- url: /community_plugin/simple-weather-card/simple-weather-card-bundle.js
+- url: /hacsfiles/simple-weather-card/simple-weather-card-bundle.js
   type: module
 - url: /local/vertical-style-card.js?v=0.1    
   type: js
-- url: /community_plugin/button-card/button-card.js
+- url: /hacsfiles/button-card/button-card.js
   type: module
-- url: /community_plugin/mini-media-player/mini-media-player-bundle.js
+- url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
   type: module
-- url: /community_plugin/bar-card/bar-card.js
+- url: /hacsfiles/bar-card/bar-card.js
   type: module
-- url: /community_plugin/lovelace-auto-entities/auto-entities.js
+- url: /hacsfiles/lovelace-auto-entities/auto-entities.js
   type: module  
-- url: /community_plugin/lovelace-layout-card/layout-card.js
+- url: /hacsfiles/lovelace-layout-card/layout-card.js
   type: module
