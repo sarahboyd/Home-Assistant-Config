@@ -8,9 +8,6 @@ homeassistant:
   customize: !include customize.yaml
 
 discovery:
-  ignore:
-    - igd
-    - homekit
 
 map:
 
