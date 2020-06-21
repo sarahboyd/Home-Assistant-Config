@@ -39,7 +39,7 @@ weather:
   - platform: darksky
     api_key: !secret darksky_api
 
-lutron_caseta:
+# lutron_caseta:
   # host: 192.168.1.19
   # keyfile: ssl/lutron/caseta.key
   # certfile: ssl/lutron/caseta.crt
