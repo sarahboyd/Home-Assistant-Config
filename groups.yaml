@@ -13,7 +13,6 @@ people_status:
 
 wakeuplight:
   name: Wakeup Light
-  control: hidden
   entities:
     - sensor.wakeup_alarm_time
     - sensor.wakeup_start_time_lights
@@ -36,7 +35,7 @@ sarah:
     - device_tracker.life360_sarah_boyd
 
 scott: 
-  name: Scott s
+  name: Scott
   entities: 
     - device_tracker.life360_scott_young
 
