@@ -5,9 +5,9 @@
      - platform: homeassistant
        event: start
     action:
-      - service: frontend.set_theme
-        data:
-          name: Dark - Blue
+      # - service: frontend.set_theme
+      #   data:
+      #     name: Dark - Blue
       - service: mqtt.publish
         data:
           topic: hass/state/dryer
