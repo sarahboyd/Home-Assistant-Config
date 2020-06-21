@@ -8,6 +8,7 @@
 !*.md
 !automation
 !lovelace
+!lovelace/resources
 
 # Ignore folders.
 .storage
