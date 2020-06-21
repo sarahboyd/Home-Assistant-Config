@@ -28,22 +28,6 @@ proximity:
 lovelace:
   mode: yaml
   resources: !include lovelace/resources/resources.yaml
-    # - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
-    #   type: module
-    # - url: /hacsfiles/simple-weather-card/simple-weather-card-bundle.js
-    #   type: module
-    # - url: /local/vertical-style-card.js?v=0.1    
-    #   type: js
-    # - url: /hacsfiles/button-card/button-card.js
-    #   type: module
-    # - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
-    #   type: module
-    # - url: /hacsfiles/bar-card/bar-card.js
-    #   type: module
-    # - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
-    #   type: module  
-    # - url: /hacsfiles/lovelace-layout-card/layout-card.js
-    #   type: module
 
 
 frontend:
@@ -55,11 +39,11 @@ weather:
   - platform: darksky
     api_key: !secret darksky_api
 
-# lutron_caseta:
-#   host: 192.168.1.19
-#   keyfile: ssl/lutron/caseta.key
-#   certfile: ssl/lutron/caseta.crt
-#   ca_certs: ssl/lutron/caseta-bridge.crt
+lutron_caseta:
+  host: 192.168.1.19
+  keyfile: ssl/lutron/caseta.key
+  certfile: ssl/lutron/caseta.crt
+  ca_certs: ssl/lutron/caseta-bridge.crt
 
 august:
   login_method: phone
