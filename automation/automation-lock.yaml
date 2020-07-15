@@ -10,4 +10,3 @@
   action:
   - service: lock.unlock
     entity_id: all
-    
