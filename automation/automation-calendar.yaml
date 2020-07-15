@@ -1,3 +1,5 @@
+---
+
 - alias: Calendar - Turn off morning routine for vacations
   trigger:
     platform: state

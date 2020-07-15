@@ -1,4 +1,6 @@
-# Set theme on HA start
+---
+
+# Startup routines
 - alias: Set theme and states at startup
   trigger:
     - platform: homeassistant
@@ -26,8 +28,8 @@
   condition:
     condition: time
     weekday:
-    - sun
-    - wed
-    - fri
+      - sun
+      - wed
+      - fri
   action:
     - service: homeassistant.restart

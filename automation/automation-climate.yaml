@@ -39,14 +39,14 @@
           {% else %}
             heat
           {% endif %}
-- alias: Turn off eco mode when we're in the neighborhood 
+- alias: Turn off eco mode when we're in the neighborhood
   trigger:
-  - entity_id: sensor.sarah_status
-    platform: state
-    to: Just Arrived
-  - entity_id: sensor.scott_status
-    platform: state
-    to: Just Arrived
+    - entity_id: sensor.sarah_status
+      platform: state
+      to: Just Arrived
+    - entity_id: sensor.scott_status
+      platform: state
+      to: Just Arrived
   condition:
     - condition: template
       value_template: '{{ states.climate.kitchen_thermostat.attributes.preset_mode == "eco" }}'

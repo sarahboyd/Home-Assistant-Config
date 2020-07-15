@@ -1,3 +1,5 @@
+---
+
 - alias: Set 3D printer to printing when power detected
   trigger:
     - platform: numeric_state
@@ -44,7 +46,7 @@
       entity_id: sensor.plug_1_power_state
       to: 'ON'
       from: 'OFF'
-  condition: 
+  condition:
     - condition: template
       value_template: "{{ states.sensor.printer_state.state != 'Printing' }}"
   action:

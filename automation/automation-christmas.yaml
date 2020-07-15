@@ -1,16 +1,18 @@
+---
+
 - alias: Turn on Christmas Tree when we get home
   initial_state: false
   trigger:
-  - entity_id: sensor.sarah_status
-    platform: state
-    to: Just Arrived
-    for:
-      minutes: 5
-  - entity_id: sensor.scott_status
-    platform: state
-    to: Just Arrived
-    for:
-      minutes: 5
+    - entity_id: sensor.sarah_status
+      platform: state
+      to: Just Arrived
+      for:
+        minutes: 5
+    - entity_id: sensor.scott_status
+      platform: state
+      to: Just Arrived
+      for:
+        minutes: 5
   condition: []
   action:
     - service: mqtt.publish
