@@ -9,6 +9,7 @@
 !automation
 !lovelace
 !lovelace/resources
+!lovelace/views
 
 # Ignore folders.
 .storage
