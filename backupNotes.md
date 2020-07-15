@@ -1,5 +1,5 @@
 Backup of rasperry pi:
-- uses cygwin, cron, and rsnapshot running on desktop
+-  uses cygwin, cron, and rsnapshot running on desktop
 
 Edit cron schedule:
 launch cygwin terminal and enter:
