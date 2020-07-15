@@ -10,6 +10,7 @@
 !lovelace
 !lovelace/resources
 !lovelace/views
+!.stubs
 
 # Ignore folders.
 .storage
