@@ -478,11 +478,9 @@ views:
         cards:
         - type: horizontal-stack
           cards:
-            - type: custom:surveillance-card
-              thumb_interval: 15
-              update_interval: 2
-              cameras:
-                - entity: camera.octoprint
+            - type: picture-entity
+              entity: camera.octoprint
+              camera_view: live 
         - type: horizontal-stack
           cards:
           - type: custom:mini-graph-card
