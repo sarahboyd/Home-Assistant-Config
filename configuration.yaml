@@ -147,11 +147,6 @@ octoprint:
     number_of_tools: 2
     sensors:
       monitored_conditions:
-        - 'Current State'
-        - 'Job Percentage'
-        - ' Temperatures'
-        - 'Time Elapsed'
-        - 'Time Remaining'
 
 camera:
   - platform: mjpeg
