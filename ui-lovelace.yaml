@@ -478,6 +478,11 @@ views:
         cards:
         - type: horizontal-stack
           cards:
+            - type: custom:surveillance-card
+              thumb_interval: 15
+              update_interval: 2
+              cameras:
+                - entity: camera.octoprint
             - type: custom:vertical-style-card
               title: Location
               style:
