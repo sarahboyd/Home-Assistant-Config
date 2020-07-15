@@ -2,7 +2,7 @@
   type: module
 - url: /hacsfiles/simple-weather-card/simple-weather-card-bundle.js
   type: module
-- url: /local/vertical-style-card.js?v=0.1    
+- url: /local/vertical-style-card.js?v=0.1 
   type: js
 - url: /hacsfiles/button-card/button-card.js
   type: module
@@ -11,7 +11,7 @@
 - url: /hacsfiles/bar-card/bar-card.js
   type: module
 - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
-  type: module  
+  type: module
 - url: /hacsfiles/lovelace-layout-card/layout-card.js
   type: module
 - url: /hacsfiles/surveillance-card/surveillance-card.js

@@ -1,16 +1,14 @@
 - alias: 'Away Mode'
-  initial_state: 'on'
   trigger:
     platform: state
     entity_id: group.family
     to: 'not_home'
   action:
-  - service: climate.set_preset_mode
-    data:
-      entity_id: climate.kitchen_thermostat
-      preset_mode: 'eco'
+    - service: climate.set_preset_mode
+      data:
+        entity_id: climate.kitchen_thermostat
+        preset_mode: 'eco'
 - alias: 'Climate Proximity'
-  initial_state: 'on'
   trigger:
     platform: numeric_state
     entity_id: proximity.home
@@ -47,7 +45,7 @@
   - entity_id: sensor.scott_status
     platform: state
     to: Just Arrived
-  condition: 
+  condition:
     - condition: template
       value_template: '{{ states.climate.kitchen_thermostat.attributes.preset_mode == "eco" }}'
   action:
