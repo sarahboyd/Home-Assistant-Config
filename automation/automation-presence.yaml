@@ -172,4 +172,3 @@
       entity_id: automation.wake_up_light_bedroom
     - service: automation.turn_on
       entity_id: automation.turn_on_bedroom_lights_before_bed
-  
