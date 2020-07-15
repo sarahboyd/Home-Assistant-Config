@@ -471,7 +471,7 @@ views:
           - entity_id: automation.*telegram*
   - path: printer
     title: 3D Printer
-    icon: 'mdi:auto-fix'
+    icon: 'mdi:printer-3d'
     badges: []
     cards:
       - type: vertical-stack
@@ -507,23 +507,20 @@ views:
                     entity: person.scott
                     state_filter:
                       "not_home": grayscale(72%)
-        - type: custom:simple-weather-card
-          entity: weather.dark_sky
-          secondary_info: humidity
         - type: horizontal-stack
           cards:
           - type: custom:mini-graph-card
-            name: Sun Elevation
+            name: Hot End Temperature
             entities:
-            - sensor.sun_elevation
+            - sensor.octoprint_actual_tool0_temp
             align_icon: left
             align_header: left
             line_color: '#f5f242'
             line_width: 4
           - type: custom:mini-graph-card
-            name: Chance of Rain
+            name: Bed Temperature
             entities:
-            - sensor.dark_sky_precip_probability_0h
+            - sensor.octoprint_actual_bed_temp
             line_width: 4
             line_color: '#2980b9'
             align_icon: left
@@ -533,61 +530,16 @@ views:
         - type: horizontal-stack
           cards:
           - type: custom:button-card 
-            icon: mdi:washing-machine
+            icon: mdi:printer-3d
             show_state: true
             show_name: false
-            tap_action:
-             action: call-service
-             service: script.turn_washer_idle
-            entity: sensor.washer_state
+            entity: sensor.octoprint_current_state
             state:
-            - value: "Idle"
+            - value: "Operational"
               color: rgb(245, 245, 245)
-            - value: "unknown"
+            - value: "Unknown"
               color: rgb(245, 245, 245)
-            - value: "Running"
-              color: rgb(35, 63, 166)
-            - value: "Finishing"
-              color: rgb(35, 63, 166)
-            - value: "Clean"
-              color: rgb(117, 189, 111)
-          - type: custom:button-card
-            icon: mdi:tumble-dryer
-            show_state: true 
-            show_name: false
-            entity: sensor.dryer_state
-            state:
-            - value: "Idle"
-              color: rgb(245, 245, 245)
-            - value: "unknown"
-              color: rgb(245, 245, 245)
-            - value: "Running"
-              color: rgb(35, 63, 166)
-            - value: "Finishing"
-              color: rgb(35, 63, 166)
-            - value: "Done"
-              color: rgb(117, 189, 111)
-          - type: custom:button-card
-            icon: mdi:lock
-            show_state: true 
-            show_name: false
-            entity: lock.front_door
-            tap_action: 
-              action: toggle
-            state:
-             - value: "locked"
-               color: rgb(117, 189, 111)
-             - value: "unlocked"
-               color: rgb(117,35,35)
-          - type: custom:button-card
-            icon: mdi:television
-            show_state: true 
-            show_name: false
-            entity: media_player.vizio_smartcast
-            tap_action: 
-              action: toggle
-            state:
-            - value: "on"
+            - value: "Printing"
               color: rgb(117, 189, 111)
 
     
