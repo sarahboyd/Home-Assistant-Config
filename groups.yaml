@@ -9,7 +9,6 @@ people_status:
   entities:
     - sensor.sarah_status
     - sensor.scott_status
-    
 
 wakeuplight:
   name: Wakeup Light
@@ -30,13 +29,13 @@ family:
     - group.scott
 
 sarah:
-  name: Sarah 
+  name: Sarah
   entities:
     - device_tracker.life360_sarah_boyd
 
-scott: 
+scott:
   name: Scott
-  entities: 
+  entities:
     - device_tracker.life360_scott_young
 
 washerpanel:

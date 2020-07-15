@@ -33,7 +33,7 @@
     ignore_availability: true
     name: https://d2l.app.opsgenie.com/webcal/getRecentSchedule?webcalToken=91d17c8b69b4053ddbf0c502efc943dfbbda3f306680e4ad75308d5b375f88b6
     track: false
-    
+
 - cal_id: pkq18pqh0gbb84bkqnlk1ir53o@group.calendar.google.com
   entities:
   - device_id: cleaning_schedule

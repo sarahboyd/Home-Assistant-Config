@@ -193,7 +193,7 @@ system_health:
 
 fastdotcom:
   scan_interval:
-      minutes: 120
+    minutes: 120
 
 pi_hole:
   host: 192.168.1.115

@@ -1,5 +1,5 @@
 - alias: Turn on Christmas Tree when we get home
-  initial_state: 'off'
+  initial_state: false
   trigger:
   - entity_id: sensor.sarah_status
     platform: state
@@ -12,21 +12,21 @@
     for:
       minutes: 5
   condition: []
-  action: 
+  action:
     - service: mqtt.publish
       data:
         topic: cmnd/sonoff-plug-1/POWER
         payload: 'ON'
 - alias: Turn off Christmas Tree when we both leave
-  initial_state: 'off'
+  initial_state: false
   trigger:
-  - entity_id: sensor.sarah_status
-    platform: state
-    to: Away
-  - entity_id: sensor.scott_status
-    platform: state
-    to: Away
-  condition: 
+    - entity_id: sensor.sarah_status
+      platform: state
+      to: Away
+    - entity_id: sensor.scott_status
+      platform: state
+      to: Away
+  condition:
     condition: and
     conditions:
       - condition: state
@@ -35,7 +35,7 @@
       - condition: state
         entity_id: sensor.scott_status
         state: Away
-  action: 
+  action:
     - service: mqtt.publish
       data:
         topic: cmnd/sonoff-plug-1/POWER
