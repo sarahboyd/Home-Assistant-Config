@@ -523,7 +523,7 @@ views:
             - sensor.octoprint_job_percentage
             - sensor.octoprint_time_elapsed
             - sensor.octoprint_time_remaining
-            -  
+            
 
     
   
