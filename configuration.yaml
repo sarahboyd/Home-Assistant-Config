@@ -1,8 +1,5 @@
-
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-
-
 
 homeassistant:
   customize: !include customize.yaml
@@ -58,7 +55,6 @@ badnest:
 climate:
   - platform: badnest
     scan_interval: 10
-
 
 life360:
   accounts:
@@ -130,7 +126,6 @@ utility_meter:
       - midpeak
       - offpeak
 
-
 binary_sensor:
   - platform: workday
     country: CA
@@ -158,8 +153,6 @@ camera:
     name: OctoPrint
     still_image_url: http://192.168.1.115:8090/still.jpg
     mjpeg_url: http://192.168.1.115:8090/live.mjpg
-
-
 
 ################
 # Notifications
@@ -214,7 +207,6 @@ logbook:
   #     - input_select
   #     - input_number
 
-
 #history:
 
 system_health:
@@ -226,8 +218,6 @@ fastdotcom:
 pi_hole:
   host: 192.168.1.115
   api_key: !secret pi_hole_api_key
-
-
 
 ################
 # Files to include
