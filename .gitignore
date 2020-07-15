@@ -12,6 +12,7 @@
 !lovelace/views
 !.stubs
 !.yamllint
+!custom_components/badnest
 
 # Ignore folders.
 .storage
