@@ -1,14 +1,10 @@
+---
+
 - alias: Monitor living room brightness
   trigger:
-  - platform: state
+    platform: state
     entity_id: sensor.living_room_main_light_brightness
-  condition: 
-  # - condition: template
-  #   value_template: > # onlt update brightness if it has been at least 1 seconds since the light was updated
-  #       {% set duration_seconds = 1  %}
-  #       {% set last_changed_seconds = as_timestamp(states.light.living_room_main_lights.last_changed) %}
-  #       {% set current_time_seconds = as_timestamp(strptime(states('sensor.date_time'),'%Y-%m-%d, %H:%M')) %}
-  #       {{ last_changed_seconds + duration_seconds < current_time_seconds }}
+  condition:
   - condition: template
     value_template: > 
         {{ trigger.from_state.state != 'None' }}

@@ -1,37 +1,5 @@
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-#  Washing Machine Start/Finish
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# - alias: 'Washer State - Start'
-#   trigger:
-#     platform: numeric_state
-#     entity_id: sensor.washer_power
-#     above: 5
-#     for:
-#       seconds: 4
-# # Make sure washer isn't already running and delaying between cycles - don't re-trigger and cause stopwatch reset
-#   condition:
-#     condition: template
-#     value_template: "{{ states.sensor.washer_state.state != 'Washing' }}"
-#   action:
-#     - service: mqtt.publish
-#       data:
-#         topic: hass/state/washer
-#         payload: 'Washing'
-#         retain: 'true'
-# - alias: 'Washer State - Idle'
-#   trigger:
-#     platform: numeric_state
-#     entity_id: sensor.washer_power
-#     below: 5
-#     for:
-#       minutes: 5
-#   action:
-#     - service: mqtt.publish
-#       data:
-#         topic: hass/state/washer
-#         payload: 'Idle'
-#         retain: 'true'
-
+---
+  
 # When power is detected, and the washing machine is not in 
 # the Running state, change the status of the washing machine
 # to Running. 
