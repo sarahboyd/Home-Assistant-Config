@@ -125,17 +125,17 @@
     - wind_speed
 - platform: systemmonitor
   resources:
-  - type: processor_use
-  - type: disk_use_percent
-    arg: /
-  - type: memory_use_percent
-  - type: ipv4_address
-    arg: eth0
-  - type: network_in
-    arg: eth0
-  - type: network_out
-    arg: eth0
-  - type: last_boot
+    - type: processor_use
+    - type: disk_use_percent
+      arg: /
+    - type: memory_use_percent
+    - type: ipv4_address
+      arg: eth0
+    - type: network_in
+      arg: eth0
+    - type: network_out
+      arg: eth0
+    - type: last_boot
 - platform: template
   sensors:
     living_room_main_light_brightness:
@@ -180,7 +180,7 @@
   icon: mdi:flash-circle
   availability_topic: "tele/Washer/LWT"
   payload_available: "Online"
-  payload_not_available: "Offline" 
+  payload_not_available: "Offline"
 - platform: mqtt
   name: "Washer Current"
   state_topic: "tele/Washer/SENSOR"
@@ -190,7 +190,7 @@
   icon: mdi:flash-circle
   availability_topic: "tele/Washer/LWT"
   payload_available: "Online"
-  payload_not_available: "Offline"   
+  payload_not_available: "Offline"
 - platform: mqtt
   name: "Washer Signal"
   state_topic: "tele/Washer/STATE"
@@ -199,13 +199,13 @@
   unit_of_measurement: "%"
   availability_topic: "tele/Washer/LWT"
   payload_available: "Online"
-  payload_not_available: "Offline" 
+  payload_not_available: "Offline"
 - platform: mqtt
   name: "Washer Energy Today"
   state_topic: "tele/Washer/SENSOR"
   value_template: "{{value_json['ENERGY']['Today'] }}"
   qos: 2
-  unit_of_measurement : "kWh"
+  unit_of_measurement: "kWh"
   availability_topic: "tele/Washer/LWT"
   payload_available: "Online"
   payload_not_available: "Offline"
@@ -214,7 +214,7 @@
   state_topic: "tele/Washer/SENSOR"
   value_template: "{{value_json['ENERGY']['Yesterday'] }}"
   qos: 2
-  unit_of_measurement : "kWh"
+  unit_of_measurement: "kWh"
   availability_topic: "tele/Washer/LWT"
   payload_available: "Online"
   payload_not_available: "Offline"
@@ -223,7 +223,7 @@
   state_topic: "tele/Washer/SENSOR"
   value_template: "{{value_json['ENERGY']['Total'] }}"
   qos: 2
-  unit_of_measurement : "kWh"
+  unit_of_measurement: "kWh"
   availability_topic: "tele/Washer/LWT"
   payload_available: "Online"
   payload_not_available: "Offline"
@@ -232,7 +232,7 @@
   state_topic: "tele/sonoff-plug-1/SENSOR"
   value_template: "{{value_json['ENERGY']['Today'] }}"
   qos: 2
-  unit_of_measurement : "kWh"
+  unit_of_measurement: "kWh"
   availability_topic: "tele/sonoff-plug-1/LWT"
   payload_available: "Online"
   payload_not_available: "Offline"
@@ -241,7 +241,7 @@
   state_topic: "tele/sonoff-plug-2/SENSOR"
   value_template: "{{value_json['ENERGY']['Today'] }}"
   qos: 2
-  unit_of_measurement : "kWh"
+  unit_of_measurement: "kWh"
   availability_topic: "tele/sonoff-plug-2/LWT"
   payload_available: "Online"
   payload_not_available: "Offline"
@@ -250,7 +250,7 @@
   state_topic: "tele/sonoff-plug-1/SENSOR"
   value_template: "{{value_json['ENERGY']['Yesterday'] }}"
   qos: 2
-  unit_of_measurement : "kWh"
+  unit_of_measurement: "kWh"
   availability_topic: "tele/sonoff-plug-1/LWT"
   payload_available: "Online"
   payload_not_available: "Offline"
@@ -259,7 +259,7 @@
   state_topic: "tele/sonoff-plug-2/SENSOR"
   value_template: "{{value_json['ENERGY']['Yesterday'] }}"
   qos: 2
-  unit_of_measurement : "kWh"
+  unit_of_measurement: "kWh"
   availability_topic: "tele/sonoff-plug-2/LWT"
   payload_available: "Online"
   payload_not_available: "Offline"
@@ -268,7 +268,7 @@
   state_topic: "tele/sonoff-plug-1/SENSOR"
   value_template: "{{value_json['ENERGY']['Total'] }}"
   qos: 2
-  unit_of_measurement : "kWh"
+  unit_of_measurement: "kWh"
   availability_topic: "tele/sonoff-plug-1/LWT"
   payload_available: "Online"
   payload_not_available: "Offline"
@@ -277,19 +277,19 @@
   state_topic: "tele/sonoff-plug-2/SENSOR"
   value_template: "{{value_json['ENERGY']['Total'] }}"
   qos: 2
-  unit_of_measurement : "kWh"
+  unit_of_measurement: "kWh"
   availability_topic: "tele/sonoff-plug-2/LWT"
   payload_available: "Online"
   payload_not_available: "Offline"
 - platform: mqtt
   name: "Plug 1 Power State"
   state_topic: "stat/sonoff-plug-1/POWER"
-  #value_template: "{{value_json['POWER']}}"
+  # value_template: "{{value_json['POWER']}}"
   icon: mdi:printer-3d
 - platform: mqtt
   name: "Plug 2 Power State"
   state_topic: "stat/sonoff-plug-2/POWER"
-  #value_template: "{{value_json['POWER']}}"
+  # value_template: "{{value_json['POWER']}}"
 - platform: command_line
   name: CPU Temperature
   command: "cat /sys/class/thermal/thermal_zone0/temp"
@@ -325,7 +325,7 @@
   icon: mdi:flash-circle
   availability_topic: "tele/sonoff-plug-1/LWT"
   payload_available: "Online"
-  payload_not_available: "Offline" 
+  payload_not_available: "Offline"
 - platform: mqtt
   name: "Plug 2 Voltage"
   state_topic: "tele/sonoff-plug-2/SENSOR"
@@ -335,7 +335,7 @@
   icon: mdi:flash-circle
   availability_topic: "tele/sonoff-plug-2/LWT"
   payload_available: "Online"
-  payload_not_available: "Offline" 
+  payload_not_available: "Offline"
 - platform: mqtt
   name: "Plug 1 Current"
   state_topic: "tele/sonoff-plug-1/SENSOR"
@@ -345,7 +345,7 @@
   icon: mdi:flash-circle
   availability_topic: "tele/sonoff-plug-1/LWT"
   payload_available: "Online"
-  payload_not_available: "Offline"   
+  payload_not_available: "Offline"
 - platform: mqtt
   name: "Plug 2 Current"
   state_topic: "tele/sonoff-plug-2/SENSOR"
@@ -355,7 +355,7 @@
   icon: mdi:flash-circle
   availability_topic: "tele/sonoff-plug-2/LWT"
   payload_available: "Online"
-  payload_not_available: "Offline"   
+  payload_not_available: "Offline"
 - platform: season
   type: astronomical
 - platform: badnest
@@ -373,7 +373,7 @@
     printer_cost_daily:
       friendly_name: Printer Cost Daily
       unit_of_measurement: '$'
-      value_template: > 
+      value_template: >
         {% set onpeak = ((states.sensor.printer_daily_onpeak.state | float ) * 0.208) %}
         {% set midpeak = (( states.sensor.printer_daily_midpeak.state | float ) * 0.144 ) %}
         {% set offpeak = (( states.sensor.printer_daily_offpeak.state | float ) * 0.101) %}
@@ -382,7 +382,7 @@
     printer_cost_weekly:
       friendly_name: Printer Cost Weekly
       unit_of_measurement: '$'
-      value_template: > 
+      value_template: >
         {% set onpeak = ((states.sensor.printer_weekly_onpeak.state | float ) * 0.208) %}
         {% set midpeak = (( states.sensor.printer_weekly_midpeak.state | float ) * 0.144 ) %}
         {% set offpeak = (( states.sensor.printer_weekly_offpeak.state | float ) * 0.101) %}
@@ -391,7 +391,7 @@
     printer_cost_monthly:
       friendly_name: Printer Cost Monthly
       unit_of_measurement: '$'
-      value_template: > 
+      value_template: >
         {% set onpeak = ((states.sensor.printer_monthly_onpeak.state | float ) * 0.208) %}
         {% set midpeak = (( states.sensor.printer_monthly_midpeak.state | float ) * 0.144 ) %}
         {% set offpeak = (( states.sensor.printer_monthly_offpeak.state | float ) * 0.101) %}
@@ -400,7 +400,7 @@
     washer_cost_daily:
       friendly_name: Washer Cost Daily
       unit_of_measurement: '$'
-      value_template: > 
+      value_template: >
         {% set onpeak = ((states.sensor.washer_daily_onpeak.state | float ) * 0.208) %}
         {% set midpeak = (( states.sensor.washer_daily_midpeak.state | float ) * 0.144 ) %}
         {% set offpeak = (( states.sensor.washer_daily_offpeak.state | float ) * 0.101) %}
@@ -409,7 +409,7 @@
     washer_cost_weekly:
       friendly_name: Washer Cost Weekly
       unit_of_measurement: '$'
-      value_template: > 
+      value_template: >
         {% set onpeak = ((states.sensor.washer_weekly_onpeak.state | float ) * 0.208) %}
         {% set midpeak = (( states.sensor.washer_weekly_midpeak.state | float ) * 0.144 ) %}
         {% set offpeak = (( states.sensor.washer_weekly_offpeak.state | float ) * 0.101) %}
@@ -418,7 +418,7 @@
     washer_cost_monthly:
       friendly_name: Washer Cost Monthly
       unit_of_measurement: '$'
-      value_template: > 
+      value_template: >
         {% set onpeak = ((states.sensor.washer_monthly_onpeak.state | float ) * 0.208) %}
         {% set midpeak = (( states.sensor.washer_monthly_midpeak.state | float ) * 0.144 ) %}
         {% set offpeak = (( states.sensor.washer_monthly_offpeak.state | float ) * 0.101) %}
@@ -470,5 +470,3 @@
            {%- endif -%}
            {{ ', ' }}
          {%- endif -%}
-
-

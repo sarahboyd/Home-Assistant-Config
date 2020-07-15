@@ -1,6 +1,7 @@
 ---
 ignore: |
   custom_components/
+  .github/
 rules:
   braces:
     level: error
