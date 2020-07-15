@@ -1,3 +1,5 @@
+---
+
 - alias: Turn on outside lights after dark when someone is away
   trigger:
     - platform: sun
@@ -9,21 +11,21 @@
       platform: state
       to: Away
   condition:
-  - condition: or
-    conditions:
-    - condition: state
-      entity_id: sensor.sarah_status
-      state: Away
-    - condition: state
-      entity_id: sensor.scott_status
-      state: Away
-  - condition: or
-    conditions:
-    - condition: sun
-      after: sunset
-    - condition: sun
-      before: sunrise
-      before_offset: "-01:00:00"
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: sensor.sarah_status
+        state: Away
+      - condition: state
+        entity_id: sensor.scott_status
+        state: Away
+    - condition: or
+      conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
+        before_offset: "-01:00:00"
   action:
     service: homeassistant.turn_on
     entity_id: light.outside
@@ -32,17 +34,17 @@
     platform: state
     entity_id: lock.front_door
     to: unlocked
-  condition: 
-  - condition: state
-    entity_id: light.outside
-    state: 'off'
-  - condition: or
-    conditions:
-    - condition: sun
-      after: sunset
-    - condition: sun
-      before: sunrise
-      before_offset: "-00:30:00"
+  condition:
+    - condition: state
+      entity_id: light.outside
+      state: 'off'
+    - condition: or
+      conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
+        before_offset: "-00:30:00"
   action:
     service: homeassistant.turn_on
     entity_id: light.outside
@@ -51,24 +53,24 @@
   - at: "06:40:00"
     platform: time
   condition:
-  - condition: sun
-    before: sunrise
-  - condition: state
-    entity_id: light.outside
-    state: 'off'
-  - condition: or
-    conditions:
-      - condition: time
-        weekday:          
-          - mon
-          - tue
-          - wed
-          - thu
-          - fri
-      - condition: state
-        entity_id: calendar.off_work
-        state: 'on'
-  action: 
+    - condition: sun
+      before: sunrise
+    - condition: state
+      entity_id: light.outside
+      state: 'off'
+    - condition: or
+      conditions:
+        - condition: time
+          weekday:    
+            - mon
+            - tue
+            - wed
+            - thu
+            - fri
+        - condition: state
+          entity_id: calendar.off_work
+          state: 'on'
+  action:
     service: homeassistant.turn_on
     entity_id: light.outside
 - alias: Turn off outside lights at sunrise
@@ -95,24 +97,24 @@
     to: locked
     from: unlocked
   condition:
-  - condition: state
-    entity_id: light.outside
-    state: 'on'
-  - condition: or
-    conditions: 
-      - condition: state
-        entity_id: sensor.sarah_status
-        state: 'Home'
-      - condition: state
-        entity_id: sensor.sarah_status
-        state: 'Just Arrived'
-  - condition: or
-    conditions:
-      - condition: state
-        entity_id: sensor.scott_status
-        state: 'Home'
-      - condition: state
-        entity_id: sensor.scott_status
-        state: 'Just Arrived'
+    - condition: state
+      entity_id: light.outside
+      state: 'on'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: sensor.sarah_status
+          state: 'Home'
+        - condition: state
+          entity_id: sensor.sarah_status
+          state: 'Just Arrived'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: sensor.scott_status
+          state: 'Home'
+        - condition: state
+          entity_id: sensor.scott_status
+          state: 'Just Arrived'
   action:
     service: script.turn_lights_off_delay

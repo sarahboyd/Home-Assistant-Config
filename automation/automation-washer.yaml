@@ -1,12 +1,12 @@
 ---
-  
-# When power is detected, and the washing machine is not in 
+
+# When power is detected, and the washing machine is not in
 # the Running state, change the status of the washing machine
-# to Running. 
-# The status check will ensure we don't try to put the state 
+# to Running.
+# The status check will ensure we don't try to put the state
 # to Running each time the power level changes, and we're already
 # in the Running state.
- 
+
 - alias: Set washing machine active when power detected
   trigger:
     - platform: numeric_state
@@ -22,9 +22,9 @@
         payload: 'Running'
         retain: 'true'
 
-# When the power drops, move the state of the washing machine to 
+# When the power drops, move the state of the washing machine to
 # Finishing.
- 
+
 - alias: Set washing machine finished when power drops
   trigger:
     - platform: numeric_state
@@ -44,10 +44,10 @@
         retain: 'true'
 
 # Wait 8 minutes for us to be in the Finishing state before we
-# decide the washing machine has finished. This way, if the 
-# washing machine is in between cycles and the power drops, we 
+# decide the washing machine has finished. This way, if the
+# washing machine is in between cycles and the power drops, we
 # won't mark the washing machine cycle as finished too early.
- 
+
 - alias: Set washing machine clean after timeout
   trigger:
     - platform: state
@@ -70,9 +70,9 @@
 
 - alias: Set washing machine idle after emptied
   trigger:
-  - platform: state
-    entity_id: sensor.washer_door_state
-    to: 'Door Open'
+    - platform: state
+      entity_id: sensor.washer_door_state
+      to: 'Door Open'
   condition:
     - condition: state
       entity_id: sensor.washer_state

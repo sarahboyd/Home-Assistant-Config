@@ -1,3 +1,5 @@
+---
+
 - alias: Set off peak hydro hours
   trigger:
     - platform: time
