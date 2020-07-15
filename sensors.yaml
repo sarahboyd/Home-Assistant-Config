@@ -451,10 +451,8 @@
       friendly_name: Octoprint time elapsed friendly
       value_template: "{{ states('sensor.octoprint_time_elapsed') | int | timestamp_custom('%H:%M:%S', 0) }}"
       unit_of_measurement: hours
-      icon: mdi:clock-start
     octoprint_time_remaining_friendly:
       friendly_name: "Octoprint time remaining friendly"
-      icon: mdi:clock-end    
       unit_of_measurement: hours
       value_template: >
          {% set etime = states.sensor.octoprint_time_remaining.state | int %}
