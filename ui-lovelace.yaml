@@ -471,7 +471,7 @@ views:
           - entity_id: automation.*telegram*
   - path: printer
     title: 3D Printer
-    icon: 'mdi:print'
+    icon: 'mdi:auto-fix'
     badges: []
     cards:
 
