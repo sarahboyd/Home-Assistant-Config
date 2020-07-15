@@ -481,6 +481,7 @@ views:
             - type: picture-entity
               entity: camera.octoprint
               camera_view: live 
+              show_state: false
         - type: horizontal-stack
           cards:
           - type: custom:mini-graph-card
@@ -515,6 +516,14 @@ views:
               color: rgb(245, 245, 245)
             - value: "Printing"
               color: rgb(117, 189, 111)
+        - type: entities
+          title: Current Print
+          show_header_toggle: false
+          entities:
+            - sensor.octoprint_job_percentage
+            - sensor.octoprint_time_elapsed
+            - sensor.octoprint_time_remaining
+            -  
 
     
   
