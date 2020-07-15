@@ -1,3 +1,5 @@
+---
+
 # Wakeup light
 wakeup_hour:
   name: Hour

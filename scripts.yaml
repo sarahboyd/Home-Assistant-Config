@@ -1,3 +1,5 @@
+---
+
 wakeup_bedroom:
   alias: 'Wakeup lighting, smooth transition'
   sequence:

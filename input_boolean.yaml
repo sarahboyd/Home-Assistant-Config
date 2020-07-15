@@ -1,3 +1,5 @@
+---
+
 wakeup:
   name: "Enable wakeup light"
   icon: mdi:power

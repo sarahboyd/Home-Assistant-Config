@@ -1,3 +1,5 @@
+---
+
 - platform: template
   sensors:
     sarah_status:
