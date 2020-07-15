@@ -149,6 +149,7 @@ octoprint:
       monitored_conditions:
         - 'Current State'
         - 'Job Percentage'
+        - ' Temperatures'
         - 'Time Elapsed'
         - 'Time Remaining'
 
