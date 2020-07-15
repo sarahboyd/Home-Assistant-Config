@@ -147,7 +147,7 @@
     - condition: or
       conditions:
         - condition: time
-          weekday:          
+          weekday:   
             - mon
             - tue
             - wed

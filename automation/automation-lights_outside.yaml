@@ -13,19 +13,19 @@
   condition:
     - condition: or
       conditions:
-      - condition: state
-        entity_id: sensor.sarah_status
-        state: Away
-      - condition: state
-        entity_id: sensor.scott_status
-        state: Away
+        - condition: state
+          entity_id: sensor.sarah_status
+          state: Away
+        - condition: state
+          entity_id: sensor.scott_status
+          state: Away
     - condition: or
       conditions:
-      - condition: sun
-        after: sunset
-      - condition: sun
-        before: sunrise
-        before_offset: "-01:00:00"
+        - condition: sun
+          after: sunset
+        - condition: sun
+          before: sunrise
+          before_offset: "-01:00:00"
   action:
     service: homeassistant.turn_on
     entity_id: light.outside
@@ -40,18 +40,18 @@
       state: 'off'
     - condition: or
       conditions:
-      - condition: sun
-        after: sunset
-      - condition: sun
-        before: sunrise
-        before_offset: "-00:30:00"
+        - condition: sun
+          after: sunset
+        - condition: sun
+          before: sunrise
+          before_offset: "-00:30:00"
   action:
     service: homeassistant.turn_on
     entity_id: light.outside
 - alias: Turn on outside lights before work
   trigger:
-  - at: "06:40:00"
-    platform: time
+    - at: "06:40:00"
+      platform: time
   condition:
     - condition: sun
       before: sunrise
@@ -61,7 +61,7 @@
     - condition: or
       conditions:
         - condition: time
-          weekday:    
+          weekday:
             - mon
             - tue
             - wed
@@ -75,27 +75,27 @@
     entity_id: light.outside
 - alias: Turn off outside lights at sunrise
   trigger:
-  - platform: sun
-    event: sunrise
-    offset: "-00:05:00"
+    - platform: sun
+      event: sunrise
+      offset: "-00:05:00"
   condition: []
   action:
     service: homeassistant.turn_off
     entity_id: light.outside
 - alias: Turn off outside lights at 2am
   trigger:
-  - at: "02:00:00"
-    platform: time
+    - at: "02:00:00"
+      platform: time
   condition: []
   action:
     service: homeassistant.turn_off
     entity_id: light.outside
 - alias: Turn off outside lights when the door locks if we are both home
   trigger:
-  - platform: state
-    entity_id: lock.front_door
-    to: locked
-    from: unlocked
+    - platform: state
+      entity_id: lock.front_door
+      to: locked
+      from: unlocked
   condition:
     - condition: state
       entity_id: light.outside
