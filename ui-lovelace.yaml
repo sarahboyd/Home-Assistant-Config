@@ -483,35 +483,6 @@ views:
               update_interval: 2
               cameras:
                 - entity: camera.octoprint
-            - type: custom:vertical-style-card
-              title: Location
-              style:
-                font_size: 24px
-                border: true
-              cards:
-                - type: horizontal-stack
-                  cards:
-                  - type: picture-glance
-                    entities:
-                      - person.sarah
-                      - sensor.sarah_phone
-                    state_image: 
-                      "home": /local/images/sarah.jpg
-                      "not_home": /local/images/sarah_away.jpg
-                      "Work": /local/images/sarah_away.jpg
-                    entity: person.sarah
-                    state_filter:
-                      "not_home": grayscale(72%)
-                  - type: picture-glance
-                    entities:
-                      - person.scott
-                      - sensor.scott_phone
-                    state_image: 
-                      "home": /local/images/scott.jpg
-                      "not_home": /local/images/scott_away.jpg
-                    entity: person.scott
-                    state_filter:
-                      "not_home": grayscale(72%)
         - type: horizontal-stack
           cards:
           - type: custom:mini-graph-card
