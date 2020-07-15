@@ -521,9 +521,10 @@ views:
           show_header_toggle: false
           entities:
             - sensor.octoprint_job_percentage
-            - sensor.octoprint_time_elapsed
-            - sensor.octoprint_time_remaining
-            
+            - sensor.octoprint_time_elapsed_friendly
+              icon: mdi:clock-start
+            - sensor.octoprint_time_remaining_friendly	
+              icon: mdi:clock-end
 
     
   
