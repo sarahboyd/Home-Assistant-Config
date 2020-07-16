@@ -24,3 +24,4 @@ hacs.json
 .august.conf
 home-assistant.log
 home-assistant_v2.db
+google_calendars.yaml
