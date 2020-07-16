@@ -31,10 +31,6 @@ frontend:
   themes: !include themes.yaml
   javascript_version: latest
 
-weather:
-  - platform: darksky
-    api_key: !secret darksky_api
-
 lutron_caseta:
   host: 192.168.1.19
   keyfile: /home/homeassistant/.homeassistant/ssl/lutron/caseta.key
