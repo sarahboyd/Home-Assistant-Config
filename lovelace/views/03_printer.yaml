@@ -11,7 +11,7 @@
           cards:
             - type: picture-entity
               entity: camera.octoprint
-              camera_view: live 
+              camera_view: live
               show_state: false
         - type: horizontal-stack
           cards:
@@ -35,18 +35,18 @@
       cards:
         - type: horizontal-stack
           cards:
-            - type: custom:button-card 
+            - type: custom:button-card
               icon: mdi:printer-3d
               show_state: true
               show_name: false
               entity: sensor.octoprint_current_state
               state:
-              - value: "Operational"
-                color: rgb(245, 245, 245)
-              - value: "Unknown"
-                color: rgb(245, 245, 245)
-              - value: "Printing"
-                color: rgb(117, 189, 111)
+                - value: "Operational"
+                  color: rgb(245, 245, 245)
+                - value: "Unknown"
+                  color: rgb(245, 245, 245)
+                - value: "Printing"
+                  color: rgb(117, 189, 111)
         - type: entities
           title: Current Print
           show_header_toggle: false
@@ -56,4 +56,3 @@
               icon: mdi:clock-start
             - entity: sensor.octoprint_time_remaining_friendly
               icon: mdi:clock-end
-          
