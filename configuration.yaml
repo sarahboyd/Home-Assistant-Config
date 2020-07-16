@@ -3,6 +3,7 @@
 default_config:
 
 homeassistant:
+  packages: !include_dir_named integrations
   customize: !include customize.yaml
 
 discovery:
@@ -22,10 +23,6 @@ proximity:
       - device_tracker.life360_scott_young
     tolerance: 100  # In meters
     unit_of_measurement: km  # Used for travel distances
-
-lovelace:
-  mode: yaml
-  resources: !include lovelace/resources/resources.yaml
 
 frontend:
   themes: !include themes.yaml
@@ -205,5 +202,3 @@ input_select: !include input_select.yaml
 input_number: !include input_number.yaml
 input_boolean: !include input_boolean.yaml
 notify: !include notify.yaml
-
-packages: !include_dir_named integrations
