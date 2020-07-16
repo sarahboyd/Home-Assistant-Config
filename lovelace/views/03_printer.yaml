@@ -7,7 +7,7 @@
   cards:
     - type: vertical-stack
       cards:
-        - type: hortizontal-stack
+        - type: horizontal-stack
           cards:
             - type: picture-entity
               entity: camera.octoprint
