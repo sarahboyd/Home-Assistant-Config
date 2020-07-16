@@ -1,0 +1,130 @@
+---
+
+- path: system
+  title: System
+  icon: 'mdi:laptop'
+  panel: true
+  badges: []
+  cards:
+    - type: custom:layout-card
+      layout: vertical
+      cards:
+        - type: custom:vertical-style-card
+          cards:
+            - type: custom:mini-graph-card
+              entities:
+                - sensor.processor_use
+              line_width: 4
+              line_color: '#2980b9'
+              align_icon: left
+              align_header: left
+            - type: custom:bar-card
+              entity: sensor.memory_use_percent
+              title: RAM
+              title_position: inside
+              align: split
+              show_icon: true
+              positions:
+                icon: outside
+            - type: custom:bar-card
+              entity: sensor.disk_use_percent
+              title: HDD
+              title_position: inside  
+              align: split
+              show_icon: true
+              color: '#00ba6a'
+              positions:
+                icon: outside
+            - type: entities
+              entities:
+                - sensor.last_boot
+            - type: custom:mini-graph-card
+              name: CPU Temperature
+              entities:
+                - sensor.cpu_temperature
+              line_width: 4
+              line_color: '#2980b9'
+              align_icon: left
+              align_header: left
+              hours_to_show: 72
+            - break
+            - type: horizontal-stack
+              cards:
+                - type: custom:mini-graph-card
+                  name: Download
+                  entities:
+                    -  sensor.fast_com_download
+                  line_width: 4
+                  line_color: '#2980b9'
+                  align_icon: left
+                  align_header: left
+                  hours_to_show: 72
+            - type: custom:vertical-style-card
+              title: Pi-Hole
+              cards:
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:mini-graph-card
+                      entities:
+                        - sensor.pi_hole_ads_blocked_today
+                      name: Ads Blocked Today
+                      hours_to_show: 24
+                      line_width: 4
+                    - type: custom:mini-graph-card
+                      entities:
+                        - sensor.pi_hole_ads_percentage_blocked_today
+                      name: Percentage Blocked
+                      hours_to_show: 24
+                      line_width: 4
+            - type: vertical-stack
+              cards:
+                - type: custom:bar-card
+                  entity: sensor.pi_hole_dns_queries_today
+                  title: DNS Queries Today
+                  title_position: inside
+                  align: split
+                  show_icon: true 
+                  max: '50000'
+                - type: custom:bar-card
+                  entity: sensor.pi_hole_domains_blocked
+                  title: Domains Blocked
+                  title_position: inside
+                  align: split
+                  show_icon: true 
+                  max: '2000000'
+                  icon: mdi:cancel 
+            - break
+            - type: custom:auto-entities
+              card:
+                type: entities
+                title: Things that are broken
+                show_header_toggle: false               
+              filter:
+                include:
+                  - state: "unknown"
+                exclude:
+                  - entity_id: group.*
+            - type: custom:auto-entities
+              show_empty: false
+              card:
+                type: glance
+                title: Low Battery Devices
+                show_header_toggle: false 
+              filter:
+                include:
+                  - entity_id: "*battery_level*"
+                    state: '< 25'
+                  - attributes:
+                      battery: '< 25'
+                  - attributes:
+                      battery_level: '< 25'
+            - type: custom:auto-entities
+              show_empty: false
+              card:  
+                title: Home Assistant Update Available
+                type: glance
+                show_header_toggle: false
+              filter:
+                include: 
+                  - entity_id: binary_sensor.updator
+                    state: 'available'
