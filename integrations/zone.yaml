@@ -1,0 +1,7 @@
+---
+
+zone:
+  - name: home
+    latitude: !secret latitude
+    longitude: !secret longitude
+    radius: 200  # In meters
