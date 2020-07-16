@@ -23,6 +23,8 @@ proximity:
     tolerance: 100  # In meters
     unit_of_measurement: km  # Used for travel distances
 
+lovelace_gen:
+
 lovelace:
   mode: yaml
   resources: !include lovelace/resources/resources.yaml
