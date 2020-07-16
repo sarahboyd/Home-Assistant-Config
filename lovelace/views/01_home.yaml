@@ -173,7 +173,7 @@
             - type: custom:mini-media-player
               entity: media_player.vizio_smartcast
     - type: vertical-stack
-      cards:  
+      cards:
         - type: custom:mini-graph-card
           name: Washing Machine Daily Cost
           entities:
