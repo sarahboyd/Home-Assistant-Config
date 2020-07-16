@@ -24,6 +24,7 @@ proximity:
     unit_of_measurement: km  # Used for travel distances
 
 lovelace_gen:
+  home: !include ui/configuration.yaml
 
 lovelace:
   mode: yaml
@@ -211,3 +212,5 @@ input_select: !include input_select.yaml
 input_number: !include input_number.yaml
 input_boolean: !include input_boolean.yaml
 notify: !include notify.yaml
+
+packages: !include_dir_named integrations
