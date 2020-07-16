@@ -1,0 +1,11 @@
+---
+
+platform: mqtt
+name: "Washer Signal"
+state_topic: "tele/Washer/STATE"
+value_template: "{{value_json['Wifi']['RSSI'] }}"
+qos: 2
+unit_of_measurement: "%"
+availability_topic: "tele/Washer/LWT"
+payload_available: "Online"
+payload_not_available: "Offline"

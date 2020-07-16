@@ -1,0 +1,6 @@
+---
+
+platform: mqtt
+name: "OctoPi Software Temp Limit"
+state_topic: "octopi/throttling"
+value_template: "{{value_json['softTempLimit']}}"

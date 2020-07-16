@@ -1,0 +1,12 @@
+---
+
+platform: mqtt
+name: "Washer Voltage"
+state_topic: "tele/Washer/SENSOR"
+value_template: "{{value_json['ENERGY']['Voltage'] }}"
+qos: 2
+unit_of_measurement: "V"
+icon: mdi:flash-circle
+availability_topic: "tele/Washer/LWT"
+payload_available: "Online"
+payload_not_available: "Offline"

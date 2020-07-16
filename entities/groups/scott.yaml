@@ -1,0 +1,6 @@
+---
+
+scott:
+  name: Scott
+  entities:
+    - device_tracker.life360_scott_young

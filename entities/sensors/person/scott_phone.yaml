@@ -1,0 +1,13 @@
+---
+platform: template
+sensors:
+  scott_phone:
+    friendly_name: Scott's phone
+    unit_of_measurement: "%"
+    value_template: >-
+            {%- if states.device_tracker.life360_scott_young.attributes.battery %}
+                {{ states.device_tracker.life360_scott_young.attributes.battery|round }}
+            {% else %}
+                {{ states.sensor.scott_phone.state }}
+            {%- endif %}
+    device_class: battery

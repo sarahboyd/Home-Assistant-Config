@@ -1,0 +1,6 @@
+---
+
+platform: mqtt
+name: "OctoPi Throttled"
+state_topic: "octopi/throttling"
+value_template: "{{value_json['throttled']}}"

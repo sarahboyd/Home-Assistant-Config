@@ -1,0 +1,5 @@
+---
+
+platform: command_line
+name: MidPeak Hydro Rate
+command: "cat /home/homeassistant/.homeassistant/hydro_rates/midpeak"

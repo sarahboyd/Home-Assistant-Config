@@ -1,0 +1,8 @@
+---
+
+platform: template
+sensors:
+  wakeup_fadein_duration:
+    friendly_name: 'Fade-in duration'
+    value_template: '{{ states.input_number.wakeup_duration.state | int }}'
+    unit_of_measurement: 'min'

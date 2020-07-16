@@ -1,0 +1,10 @@
+---
+
+turn_washer_idle:
+  alias: 'Turn washer to idle'
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: hass/state/washer
+        payload: 'Idle'
+        retain: 'true'

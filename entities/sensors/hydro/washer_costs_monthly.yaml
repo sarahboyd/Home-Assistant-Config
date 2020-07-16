@@ -1,0 +1,13 @@
+---
+
+platform: template
+sensors:
+  washer_cost_monthly:
+    friendly_name: Washer Cost Monthly
+    unit_of_measurement: '$'
+    value_template: >
+        {% set onpeak = ((states.sensor.washer_monthly_onpeak.state | float ) * 0.208) %}
+        {% set midpeak = (( states.sensor.washer_monthly_midpeak.state | float ) * 0.144 ) %}
+        {% set offpeak = (( states.sensor.washer_monthly_offpeak.state | float ) * 0.101) %}
+        {% set total = onpeak + midpeak + offpeak %}
+        {{ total | round(4) }}

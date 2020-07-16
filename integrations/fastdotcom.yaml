@@ -1,0 +1,5 @@
+---
+
+fastdotcom:
+  scan_interval:
+    minutes: 120

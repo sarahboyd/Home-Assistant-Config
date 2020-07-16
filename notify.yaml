@@ -1,5 +1,0 @@
----
-
-- name: telegram_sarah
-  platform: telegram
-  chat_id: !secret sarah_chat

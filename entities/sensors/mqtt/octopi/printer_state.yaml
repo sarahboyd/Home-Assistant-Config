@@ -1,0 +1,5 @@
+---
+
+platform: mqtt
+name: "Printer State"
+state_topic: "hass/state/printer"

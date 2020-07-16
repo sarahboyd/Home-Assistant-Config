@@ -1,0 +1,5 @@
+---
+
+platform: command_line
+name: OffPeak Hydro Rate
+command: "cat /home/homeassistant/.homeassistant/hydro_rates/offpeak"

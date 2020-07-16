@@ -1,0 +1,13 @@
+---
+
+platform: template
+sensors:
+  printer_cost_monthly:
+    friendly_name: Printer Cost Monthly
+    unit_of_measurement: '$'
+    value_template: >
+        {% set onpeak = ((states.sensor.printer_monthly_onpeak.state | float ) * 0.208) %}
+        {% set midpeak = (( states.sensor.printer_monthly_midpeak.state | float ) * 0.144 ) %}
+        {% set offpeak = (( states.sensor.printer_monthly_offpeak.state | float ) * 0.101) %}
+        {% set total = onpeak + midpeak + offpeak %}
+        {{ total | round(4) }}

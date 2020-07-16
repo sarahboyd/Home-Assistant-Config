@@ -1,0 +1,7 @@
+---
+
+people_status:
+  name: People Status
+  entities:
+    - sensor.sarah_status
+    - sensor.scott_status

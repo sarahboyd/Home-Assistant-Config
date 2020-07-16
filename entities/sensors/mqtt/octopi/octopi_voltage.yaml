@@ -1,0 +1,6 @@
+---
+
+platform: mqtt
+name: "OctoPi Voltage Level"
+state_topic: "octopi/voltage"
+unit_of_measurement: "V"

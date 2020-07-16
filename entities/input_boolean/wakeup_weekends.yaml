@@ -1,0 +1,6 @@
+---
+
+wakeup_weekends:
+  name: "Wakeup weekends"
+  icon: mdi:power
+  initial: false

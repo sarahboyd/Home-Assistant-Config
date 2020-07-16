@@ -1,0 +1,12 @@
+---
+
+logbook:
+  exclude:
+    entities:
+      - sensor.last_boot
+      - sensor.date
+      - sensor.date_time
+      - sensor.date_iso
+      - sensor.time_date
+    domains:
+      - sun

@@ -1,0 +1,20 @@
+---
+
+living_room_main_light_brightness:
+  name: Living Room brightness
+  initial: 114
+  min: 0
+  max: 255
+  step: 1
+dining_room_light_brightness:
+  name: Dining Room Brightness
+  initial: 114
+  min: 0
+  max: 255
+  step: 1
+front_hall_light_brightness:
+  name: Front Hall Brightness
+  initial: 114
+  min: 0
+  max: 255
+  step: 1

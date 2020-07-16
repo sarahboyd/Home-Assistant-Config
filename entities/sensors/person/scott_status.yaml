@@ -1,0 +1,6 @@
+---
+platform: template
+sensors:
+  scott_status:
+    value_template: "{{ states.input_select.scott_status_dropdown.state }}"
+    friendly_name: "Scott"

@@ -1,0 +1,7 @@
+---
+
+camera:
+  - platform: mjpeg
+    name: OctoPrint
+    still_image_url: http://192.168.1.115:8090/still.jpg
+    mjpeg_url: http://192.168.1.115:8090/live.mjpg

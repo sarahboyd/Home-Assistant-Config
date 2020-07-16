@@ -1,0 +1,6 @@
+---
+
+august:
+  login_method: phone
+  username: !secret august_username
+  password: !secret august_password

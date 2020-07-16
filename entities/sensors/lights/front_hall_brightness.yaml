@@ -1,0 +1,7 @@
+---
+
+platform: template
+sensors:
+  front_hall_light_brightness:
+    friendly_name: "Front Hall Brightness"
+    value_template: "{{ state_attr('light.front_foyer_main_lights',	'brightness') }}"

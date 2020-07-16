@@ -1,0 +1,11 @@
+---
+
+platform: mqtt
+name: "Washer Energy Yesterday"
+state_topic: "tele/Washer/SENSOR"
+value_template: "{{value_json['ENERGY']['Yesterday'] }}"
+qos: 2
+unit_of_measurement: "kWh"
+availability_topic: "tele/Washer/LWT"
+payload_available: "Online"
+payload_not_available: "Offline"

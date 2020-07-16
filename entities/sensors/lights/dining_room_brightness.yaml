@@ -1,0 +1,7 @@
+---
+
+platform: template
+sensors:
+  dining_room_light_brightness:
+    friendly_name: "Dining Room Brightness"
+    value_template: "{{ state_attr('light.dining_room_chandelier', 'brightness') }}"

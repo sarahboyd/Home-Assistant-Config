@@ -1,0 +1,12 @@
+---
+
+platform: mqtt
+name: "Washer Power"
+state_topic: "tele/Washer/SENSOR"
+value_template: "{{value_json['ENERGY']['Power'] }}"
+qos: 2
+unit_of_measurement: "W"
+icon: mdi:flash-circle
+availability_topic: "tele/Washer/LWT"
+payload_available: "Online"
+payload_not_available: "Offline"

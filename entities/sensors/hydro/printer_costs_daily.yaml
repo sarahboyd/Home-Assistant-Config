@@ -1,0 +1,13 @@
+---
+
+platform: template
+sensors:
+  printer_cost_daily:
+    friendly_name: Printer Cost Daily
+    unit_of_measurement: '$'
+    value_template: >
+        {% set onpeak = ((states.sensor.printer_daily_onpeak.state | float ) * 0.208) %}
+        {% set midpeak = (( states.sensor.printer_daily_midpeak.state | float ) * 0.144 ) %}
+        {% set offpeak = (( states.sensor.printer_daily_offpeak.state | float ) * 0.101) %}
+        {% set total = onpeak + midpeak + offpeak %}
+        {{ total | round(4) }}

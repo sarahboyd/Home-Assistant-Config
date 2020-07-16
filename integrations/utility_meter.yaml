@@ -1,0 +1,45 @@
+---
+
+utility_meter:
+  printer_daily:
+    source: sensor.plug_1_energy_today
+    cycle: daily
+    tariffs:
+      - onpeak
+      - midpeak
+      - offpeak
+  printer_weekly:
+    source: sensor.plug_1_energy_today
+    cycle: weekly
+    tariffs:
+      - onpeak
+      - midpeak
+      - offpeak
+  printer_monthly:
+    source: sensor.plug_1_energy_today
+    cycle: monthly
+    tariffs:
+      - onpeak
+      - midpeak
+      - offpeak
+  washer_daily:
+    source: sensor.washer_energy_today
+    cycle: daily
+    tariffs:
+      - onpeak
+      - midpeak
+      - offpeak
+  washer_weekly:
+    source: sensor.washer_energy_today
+    cycle: weekly
+    tariffs:
+      - onpeak
+      - midpeak
+      - offpeak
+  washer_monthly:
+    source: sensor.washer_energy_today
+    cycle: monthly
+    tariffs:
+      - onpeak
+      - midpeak
+      - offpeak

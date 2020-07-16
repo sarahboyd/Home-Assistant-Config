@@ -1,0 +1,14 @@
+---
+
+octoprint:
+  - host: 192.168.1.6
+    api_key: !secret octoprint_api_key
+    bed: true
+    number_of_tools: 2
+    sensors:
+      monitored_conditions:
+        - 'Current State'
+        - 'Temperatures'
+        - 'Job Percentage'
+        - 'Time Elapsed'
+        - 'Time Remaining'

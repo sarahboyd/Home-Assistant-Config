@@ -1,0 +1,7 @@
+---
+
+platform: template
+sensors:
+  living_room_main_light_brightness:
+    friendly_name: "Living Room Brightness"
+    value_template: "{{ state_attr('light.living_room_main_lights', 'brightness') }}"

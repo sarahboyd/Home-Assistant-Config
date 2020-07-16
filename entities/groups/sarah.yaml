@@ -1,0 +1,6 @@
+---
+
+sarah:
+  name: Sarah
+  entities:
+    - device_tracker.life360_sarah_boyd

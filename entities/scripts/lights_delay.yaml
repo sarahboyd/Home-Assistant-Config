@@ -1,0 +1,8 @@
+---
+
+turn_lights_off_delay:
+  alias: 'Turn outdoor lights off after 30 minutes'
+  sequence:
+    - delay: '00:30:00'
+    - service: homeassistant.turn_off
+      entity_id: light.outside

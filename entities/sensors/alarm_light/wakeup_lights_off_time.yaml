@@ -1,0 +1,24 @@
+---
+
+platform: template
+sensors:
+  wakeup_lights_off_time:
+    friendly_name: 'Morning lights off time'
+    value_template: >
+          {% if states.sensor.wakeup_alarm_time is defined and states.input_number.wakeup_duration is defined %}
+          {% if states.sensor.wakeup_alarm_time and states.input_number.wakeup_duration %}
+          {% set alarmtime = states.sensor.wakeup_alarm_time.state %}
+          {% set alarm_hour = alarmtime.split(":")[0] | int %}
+          {% set alarm_min = alarmtime.split(":")[1] | int %}
+          {% set light_dur = 60 | int %}
+          {% set alarm_min_light = alarm_min + light_dur %}
+          {% if alarm_min_light  > 60 %}
+          {% set alarm_min_light = alarm_min_light - 60 %}
+          {% set alarm_hour_light = alarm_hour + 1 %}
+          {% if alarm_hour_light < 0 %}{% set alarm_hour_light = 23 %}{% endif %}
+          {% if alarm_hour_light < 10 %}0{% endif %}{{ alarm_hour_light}}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+          {% else %}
+          {% if alarm_hour < 10 %}0{% endif %}{{ alarm_hour }}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+          {% endif %}
+          {% endif %}
+          {% endif %}

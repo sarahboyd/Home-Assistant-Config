@@ -1,0 +1,12 @@
+---
+
+platform: mqtt
+name: "Plug 1 Current"
+state_topic: "tele/sonoff-plug-1/SENSOR"
+value_template: "{{value_json['ENERGY']['Current'] }}"
+qos: 2
+unit_of_measurement: "A"
+icon: mdi:flash-circle
+availability_topic: "tele/sonoff-plug-1/LWT"
+payload_available: "Online"
+payload_not_available: "Offline"

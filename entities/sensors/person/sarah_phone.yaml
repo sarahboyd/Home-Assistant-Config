@@ -1,0 +1,13 @@
+---
+platform: template
+sensors:
+  sarah_phone:
+    friendly_name: Sarah's phone
+    unit_of_measurement: "%"
+    value_template: >-
+      {%- if states.device_tracker.life360_sarah_boyd.attributes.battery %}
+        {{ states.device_tracker.life360_sarah_boyd.attributes.battery|round }}
+      {% else %}
+        {{ states.sensor.sarah_phone.state }}
+      {%- endif %}
+    device_class: battery

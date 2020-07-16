@@ -1,0 +1,5 @@
+---
+
+platform: mqtt
+name: "OctoPi Throttling Stats"
+state_topic: "octopi/throttling"

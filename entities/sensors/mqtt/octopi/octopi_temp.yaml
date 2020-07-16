@@ -1,0 +1,6 @@
+---
+
+platform: mqtt
+name: "OctoPi Temperature"
+state_topic: "octopi/temp"
+unit_of_measurement: "°C"
