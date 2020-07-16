@@ -6,6 +6,12 @@
 .storage
 .cloud
 .google.token
+custom_components/hacs
+custom_components/node_red
+www
+ssl
+hydro_rates
+
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
@@ -13,3 +19,7 @@ secrets.yaml
 known_devices.yaml
 .vscode/settings.json
 gbridge config.PNG
+hacs.json
+august.conf
+home-assistant.log
+home-assistant_v2.db
