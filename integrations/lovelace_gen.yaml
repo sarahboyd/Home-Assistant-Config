@@ -1,0 +1,3 @@
+---
+lovelace_gen:
+home: !include ../ui/configuration.yaml
