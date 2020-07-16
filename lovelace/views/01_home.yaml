@@ -61,7 +61,7 @@
               align_header: left
     - type: vertical-stack
       cards:
-        - type: horizonatl-stack
+        - type: horizontal-stack
           cards:
             - type: custom:button-card
               icon: mdi:washing-machine
@@ -173,7 +173,7 @@
             - type: custom:mini-media-player
               entity: media_player.vizio_smartcast
     - type: vertical-stack
-      cards:
+      cards:  
         - type: custom:mini-graph-card
           name: Washing Machine Daily Cost
           entities:
