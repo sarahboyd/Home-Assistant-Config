@@ -4,7 +4,10 @@
   path: test
   cards: 
     - type: horizontal-stack
+
       cards:
         # Home Header
+        - type: custom:vertical-style-card
+          title: {{ _global.home.name }}
         - type: weather-forecast
-          entity: {{_global.home.weather}}
+          entity: {{ _global.home.weather }}
