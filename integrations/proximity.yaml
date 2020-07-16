@@ -1,6 +1,6 @@
 ---
 
-  proximity:
+proximity:
   home:
     devices:
       - device_tracker.life360_sarah_boyd
