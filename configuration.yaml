@@ -10,20 +10,6 @@ discovery:
 
 map:
 
-zone:
-  - name: home
-    latitude: !secret latitude
-    longitude: !secret longitude
-    radius: 200  # In meters
-
-proximity:
-  home:
-    devices:
-      - device_tracker.life360_sarah_boyd
-      - device_tracker.life360_scott_young
-    tolerance: 100  # In meters
-    unit_of_measurement: km  # Used for travel distances
-
 frontend:
   themes: !include themes.yaml
   javascript_version: latest
