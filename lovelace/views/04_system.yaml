@@ -29,7 +29,7 @@
             - type: custom:bar-card
               entity: sensor.disk_use_percent
               title: HDD
-              title_position: inside  
+              title_position: inside
               align: split
               show_icon: true
               color: '#00ba6a'
@@ -53,7 +53,7 @@
                 - type: custom:mini-graph-card
                   name: Download
                   entities:
-                    -  sensor.fast_com_download
+                    - sensor.fast_com_download
                   line_width: 4
                   line_color: '#2980b9'
                   align_icon: left
@@ -83,14 +83,14 @@
                   title: DNS Queries Today
                   title_position: inside
                   align: split
-                  show_icon: true 
+                  show_icon: true
                   max: '50000'
                 - type: custom:bar-card
                   entity: sensor.pi_hole_domains_blocked
                   title: Domains Blocked
                   title_position: inside
                   align: split
-                  show_icon: true 
+                  show_icon: true
                   max: '2000000'
                   icon: mdi:cancel 
             - break
@@ -98,7 +98,7 @@
               card:
                 type: entities
                 title: Things that are broken
-                show_header_toggle: false               
+                show_header_toggle: false         
               filter:
                 include:
                   - state: "unknown"
@@ -109,7 +109,7 @@
               card:
                 type: glance
                 title: Low Battery Devices
-                show_header_toggle: false 
+                show_header_toggle: false
               filter:
                 include:
                   - entity_id: "*battery_level*"
@@ -120,11 +120,11 @@
                       battery_level: '< 25'
             - type: custom:auto-entities
               show_empty: false
-              card:  
+              card:
                 title: Home Assistant Update Available
                 type: glance
                 show_header_toggle: false
               filter:
-                include: 
+                include:
                   - entity_id: binary_sensor.updator
                     state: 'available'
