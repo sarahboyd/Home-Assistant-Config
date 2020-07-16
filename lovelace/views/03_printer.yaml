@@ -7,12 +7,10 @@
   cards:
     - type: vertical-stack
       cards:
-        - type: horizontal-stack
-          cards:
-            - type: picture-entity
-              entity: camera.octoprint
-              camera_view: live
-              show_state: false
+        - type: picture-entity
+          entity: camera.octoprint
+          camera_view: live
+          show_state: false
         - type: horizontal-stack
           cards:
             - type: custom:mini-graph-card
