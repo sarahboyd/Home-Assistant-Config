@@ -1,0 +1,24 @@
+---
+alias: Turn on automations when at least one person returns
+trigger:
+  - platform: state
+    entity_id: input_select.sarah_status_dropdown
+    from: Extended Away
+    to: Just Arrived
+  - platform: state
+    entity_id: input_select.sarah_status_dropdown
+    from: Extended Away
+    to: Home
+  - platform: state
+    entity_id: input_select.scott_status_dropdown
+    from: Extended Away
+    to: Just Arrived
+  - platform: state
+    entity_id: input_select.scott_status_dropdown
+    from: Extended Away
+    to: Home
+action:
+  - service: automation.turn_on
+    entity_id: automation.wake_up_light_bedroom
+  - service: automation.turn_on
+    entity_id: automation.turn_on_bedroom_lights_before_bed

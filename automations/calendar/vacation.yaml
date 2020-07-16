@@ -1,0 +1,15 @@
+---
+alias: Calendar - Turn off morning routine for vacations
+trigger:
+  platform: state
+  entity_id: calendar.off_work
+  from: "off"
+  to: "on"
+condition: []
+action:
+  - service: automation.turn_off
+    entity_id: automation.wake_up_light_bedroom
+  - service: automation.turn_off
+    entity_id: automation.send_alert_to_google_home_if_we_should_start_the_cars_before_work
+  - service: automation.turn_off
+    entity_id: automation.turn_on_outside_lights_before_work

@@ -1,0 +1,12 @@
+---
+id: "telegramboot"
+alias: "Telegram bot to notify on boot"
+initial_state: false
+trigger:
+  - event: start
+    platform: homeassistant
+condition: []
+action:
+  - service: notify.telegram_sarah
+    data:
+      message: Home Assistant booted!

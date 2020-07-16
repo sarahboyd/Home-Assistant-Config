@@ -1,0 +1,19 @@
+---
+alias: Set theme and states at startup
+trigger:
+  - platform: homeassistant
+    event: start
+action:
+  # - service: frontend.set_theme
+  #   data:
+  #     name: Dark - Blue
+  - service: mqtt.publish
+    data:
+      topic: hass/state/dryer
+      payload: "Idle"
+      retain: "true"
+  - service: mqtt.publish
+    data:
+      topic: hass/state/washer
+      payload: "Idle"
+      retain: "true"

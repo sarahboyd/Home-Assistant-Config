@@ -1,0 +1,46 @@
+---
+alias: Send alert to phones when washing machine has not been emptied
+trigger:
+  - platform: state
+    entity_id: sensor.washer_state
+    to: Clean
+    for:
+      minutes: 10
+  - platform: state
+    entity_id: sensor.sarah_status
+    to: "Home"
+    for:
+      minutes: 10
+  - platform: state
+    entity_id: sensor.scott_status
+    to: "Home"
+    for:
+      minutes: 10
+condition:
+  condition: and
+  conditions:
+    - condition: time
+      before: "22:00:00"
+      after: "09:00:00"
+    - condition: state
+      entity_id: group.family
+      state: "home"
+    - condition: state
+      entity_id: sensor.washer_state
+      state: Clean
+    - condition: template
+      value_template: "{{ states.sensor.dryer_state.state != 'Running' }}"
+action:
+  - service_template: >
+      {% if (is_state('sensor.sarah_status', 'Home')) and (is_state('sensor.scott_status', 'Home'))  %}
+         notify.telegram_sarah
+      {% elif is_state('sensor.sarah_status', 'Home') %}
+         notify.telegram_sarah
+      {% elif is_state('sensor.scott_status', 'Home') %}
+      {% endif %}
+    data_template:
+      message: "Hey, the washing machine has finished and is ready to be emptied"
+      data:
+        inline_keyboard:
+          - "30 Minutes:/30m, 1 Hour:/1h, already empty:/empty_washer"
+          - "No reminder:/removekeyboard"

@@ -1,0 +1,13 @@
+---
+alias: Auto Unlock Front Door
+trigger:
+  - entity_id: sensor.sarah_status
+    platform: state
+    to: Just Arrived
+  - entity_id: sensor.scott_status
+    platform: state
+    to: Just Arrived
+condition: []
+action:
+  - service: lock.unlock
+    entity_id: all

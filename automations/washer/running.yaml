@@ -1,0 +1,22 @@
+---
+# When power is detected, and the washing machine is not in
+# the Running state, change the status of the washing machine
+# to Running.
+# The status check will ensure we don't try to put the state
+# to Running each time the power level changes, and we're already
+# in the Running state.
+
+alias: Set washing machine active when power detected
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.washer_power
+    above: 15
+condition:
+  - condition: template
+    value_template: "{{ states.sensor.washer_state.state != 'Running' }}"
+action:
+  - service: mqtt.publish
+    data:
+      topic: hass/state/washer
+      payload: "Running"
+      retain: "true"

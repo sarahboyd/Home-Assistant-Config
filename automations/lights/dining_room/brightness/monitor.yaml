@@ -1,0 +1,17 @@
+---
+alias: Monitor dining room brightness
+trigger:
+  - platform: state
+    entity_id: sensor.dining_room_light_brightness
+condition:
+  - condition: state
+    entity_id: light.dining_room_chandelier
+    state: "on"
+  - condition: template
+    value_template: >
+      {{ trigger.from_state.state != 'None' }}
+action:
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.dining_room_light_brightness
+      value: "{{ state_attr('light.dining_room_chandelier', 'brightness') }}"

@@ -1,0 +1,13 @@
+---
+alias: Send alert to Sarah's phone when house temperature is below 18
+description: ""
+trigger:
+  - platform: template
+    value_template:
+      "{{ states.climate.kitchen_thermostat.attributes.current_temperature
+      <= 18 }}"
+condition: []
+action:
+  - data:
+      message: The kitchen thermostat temperature is below 18
+    service: notify.telegram_sarah

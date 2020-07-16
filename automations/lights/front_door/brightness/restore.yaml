@@ -1,0 +1,14 @@
+---
+alias: Restore front door brightness
+trigger:
+  - platform: state
+    entity_id: light.front_foyer_main_lights
+    from: "off"
+    to: "on"
+condition: []
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.front_foyer_main_lights
+    data_template:
+      brightness: "{{ states.input_number.front_hall_light_brightness.state | int }}"

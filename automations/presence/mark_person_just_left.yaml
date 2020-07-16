@@ -1,0 +1,21 @@
+---
+alias: Mark person as just left
+trigger:
+  - platform: state
+    entity_id: device_tracker.life360_sarah_boyd
+    from: home
+    to: not_home
+  - platform: state
+    entity_id: device_tracker.life360_scott_young
+    from: home
+    to: not_home
+action:
+  - service: input_select.select_option
+    data_template:
+      entity_id: >
+        {% if trigger.entity_id == 'device_tracker.life360_sarah_boyd' %}
+            input_select.sarah_status_dropdown
+        {% else %}
+            input_select.scott_status_dropdown
+        {% endif %}
+      option: Just Left

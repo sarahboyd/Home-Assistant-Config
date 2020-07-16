@@ -1,0 +1,26 @@
+---
+alias: Turn on bedroom lights before bed
+trigger:
+  - entity_id: media_player.vizio_smartcast
+    platform: state
+    from: "on"
+    to: "off"
+    for: 00:01:00
+condition:
+  - condition: state
+    entity_id: media_player.vizio_smartcast
+    state: "off"
+  - condition: time
+    after: "21:00:00"
+    before: "02:00:00"
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.sarah_status
+        state: Home
+      - condition: state
+        entity_id: sensor.scott_status
+        state: Home
+action:
+  service: homeassistant.turn_on
+  entity_id: light.bedroom

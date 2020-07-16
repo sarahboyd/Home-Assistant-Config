@@ -1,0 +1,26 @@
+---
+alias: Turn on outside lights before work
+trigger:
+  - at: "06:40:00"
+    platform: time
+condition:
+  - condition: sun
+    before: sunrise
+  - condition: state
+    entity_id: light.outside
+    state: "off"
+  - condition: or
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: state
+        entity_id: calendar.off_work
+        state: "on"
+action:
+  service: homeassistant.turn_on
+  entity_id: light.outside

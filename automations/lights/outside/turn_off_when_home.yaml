@@ -1,0 +1,29 @@
+---
+alias: Turn off outside lights when the door locks if we are both home
+trigger:
+  - platform: state
+    entity_id: lock.front_door
+    to: locked
+    from: unlocked
+condition:
+  - condition: state
+    entity_id: light.outside
+    state: "on"
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.sarah_status
+        state: "Home"
+      - condition: state
+        entity_id: sensor.sarah_status
+        state: "Just Arrived"
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.scott_status
+        state: "Home"
+      - condition: state
+        entity_id: sensor.scott_status
+        state: "Just Arrived"
+action:
+  service: script.turn_lights_off_delay

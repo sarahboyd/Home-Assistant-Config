@@ -1,0 +1,23 @@
+---
+alias: Turn off automations when both people are Extended Away
+trigger:
+  - platform: state
+    entity_id: input_select.sarah_status_dropdown
+    to: Extended Away
+  - platform: state
+    entity_id: input_select.scott_status_dropdown
+    to: Extended Away
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: input_select.sarah_status_dropdown
+      state: Extended Away
+    - condition: state
+      entity_id: input_select.scott_status_dropdown
+      state: Extended Away
+action:
+  - service: automation.turn_off
+    entity_id: automation.wake_up_light_bedroom
+  - service: automation.turn_off
+    entity_id: automation.turn_on_bedroom_lights_before_bed

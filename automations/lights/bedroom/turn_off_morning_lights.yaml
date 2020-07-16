@@ -1,0 +1,9 @@
+---
+alias: Turn off morning lights
+trigger:
+  platform: template
+  value_template: "{{ states.sensor.time.state == states.sensor.wakeup_lights_off_time.state }}"
+condition: []
+action:
+  service: homeassistant.turn_off
+  entity_id: light.bedroom

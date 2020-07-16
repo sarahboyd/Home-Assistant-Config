@@ -1,0 +1,14 @@
+---
+alias: Restore living room brightness
+trigger:
+  - platform: state
+    entity_id: light.living_room_main_lights
+    from: "off"
+    to: "on"
+condition: []
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.living_room_main_lights
+    data_template:
+      brightness: "{{ states.input_number.living_room_main_light_brightness.state | int }}"

@@ -1,0 +1,20 @@
+---
+alias: Turn on outside lights after dark when door is unlocked
+trigger:
+  platform: state
+  entity_id: lock.front_door
+  to: unlocked
+condition:
+  - condition: state
+    entity_id: light.outside
+    state: "off"
+  - condition: or
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
+        before_offset: "-00:30:00"
+action:
+  service: homeassistant.turn_on
+  entity_id: light.outside

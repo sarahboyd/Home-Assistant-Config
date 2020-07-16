@@ -1,0 +1,11 @@
+---
+alias: "Away Mode"
+trigger:
+  platform: state
+  entity_id: group.family
+  to: "not_home"
+action:
+  - service: climate.set_preset_mode
+    data:
+      entity_id: climate.kitchen_thermostat
+      preset_mode: "eco"

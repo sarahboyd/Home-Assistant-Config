@@ -1,0 +1,30 @@
+---
+alias: Turn on outside lights after dark when someone is away
+trigger:
+  - platform: sun
+    event: sunset
+  - entity_id: sensor.sarah_status
+    platform: state
+    to: Away
+  - entity_id: sensor.scott_status
+    platform: state
+    to: Away
+condition:
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.sarah_status
+        state: Away
+      - condition: state
+        entity_id: sensor.scott_status
+        state: Away
+  - condition: or
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
+        before_offset: "-01:00:00"
+action:
+  service: homeassistant.turn_on
+  entity_id: light.outside

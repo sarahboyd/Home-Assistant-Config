@@ -1,0 +1,14 @@
+---
+alias: Restore dining room brightness
+trigger:
+  - platform: state
+    entity_id: light.dining_room_chandelier
+    from: "off"
+    to: "on"
+condition: []
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.dining_room_chandelier
+    data_template:
+      brightness: "{{ states.input_number.dining_room_light_brightness.state | int }}"

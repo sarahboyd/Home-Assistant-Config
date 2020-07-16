@@ -1,0 +1,17 @@
+---
+alias: Monitor living room brightness
+trigger:
+  platform: state
+  entity_id: sensor.living_room_main_light_brightness
+condition:
+  - condition: template
+    value_template: >
+      {{ trigger.from_state.state != 'None' }}
+  - condition: state
+    entity_id: light.living_room_main_lights
+    state: "on"
+action:
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.living_room_main_light_brightness
+      value: "{{ state_attr('light.living_room_main_lights', 'brightness') }}"

@@ -1,0 +1,34 @@
+---
+alias: Mark person as just arrived
+trigger:
+  - entity_id: device_tracker.life360_sarah_boyd
+    platform: state
+    from: not_home
+    to: home
+  - entity_id: device_tracker.life360_scott_young
+    platform: state
+    from: not_home
+    to: home
+action:
+  - data_template:
+      entity_id: >
+        {% if trigger.entity_id == 'device_tracker.life360_sarah_boyd' %}
+            input_select.sarah_status_dropdown
+        {% else %}
+            input_select.scott_status_dropdown
+        {% endif %}
+      option: >
+        {% if trigger.entity_id == 'device_tracker.life360_sarah_boyd' %}
+            {% if states.input_select.sarah_status_dropdown.state == 'Just Left' %}
+                Home
+            {% else %}
+                Just Arrived
+            {% endif %}
+        {% else %}
+            {% if states.input_select.scott_status_dropdown.state == 'Just Left' %}
+                Home
+            {% else %}
+                Just Arrived
+            {% endif %}
+        {% endif %}
+    service: input_select.select_option

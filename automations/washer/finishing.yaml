@@ -1,0 +1,21 @@
+---
+# When the power drops, move the state of the washing machine to
+# Finishing.
+
+alias: Set washing machine finished when power drops
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.washer_power
+    below: 6
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: sensor.washer_state
+      state: Running
+action:
+  - service: mqtt.publish
+    data:
+      topic: hass/state/washer
+      payload: "Finishing"
+      retain: "true"

@@ -1,0 +1,16 @@
+---
+alias: Set washing machine idle after emptied
+trigger:
+  - platform: state
+    entity_id: sensor.washer_door_state
+    to: "Door Open"
+condition:
+  - condition: state
+    entity_id: sensor.washer_state
+    state: Clean
+action:
+  - service: mqtt.publish
+    data:
+      topic: hass/state/washer
+      payload: "Idle"
+      retain: "true"

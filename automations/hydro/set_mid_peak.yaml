@@ -1,0 +1,34 @@
+---
+alias: Set mid peak hydro hours
+trigger:
+  - platform: time
+    at: "11:00:00"
+condition:
+  condition: state
+  entity_id: "binary_sensor.workday_sensor"
+  state: "on"
+action:
+  - service: utility_meter.select_tariff
+    entity_id: utility_meter.printer_daily
+    data:
+      tariff: midpeak
+  - service: utility_meter.select_tariff
+    entity_id: utility_meter.printer_weekly
+    data:
+      tariff: midpeak
+  - service: utility_meter.select_tariff
+    entity_id: utility_meter.printer_monthly
+    data:
+      tariff: midpeak
+  - service: utility_meter.select_tariff
+    entity_id: utility_meter.washer_daily
+    data:
+      tariff: midpeak
+  - service: utility_meter.select_tariff
+    entity_id: utility_meter.washer_weekly
+    data:
+      tariff: midpeak
+  - service: utility_meter.select_tariff
+    entity_id: utility_meter.washer_monthly
+    data:
+      tariff: midpeak
