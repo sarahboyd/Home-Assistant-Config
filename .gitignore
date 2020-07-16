@@ -7,7 +7,7 @@
 .cloud
 .google.token
 custom_components/hacs
-custom_components/node_red/
+custom_components/nodered/
 old_storage
 www
 ssl
