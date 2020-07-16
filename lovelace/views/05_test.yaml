@@ -1,2 +1,10 @@
----
+# lovelace_gen
 
+- title: Test page
+  path: test
+  cards: 
+    - type: horizontal-stack
+      cards:
+        # Home Header
+        - type: weather-forecast
+          entity: {{_global.home.weather}}
