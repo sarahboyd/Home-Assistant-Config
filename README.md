@@ -1,5 +1,3 @@
-
-<img src="https://img.shields.io/badge/haversion-0.111.4-blue.svg">
 <p align="center">
 	<h1 align=center style="margin: 0;">Ghost's Home</h1>
 	<p align=center>Home Assistant</p>
