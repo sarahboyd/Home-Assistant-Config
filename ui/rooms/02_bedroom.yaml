@@ -1,0 +1,15 @@
+---
+name: Bedroom
+icon: mdi:hotel
+lights:
+  - entity_id: light.bedroom_1
+    name: Bedroom 1
+  - entity_id: light.hue_color_lamp_1
+    name: Bedroom 2
+media_players:
+  - entity_id: media_player.bedroom_mini
+    name: Google Mini
+sensors:
+  - entity_id: sensor.bedroom_temperature
+    name: Temperature
+    color: red

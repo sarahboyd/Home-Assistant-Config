@@ -5,17 +5,18 @@ sensors:
   octoprint_time_remaining_friendly:
     friendly_name: "Octoprint time remaining friendly"
     unit_of_measurement: hours
-    value_template: >
-         {% set etime = states.sensor.octoprint_time_remaining.state | int %}
-         {% set seconds = etime % 60 %}
-         {% set minutes = ((etime % 3600) / 60) | int %}
-         {% set hours = ((etime % 86400) / 3600) | int %}
-         {% set days = (etime / 86400) | int %}
-         {%- if days > 0 -%}
-           {%- if days == 1 -%}
-             1 day
-           {%- else -%}
-             {{ days }} days
-           {%- endif -%}
-           {{ ', ' }}
-         {%- endif -%}
+    value_template: "{{ states('sensor.octoprint_time_remaining') | int | timestamp_custom('%H:%M:%S', 0) }}"
+    # value_template: >
+    #      {% set etime = states.sensor.octoprint_time_remaining.state | int %}
+    #      {% set seconds = etime % 60 %}
+    #      {% set minutes = ((etime % 3600) / 60) | int %}
+    #      {% set hours = ((etime % 86400) / 3600) | int %}
+    #      {% set days = (etime / 86400) | int %}
+    #      {%- if days > 0 -%}
+    #        {%- if days == 1 -%}
+    #          1 day
+    #        {%- else -%}
+    #          {{ days }} days
+    #        {%- endif -%}
+    #        {{ ', ' }}
+    #      {%- endif -%}

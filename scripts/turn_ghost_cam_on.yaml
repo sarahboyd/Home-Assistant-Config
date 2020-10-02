@@ -1,0 +1,9 @@
+---
+
+turn_ghost_cam_on:
+  alias: 'Turn Ghost Cam on'
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: cmnd/sonoff-plug-2/POWER
+        payload: 'ON'

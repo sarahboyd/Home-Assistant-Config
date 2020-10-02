@@ -1,0 +1,26 @@
+# lovelace_gen
+
+type: custom:mod-card
+card:
+  type: custom:layout-card
+  layout: horizontal
+  min_columns: 3
+  justify_content: left
+  column_width: 33.333%
+  cards:
+  {% for button in entities %}
+    
+    - type: custom:decluttering-card
+    {% if button.name == "Washer" %}
+      template: "hk_button_washer"
+    {% else %}
+      template: "hk_button"
+    {% endif %}
+      variables:
+        - entity_id: {{ button.entity_id }}
+        - name: {{ button.name }}
+  {% endfor %}
+style: |
+  ha-card {
+    margin-right: -6px;
+  }

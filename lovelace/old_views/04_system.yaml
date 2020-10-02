@@ -1,6 +1,6 @@
 ---
 
-- path: system
+- path: system_old
   title: System
   icon: 'mdi:laptop'
   panel: true

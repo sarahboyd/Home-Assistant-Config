@@ -1,0 +1,6 @@
+---
+name: Everything Off
+icon: mdi:power
+entities:
+  group.inside_lights: "off"
+  media_player.vizio_smartcast: "off"

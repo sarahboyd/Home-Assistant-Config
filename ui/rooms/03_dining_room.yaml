@@ -1,0 +1,10 @@
+---
+name: Dining Room
+icon: mdi:table-chair
+lights:
+  - entity_id: light.dining_room_chandelier
+    name: Table Light
+sensors:
+  - entity_id: sensor.kitchen_thermostat
+    name: Kitchen Thermostat
+    color: red

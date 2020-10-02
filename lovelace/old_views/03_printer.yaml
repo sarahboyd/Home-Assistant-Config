@@ -1,0 +1,31 @@
+# lovelace_gen
+
+- title: printer
+  icon: mdi:printer-3d
+  path: printer
+  # cards:
+  #   - type: horiztonal-stack
+  #     cards:
+  #       - !include
+  #         - ../includes/header.yaml
+  #         - title: {{ _global.home.name }} 
+    # #{% if not is_state("sensor.octoprint_current_state", "Unknown") %}
+    # - type: vertical-stack
+    #     cards:
+    #       - !include
+    #         - ../includes/section.yaml
+    #         - title: Printer is ON
+    #       - type: entities
+    #         entities:
+    #           - sensor.octoprint_current_state
+    #      # {% if is_state("sensor.octoprint_current_state", "Printing") %}
+    #       - type: entities
+    #         entities:
+    #           - entity: sensor.octoprint_job_percentage
+    #           - entity: sensor.octoprint_time_elapsed_friendly
+    #             icon: mdi:clock-start
+    #           - entity: sensor.octoprint_time_remaining_friendly
+    #             icon: mdi:clock-end
+    #      # {% endif %}
+    # #{% endif %}
+    

@@ -1,0 +1,133 @@
+# lovelace_gen
+
+{% for room in _global.home.rooms %}
+- title: {{ room.name }}
+  visible: false
+  path: {{ room.name | lower | replace(" ", "_") }}
+  icon: {{ room.icon | default("mdi:home") }}
+  cards:
+    - !include 
+      - ../includes/header.yaml
+      - title: "{{ room.name }}"
+        navigation_path: "home"
+
+  {% if room.sensors %}
+    - type: horizontal-stack
+      cards:
+      {% for sensor in room.sensors %}
+        - type: custom:decluttering-card
+          template: mini_graph
+          variables:
+            - entity_id: {{ sensor.entity_id }}
+            - color: {{ sensor.color }}
+            - name: {{ sensor.name }} 
+      {% endfor %}
+  {% endif %}
+
+  {% if room.sensors_state %}
+    - type: horizontal-stack
+      cards:
+      {% for sensor in room.sensors_state %}
+        - type: custom:decluttering-card
+        {% if sensor.name == "Washer" %}
+          template: hk_button_washer
+        {% else %}
+          template: hk_button
+        {% endif %}
+          variables:
+            - entity_id: {{ sensor.entity_id }}
+            - color: {{ sensor.color }}
+            - name: {{ sensor.name }} 
+      {% endfor %}
+  {% endif %}
+
+  {% if room.lights %}
+    - type: vertical-stack
+      cards:
+        - !include 
+            - ../includes/section.yaml
+            - title: Lights
+        - !include
+            - ../includes/grid.yaml
+            - entities: 
+              {% for s in room.lights %}
+                - entity_id: {{ s.entity_id }}
+                  name: {{ s.name }}
+              {% endfor %}
+  {% endif %}
+
+  {% if room.switches %}
+    - type: vertical-stack
+      cards:
+        - !include 
+            - ../includes/section.yaml
+            - title: Interruttori
+        - !include
+            - ../includes/grid.yaml
+            - entities: 
+              {% for s in room.switches %}
+                - entity_id: {{ s.entity_id }}
+                  name: {{ s.name }}
+              {% endfor %}
+  {% endif %}
+
+  {% if room.sensors_power %}
+    - type: vertical-stack
+      cards:
+        - !include 
+            - ../includes/section.yaml
+            - title: Power Usage
+      {% for sensor in room.sensors_power %}
+        - type: custom:decluttering-card
+          template: mini_graph_power
+          variables:
+            - entity_id: {{ sensor.entity_id }}
+            - name: {{ sensor.name }}
+            - color: '#b11df5'
+            - hours: 168
+      {% endfor %}
+  {% endif %}
+
+  {% if room.media_players %}
+    - type: vertical-stack
+      cards:
+        - !include 
+          - ../includes/section.yaml
+          - title: Media
+      {% for media_player in room.media_players %}
+        - type: custom:mini-media-player
+          artwork: cover
+          entity: {{ media_player.entity_id }}
+        {% if media_player.shortcuts %}
+          shortcuts:
+            buttons:
+            {% for shortcut in media_player.shortcuts %}
+              - name: {{ shortcut.name }}
+                type: script
+                id: {{ shortcut.entity_id }}
+            {% endfor %}
+        {% endif %}
+      {% endfor %}
+  {% endif %}
+
+  {% if room.additional_buttons or room.additional_switches %}
+    - type: vertical-stack
+      cards:
+        - !include 
+          - ../includes/section.yaml
+          - title: Also
+        - type: entities
+          entities:
+          {% if room.additional_switches %}
+          {% for switch in room.additional_switches %}
+            - {{ switch.entity_id }}
+          {% endfor %}
+          {% endif %}
+          {% if room.additional_buttons %}
+          {% for button in room.additional_buttons %}
+            - {{ button.entity_id }}
+          {% endfor %}
+          {% endif %}
+  {% endif %}
+
+{% endfor %}

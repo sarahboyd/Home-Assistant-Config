@@ -1,0 +1,9 @@
+---
+
+inside_lights:
+  name: Inside Lights
+  entities:
+    - light.living_room
+    - light.bedroom
+    - light.dining_room_chandelier
+    - light.front_foyer_main_lights

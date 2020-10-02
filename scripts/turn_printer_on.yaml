@@ -1,0 +1,9 @@
+---
+
+turn_printer_on:
+  alias: 'Turn Printer on'
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: cmnd/sonoff-plug-1/POWER
+        payload: 'on'

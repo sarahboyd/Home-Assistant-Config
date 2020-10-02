@@ -1,7 +1,7 @@
 ---
 ignore: |
   custom_components/
-  lovelace/views/
+  lovelace/
   .github/
 rules:
   braces:

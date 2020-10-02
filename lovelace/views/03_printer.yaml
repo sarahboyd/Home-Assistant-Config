@@ -1,56 +1,72 @@
----
+# lovelace_gen
 
-- path: printer
-  title: 3D Printer
-  icon: 'mdi:printer-3d'
-  badges: []
+- title: printer
+  icon: mdi:printer-3d
+  path: printer
   cards:
+    # - !include
+    #   - ../includes/header.yaml
+    #   - title: "System"
+    - type: vertical-stack
+      cards:
+        - !include
+          - ../includes/section.yaml
+          - title: "Printer State"
+        - type: vertical-stack
+          cards:
+            - type: custom:auto-entities
+              show_empty: false
+              card:
+                type: glance
+              filter:
+                include:
+                  - entity_id: binary_sensor.octoprint_printing_error
+                    state: "on"
+            - type: entities
+              entities: 
+                - entity: sensor.octoprint_current_state
+                - entity: sensor.octoprint_job_percentage
+                - entity: sensor.octoprint_time_elapsed_friendly
+                  icon: mdi:clock-start
+                - entity: sensor.octoprint_time_remaining_friendly
+                  icon: mdi:clock-end
+        - !include
+          - ../includes/section.yaml
+          - title: "Printer Cost To Run"
+        - type: custom:decluttering-card
+          template: mini_graph_power
+          variables:
+            - entity_id: sensor.printer_cost_daily
+            - name: Printer Cost Daily
+            - color: '#b11df5'
+            - hours: 168
+        - type: entities
+          entities:
+            - entity: sensor.printer_cost_weekly
+            - entity: sensor.printer_cost_monthly
+    - !include
+      - ../includes/section.yaml
+      - title: "Current Print"
+    - type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: mini_graph
+              variables:
+                - entity_id: sensor.octoprint_actual_tool0_temp
+                - color: '#f5f242'
+                - name: Hot End Temperature
+            - type: custom:decluttering-card
+              template: mini_graph
+              variables:
+                - entity_id: sensor.octoprint_actual_bed_temp
+                - color: '#2980b9'
+                - name: Bed Temperature
+
     - type: vertical-stack
       cards:
         - type: picture-entity
           entity: camera.octoprint
           camera_view: live
-          show_state: false
-        - type: horizontal-stack
-          cards:
-            - type: custom:mini-graph-card
-              name: Hot End Temperature
-              entities:
-                - sensor.octoprint_actual_tool0_temp
-              align_icon: left
-              align_header: left
-              line_color: '#f5f242'
-              line_width: 4
-            - type: custom:mini-graph-card
-              name: Bed Temperature
-              entities:
-                - sensor.octoprint_actual_bed_temp
-              line_width: 4
-              line_color: '#2980b9'
-              align_icon: left
-              align_header: left
-    - type: vertical-stack
-      cards:
-        - type: horizontal-stack
-          cards:
-            - type: custom:button-card
-              icon: mdi:printer-3d
-              show_state: true
-              show_name: false
-              entity: sensor.octoprint_current_state
-              state:
-                - value: "Operational"
-                  color: rgb(245, 245, 245)
-                - value: "Unknown"
-                  color: rgb(245, 245, 245)
-                - value: "Printing"
-                  color: rgb(117, 189, 111)
-        - type: entities
-          title: Current Print
-          show_header_toggle: false
-          entities:
-            - entity: sensor.octoprint_job_percentage
-            - entity: sensor.octoprint_time_elapsed_friendly
-              icon: mdi:clock-start
-            - entity: sensor.octoprint_time_remaining_friendly
-              icon: mdi:clock-end
+          show_state: false    

@@ -1,0 +1,13 @@
+---
+
+light:  # !include_dir_merge_named ../entities/light
+  - platform: group
+    name: Front Door
+    entities:
+      - light.front_door_1
+      - light.front_door_2
+  - platform: group
+    name: Garage
+    entities:
+      - light.garage_1
+      - light.garage_2

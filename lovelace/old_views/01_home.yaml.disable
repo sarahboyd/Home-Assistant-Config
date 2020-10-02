@@ -1,0 +1,194 @@
+---
+
+- path: home_old
+  title: Home
+  icon: 'mdi:home'
+  badges: []
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:vertical-style-card
+              title: Location
+              style:
+                font_size: 24px
+                border: true
+              cards:
+                - type: horizontal-stack
+                  cards:
+                    - type: picture-glance
+                      entities:
+                        - person.sarah
+                        - sensor.sarah_phone
+                      state_image:
+                        "home": /local/images/sarah.jpg
+                        "not_home": /local/images/sarah_away.jpg
+                        "Work": /local/images/sarah_away.jpg
+                      entity: person.sarah
+                      state_filter:
+                        "not_home": grayscale(72%)
+                    - type: picture-glance
+                      entities:
+                        - person.scott
+                        - sensor.scott_phone
+                      state_image:
+                        "home": /local/images/scott.jpg
+                        "not_home": /local/images/scott_away.jpg
+                      entity: person.scott
+                      state_filter:
+                        "not_home": grayscale(72%)
+        - type: custom:simple-weather-card
+          entity: weather.dark_sky
+          secondary_info: humidity
+        - type: horizontal-stack
+          cards:
+            - type: custom:mini-graph-card
+              name: Sun Elevation
+              entities:
+                - sensor.sun_elevation
+              align_icon: left
+              align_header: left
+              line_color: '#f5f242'
+              line_width: 4
+            - type: custom:mini-graph-card
+              name: Chance of Rain
+              entities:
+                - sensor.dark_sky_precip_probability_0h
+              line_width: 4
+              line_color: '#2980b9'
+              align_icon: left
+              align_header: left
+    - type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              icon: mdi:washing-machine
+              show_state: true
+              show_name: false
+              tap_action:
+                action: call-service
+                service: script.turn_washer_idle
+              entity: sensor.washer_state
+              state:
+                - value: "Idle"
+                  color: rgb(245, 245, 245)
+                - value: "unknown"
+                  color: rgb(245, 245, 245)
+                - value: "Running"
+                  color: rgb(35, 63, 166)
+                - value: "Finishing"
+                  color: rgb(35, 63, 166)
+                - value: "Clean"
+                  color: rgb(117, 189, 111)
+            - type: custom:button-card
+              icon: mdi:tumble-dryer
+              show_state: true
+              show_name: false
+              entity: sensor.dryer_state
+              state:
+                - value: "Idle"
+                  color: rgb(245, 245, 245)
+                - value: "unknown"
+                  color: rgb(245, 245, 245)
+                - value: "Running"
+                  color: rgb(35, 63, 166)
+                - value: "Finishing"
+                  color: rgb(35, 63, 166)
+                - value: "Done"
+                  color: rgb(117, 189, 111)
+            - type: custom:button-card
+              icon: mdi:lock
+              show_state: true
+              show_name: false
+              entity: lock.front_door
+              tap_action:
+                action: toggle
+              state:
+                - value: "locked"
+                  color: rgb(117, 189, 111)
+                - value: "unlocked"
+                  color: rgb(117,35,35)
+            - type: custom:button-card
+              icon: mdi:television
+              show_state: true
+              show_name: false
+              entity: media_player.vizio_smartcast
+              tap_action:
+                action: toggle
+              state:
+                - value: "on"
+                  color: rgb(117, 189, 111)
+        - type: horizontal-stack
+          cards:
+            - type: custom:vertical-style-card
+              title: Light Control
+              style:
+                font_size: 24px
+                border: true
+              cards:
+                - type: vertical-stack
+                  cards:
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          icon: mdi:lightbulb
+                          entity: light.living_room_main_lights
+                          name: Living Room
+                          tap_action:
+                            action: call-service
+                            service: light.toggle
+                            service_data:
+                              entity_id: light.living_room_main_lights
+                        - type: custom:button-card
+                          icon: mdi:lightbulb
+                          entity: light.dining_room_chandelier
+                          name: Dining Room
+                          tap_action:
+                            action: call-service
+                            service: light.toggle
+                            service_data:
+                              entity_id: light.dining_room_chandelier
+                        - type: custom:button-card
+                          icon: mdi:lightbulb
+                          entity: light.bedroom
+                          tap_action:
+                            action: call-service
+                            service: light.toggle
+                            service_data:
+                              entity_id: light.bedroom
+                        - type: custom:button-card
+                          icon: mdi:lightbulb
+                          entity: light.outside
+                          tap_action:
+                            action: call-service
+                            service: light.toggle
+                            service_data:
+                              entity_id: light.outside
+        - type: horizontal-stack
+          cards:
+            - type: custom:mini-media-player
+              entity: media_player.plex_plex_for_vizio
+            - type: custom:mini-media-player
+              entity: media_player.vizio_smartcast
+    - type: vertical-stack
+      cards:
+        - type: custom:mini-graph-card
+          name: Washing Machine Daily Cost
+          entities:
+            - entity: sensor.washer_cost_daily
+          hours_to_show: 168
+          aggregate_func: max
+          points_per_hour: 0.04
+          show:
+            graph: bar
+        - type: custom:mini-graph-card
+          name: 3D Printer Daily Cost
+          entities:
+            - entity: sensor.printer_cost_daily
+          hours_to_show: 168
+          aggregate_func: max
+          points_per_hour: 0.04
+          show:
+            graph: bar

@@ -1,0 +1,17 @@
+mini_graph_power:
+  card:
+    type: custom:mini-graph-card
+    entities:
+      - '[[entity_id]]'
+    line_color: '[[color]]'
+    line_width: 8
+    font_size: 75
+    animate: true
+    name: "[[name]]"
+    align_icon: left
+    align_header: left
+    aggregate_func: max
+    points_per_hour: 0.04
+    show:
+      graph: bar
+    hours_to_show: '[[hours]]'

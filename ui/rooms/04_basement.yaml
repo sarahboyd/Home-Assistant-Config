@@ -1,0 +1,20 @@
+---
+name: Basement
+icon: mdi:home-floor-b
+media_players:
+  - entity_id: media_player.bedroom
+    name: Basement Chromecast
+sensors_state:
+  - entity_id: sensor.washer_state
+    name: Washer
+  - entity_id: sensor.octoprint_current_state
+    name: Printer
+sensors_power:
+  - entity_id: sensor.washer_cost_daily
+    name: Washing Machine Daily Cost
+    hours_to_show: 168
+    color: blue
+  - entity_id: sensor.printer_cost_daily
+    name: 3D Printer Daily Cost
+    hours_to_show: 168
+    color: red

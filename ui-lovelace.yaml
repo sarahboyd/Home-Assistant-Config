@@ -1,4 +1,6 @@
 ---
 
 title: Home
+custom_header: !include lovelace/custom_header.yaml
+decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
 views: !include_dir_merge_list lovelace/views

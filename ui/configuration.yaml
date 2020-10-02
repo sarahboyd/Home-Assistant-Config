@@ -2,3 +2,22 @@
 
 name: Home
 weather: weather.dark_sky
+rooms: !include_dir_list ./rooms
+most_used:
+  - entity_id: light.living_room_main_lights
+    name: Living Room
+  - entity_id: lock.front_door
+    name: Front Door
+  - entity_id: sensor.washer_state
+    name: Washer
+  - entity_id: media_player.vizio_smartcast
+    name: TV
+button_service:
+  - entity_id: sensor.plug_2_power_state
+    name: Ghost Cam
+    script: script.turn_ghost_cam_on
+  - entity_id: sensor.plug_1_power_state
+    name: Fabricator
+    script: script.turn_printer_on
+scenes:
+  - entity_id: scene.everything_off
