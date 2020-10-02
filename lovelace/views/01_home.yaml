@@ -59,22 +59,6 @@
                   - entity_id: {{ s.entity_id }}
               {% endfor %}
     {% endif %}
-    {% if _global.home.button_service %}
-    - type: vertical-stack
-      cards:
-        - !include
-          - ../includes/section.yaml
-          - title: Most Used
-        - !include
-          - ../includes/grid_script.yaml
-          - entities:
-            {% for e in _global.home.button_service %}
-              - entity_id: {{ e.entity_id }}
-                {% if e.name %}
-                name: {{ e.name }}
-                {% endif %}
-            {% endfor %}
-    {% endif %}
     {% if _global.home.most_used %}
     - type: vertical-stack
       cards:

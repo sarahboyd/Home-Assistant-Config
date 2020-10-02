@@ -1,4 +1,4 @@
-hk_button_service:
+hk_button_ghost_cam:
   default:
     - aspect_ratio: "1/1"
   card:
@@ -9,8 +9,7 @@ hk_button_service:
     aspect_ratio: "[[aspect_ratio]]"
     tap_action:
       action: call-service
-      service: "[[service]]"
-    service:
+      service: script.toggle_ghost_cam
     styles:
       grid:
         - grid-template-areas: '"i" "n" "s"'
@@ -31,6 +30,12 @@ hk_button_service:
         - color: var(--button-card-light-color)
     state:
       - value: 'off'
+        styles:
+          card:
+            - filter: opacity(50%)
+          icon:
+            - filter: grayscale(100%)
+      - value: 'unknown'
         styles:
           card:
             - filter: opacity(50%)

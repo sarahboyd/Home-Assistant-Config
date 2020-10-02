@@ -1,0 +1,22 @@
+---
+
+toggle_printer:
+  alias: 'Turn Printer on'
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: sensor.plug_1_power_state
+              state: 'ON'
+          sequence:
+            - service: mqtt.publish
+              data_template:
+                topic: cmnd/sonoff-plug-1/POWER
+                payload: 'false'
+                retain: true
+      default:
+        - service: mqtt.publish
+          data_template:
+            topic: cmnd/sonoff-plug-1/POWER
+            payload: 'true'
+            retain: true

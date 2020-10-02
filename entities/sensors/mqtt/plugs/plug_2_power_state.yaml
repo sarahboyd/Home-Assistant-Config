@@ -4,3 +4,6 @@ platform: mqtt
 name: "Plug 2 Power State"
 state_topic: "stat/sonoff-plug-2/POWER"
 # value_template: "{{value_json['POWER']}}"
+availability_topic: "tele/sonoff-plug-2/LWT"
+payload_available: "Online"
+payload_not_available: "Offline"

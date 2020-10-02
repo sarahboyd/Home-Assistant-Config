@@ -13,6 +13,10 @@ card:
     - type: custom:decluttering-card
     {% if button.name == "Washer" %}
       template: "hk_button_washer"
+    {% elif button.name == "Fabricator" %}
+      template: "hk_button_printer"
+    {% elif button.name == "Ghost Cam" %}
+      template: "hk_button_ghost_cam"
     {% else %}
       template: "hk_button"
     {% endif %}

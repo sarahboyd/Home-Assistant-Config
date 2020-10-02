@@ -5,3 +5,6 @@ name: "Plug 1 Power State"
 state_topic: "stat/sonoff-plug-1/POWER"
 # value_template: "{{value_json['POWER']}}"
 icon: mdi:printer-3d
+availability_topic: "tele/sonoff-plug-1/LWT"
+payload_available: "Online"
+payload_not_available: "Offline"
