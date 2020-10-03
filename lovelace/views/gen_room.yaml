@@ -100,11 +100,12 @@
           entity: {{ media_player.entity_id }}
         {% if media_player.shortcuts %}
           shortcuts:
+            columns: 4
             buttons:
             {% for shortcut in media_player.shortcuts %}
-              - name: {{ shortcut.name }}
-                type: script
-                id: {{ shortcut.entity_id }}
+              - type: source
+                id: {{ shortcut.id }}
+                image: {{shortcut.image}}
             {% endfor %}
         {% endif %}
       {% endfor %}

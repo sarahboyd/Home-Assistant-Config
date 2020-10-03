@@ -9,6 +9,19 @@ lights:
 media_players:
   - entity_id: media_player.vizio_smartcast
     name: TV
+    shortcuts:
+      - name: Plex
+        type: source
+        id: Plex
+        image: "/local/images/plex.png"
+      - name: Netflix
+        type: source
+        id: Netflix
+        image: "/local/images/netflix.png"
+      - name: Prime
+        type: source
+        id: Prime Video
+        image: "/local/images/prime.png"
   - entity_id: media_player.plex_plex_for_vizio_living_room_chromecast
     name: Plex
   - entity_id: media_player.living_room_chromecast

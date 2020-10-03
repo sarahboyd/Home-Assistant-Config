@@ -18,3 +18,13 @@ most_used:
     name: Ghost Cam
 scenes:
   - entity_id: scene.everything_off
+media:
+  - name: Plex
+    service: script.launch_plex
+    image: "/local/images/plex.png"
+  - name: Netflix
+    service: script.launch_netflix
+    image: "/local/images/netflix.png"
+  - name: Prime
+    service: script.launch_prime
+    image: "/local/images/prime.png"
