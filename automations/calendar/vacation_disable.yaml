@@ -12,10 +12,11 @@ trigger:
 condition:
   - condition: and
     conditions:
-      - condition:
+      - condition: state
         entity_id: input_boolean.ghost_home
         state: "false"
-      - condition: entity_id: calendar.vacation
+      - condition: state
+        entity_id: calendar.vacation
         state: "on"
 action:
   - service: automation.turn_off
