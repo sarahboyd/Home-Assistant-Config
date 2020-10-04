@@ -37,7 +37,8 @@
             }
 
     - !include ../../ui/recap.yaml
-
+    
+    
    {% if _global.home.scenes %}
     - type: vertical-stack
       cards:

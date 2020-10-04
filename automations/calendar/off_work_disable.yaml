@@ -1,5 +1,5 @@
 ---
-alias: Calendar - Turn off morning routine for vacations
+alias: Calendar - Turn off morning routine when off work
 trigger:
   platform: state
   entity_id: calendar.off_work

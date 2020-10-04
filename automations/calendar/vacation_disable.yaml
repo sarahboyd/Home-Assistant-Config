@@ -1,0 +1,14 @@
+---
+alias: Calendar - Turn off automations when on vacation
+trigger:
+  platform: state
+  entity_id: calendar.vacation
+  from: "off"
+  to: "on"
+condition:
+  - condition: state
+    entity_id: input_boolean.ghost_home
+    state: "false"
+action:
+  - service: automation.turn_off
+    entity_id: automation.turn_radio_on_when_everyone_is_away

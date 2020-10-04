@@ -1,0 +1,6 @@
+---
+
+ghost_home:
+  name: "Will Ghost be at home"
+  icon: mdi:dog
+  initial: true

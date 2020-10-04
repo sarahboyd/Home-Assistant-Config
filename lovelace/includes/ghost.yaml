@@ -1,0 +1,17 @@
+---
+type: markdown
+card-size: 3
+content: >
+  {% if is_state("input_boolean.set_ghost_home", "off") %}
+    {% if is_state("calendar.vacation", "on") %}
+    There is a vacation coming up. Will Ghost be home?
+    {% endif %}
+  {% endif %}
+style: |
+  ha-card {
+    background: none;
+    box-shadow: none;
+  }
+  ha-markdown {
+    padding-top: 0 !important;
+  }

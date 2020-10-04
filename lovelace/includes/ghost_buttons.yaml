@@ -1,0 +1,8 @@
+# lovelace_gen
+
+type: custom:decluttering-card
+  template: "hk_button_script"
+  variables:
+    - entity_id: input_boolean.ghost_home
+    - name: YES
+    - script: script.set_ghost_home

@@ -1,0 +1,6 @@
+---
+
+set_ghost_home:
+  name: "Has Ghost at home been set"
+  icon: mdi:dog
+  initial: false
