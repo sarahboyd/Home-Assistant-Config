@@ -24,7 +24,7 @@ action:
         {% if states('sensor.season') == 'summer' %}
           cool
         {% elif states('sensor.season') == 'winter' or states('sensor.season') == 'autumn' %}
-          auto
+          heat
         {% else %}
           auto
         {% endif %}
