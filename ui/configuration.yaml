@@ -8,6 +8,8 @@ most_used:
     name: Fabricator
   - entity_id: light.living_room_main_lights
     name: Living Room
+  - entity_id: switch.pi_hole
+    name: Pi-hole
   - entity_id: lock.front_door
     name: Front Door
   - entity_id: sensor.washer_state

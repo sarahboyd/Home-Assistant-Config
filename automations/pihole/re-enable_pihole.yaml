@@ -1,0 +1,12 @@
+---
+
+alias: Re-enable Pi-hole after 10 minutes
+trigger:
+  platform: state
+  entity_id: switch.pi_hole
+  to: "on"
+  for: "00:10:00"
+action:
+  service: switch.turn_off
+  data:
+    entity_id: switch.pi_hole

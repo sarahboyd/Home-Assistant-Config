@@ -1,0 +1,15 @@
+---
+
+disable_pi_hole_10mins:
+  alias: 'Disable Pi-hole for 10 minutes'
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: switch.pi_hole
+              state: 'off'
+          sequence:
+            - service: pi_hole.disable
+              data:
+                entity_id: switch.pi_hole
+                duration: '00:10:00'
