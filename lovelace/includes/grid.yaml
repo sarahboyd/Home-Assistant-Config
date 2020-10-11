@@ -11,7 +11,6 @@ card:
   {% for button in entities %}
     
     - type: custom:decluttering-card
-    {% endif %}
     {% if button.name == "Washer" %}
       template: "hk_button_washer"
     {% elif button.name == "Fabricator" %}
@@ -21,6 +20,7 @@ card:
     {% else %}
       template: "hk_button"
     {% endif %}
+      variables:
         - entity_id: {{ button.entity_id }}
         - name: {{ button.name }}
   {% endfor %}
