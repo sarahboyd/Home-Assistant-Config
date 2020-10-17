@@ -2,7 +2,7 @@
 alias: "Turn off wax melter after 2 hours"
 trigger:
   platform: state
-  entity_id: globe_plug_1_power
+  entity_id: sensor.globe_plug_1_power
   to: "ON"
   for:
     hours: 2
