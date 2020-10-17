@@ -1,0 +1,13 @@
+---
+alias: "Turn off wax melter after 2 hours"
+trigger:
+  platform: state
+  entity_id: globe_plug_1_power
+  to: "ON"
+  for:
+    hours: 2
+action:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/globeplug1/Power
+      payload: "Off"

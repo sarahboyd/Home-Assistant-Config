@@ -1,0 +1,11 @@
+---
+alias: "Turn off wax melter when everyone is away"
+trigger:
+  platform: state
+  entity_id: group.family
+  to: "not_home"
+action:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/globeplug1/Power
+      payload: "Off"
