@@ -1,6 +1,7 @@
 ---
 # Restart HA to keep it fresh
 alias: Restart HA
+initial_state: false
 trigger:
   platform: time
   at: "02:00:00"

@@ -16,6 +16,8 @@ most_used:
     name: Washer
   - entity_id: media_player.vizio_smartcast
     name: TV
+  - entity_id: sensor.globe_plug_1_power
+    name: Wax Melt
   - entity_id: sensor.plug_2_power_state
     name: Ghost Cam
 scenes:

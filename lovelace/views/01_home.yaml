@@ -38,28 +38,6 @@
 
     - !include ../../ui/recap.yaml
     
-    
-   {% if _global.home.scenes %}
-    - type: vertical-stack
-      cards:
-        - !include
-          - ../includes/section.yaml
-          - title: Scene
-        - type: custom:mod-card
-          card:
-            type: custom:layout-card
-            layout: horizontal
-            min_columns: 2
-            column_width: 50%
-            justify_content: start
-            cards:
-              {% for s in _global.home.scenes %}
-              - type: custom:decluttering-card
-                template: "hk_scene"
-                variables:
-                  - entity_id: {{ s.entity_id }}
-              {% endfor %}
-    {% endif %}
     {% if _global.home.media %}
     - type: vertical-stack
       cards:
@@ -123,3 +101,24 @@
                       - name: {{ room.name }}
                       - icon: {{ room.icon }}
                   {% endfor %}
+    {% if _global.home.scenes %}
+    - type: vertical-stack
+      cards:
+        - !include
+          - ../includes/section.yaml
+          - title: Scene
+        - type: custom:mod-card
+          card:
+            type: custom:layout-card
+            layout: horizontal
+            min_columns: 2
+            column_width: 50%
+            justify_content: start
+            cards:
+              {% for s in _global.home.scenes %}
+              - type: custom:decluttering-card
+                template: "hk_scene"
+                variables:
+                  - entity_id: {{ s.entity_id }}
+              {% endfor %}
+    {% endif %}

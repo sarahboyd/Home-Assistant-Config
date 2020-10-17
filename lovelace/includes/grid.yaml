@@ -17,6 +17,8 @@ card:
       template: "hk_button_printer"
     {% elif button.name == "Ghost Cam" %}
       template: "hk_button_ghost_cam"
+    {% elif button.name == "Wax Melt" %}
+      template: "hk_button_globe_1"
     {% else %}
       template: "hk_button"
     {% endif %}
