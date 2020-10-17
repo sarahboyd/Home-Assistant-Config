@@ -98,9 +98,6 @@
                 {% if e.name %}
                 name: {{ e.name }}
                 {% endif %}
-                {% if e.service %}
-                service: {{ e.service }}
-                {% endif %}
             {% endfor %}
     {% endif %}
     - type: vertical-stack
