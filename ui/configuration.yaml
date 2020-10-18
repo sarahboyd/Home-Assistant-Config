@@ -14,7 +14,7 @@ most_used:
     name: Front Door
   - entity_id: sensor.washer_state
     name: Washer
-  - entity_id: media_player.vizio_smartcast
+  - entity_id: media_player.living_room_chromecast
     name: TV
   - entity_id: sensor.globe_plug_1_power
     name: Wax Melt

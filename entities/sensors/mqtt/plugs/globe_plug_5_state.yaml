@@ -1,6 +1,0 @@
----
-
-platform: mqtt
-name: "Globe Plug 5 State"
-state_topic: "tele/globeplug5/STATE"
-icon: mdi:power-socket-us
