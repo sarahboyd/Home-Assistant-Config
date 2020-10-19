@@ -6,17 +6,17 @@ toggle_ghost_cam:
     - choose:
         - conditions:
             - condition: state
-              entity_id: sensor.plug_2_power_state
+              entity_id: sensor.globe_plug_2_power
               state: 'ON'
           sequence:
             - service: mqtt.publish
               data_template:
-                topic: cmnd/sonoff-plug-2/POWER
+                topic: cmnd/globeplug2/POWER
                 payload: 'false'
                 retain: true
       default:
         - service: mqtt.publish
           data_template:
-            topic: cmnd/sonoff-plug-2/POWER
+            topic: cmnd/globeplug2/POWER
             payload: 'true'
             retain: true

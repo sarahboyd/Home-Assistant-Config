@@ -18,7 +18,7 @@ most_used:
     name: TV
   - entity_id: sensor.globe_plug_1_power
     name: Wax Melt
-  - entity_id: sensor.plug_2_power_state
+  - entity_id: sensor.globe_plug_2_power
     name: Ghost Cam
 scenes:
   - entity_id: scene.everything_off

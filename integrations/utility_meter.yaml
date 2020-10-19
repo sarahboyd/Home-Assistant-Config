@@ -22,6 +22,27 @@ utility_meter:
       - onpeak
       - midpeak
       - offpeak
+  media_server_daily:
+    source: sensor.plug_2_energy_today
+    cycle: daily
+    tariffs:
+      - onpeak
+      - midpeak
+      - offpeak
+  media_server_weekly:
+    source: sensor.plug_2_energy_today
+    cycle: weekly
+    tariffs:
+      - onpeak
+      - midpeak
+      - offpeak
+  media_server_monthly:
+    source: sensor.plug_2_energy_today
+    cycle: monthly
+    tariffs:
+      - onpeak
+      - midpeak
+      - offpeak
   washer_daily:
     source: sensor.washer_energy_today
     cycle: daily

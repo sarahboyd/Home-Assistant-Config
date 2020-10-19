@@ -85,14 +85,3 @@
         - type: entities
           entities:
             -  sensor.octoprint_current_state
-
-    - type: vertical-stack
-      cards:
-
-        - !include
-          - ../includes/section.yaml
-          - title: "Other"
-        - type: entities
-          entities:
-            - input_select.sistema_stato_del_giorno
-            - binary_sensor.casa_presenza_acqua

@@ -34,3 +34,9 @@ hk_button:
             - filter: opacity(50%)
           icon:
             - filter: grayscale(100%)
+      - value: 'unknown'
+        styles:
+          card:
+            - filter: opacity(50%)
+          icon:
+            - filter: grayscale(100%)

@@ -17,21 +17,3 @@ action:
       topic: hass/state/washer
       payload: "Idle"
       retain: "true"
-  - service: mqtt.publish
-    data:
-      topic: cmnd/globeplug1/POWER
-  - service: mqtt.publish
-    data:
-      topic: cmnd/globeplug2/POWER
-  - service: mqtt.publish
-    data:
-      topic: cmnd/globeplug3/POWER
-  - service: mqtt.publish
-    data:
-      topic: cmnd/globeplug4/POWER
-  - service: mqtt.publish
-    data:
-      topic: cmnd/globeplug5/POWER
-  - service: mqtt.publish
-    data:
-      topic: cmnd/globeplug6/POWER
