@@ -11,7 +11,7 @@ mini_graph_power:
     align_icon: left
     align_header: left
     aggregate_func: max
-    points_per_hour: 0.04
+    group_by: date
     show:
       graph: bar
     hours_to_show: '[[hours]]'

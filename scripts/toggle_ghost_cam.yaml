@@ -13,10 +13,10 @@ toggle_ghost_cam:
               data_template:
                 topic: cmnd/globeplug2/POWER
                 payload: 'false'
-                retain: true
+                retain: false
       default:
         - service: mqtt.publish
           data_template:
             topic: cmnd/globeplug2/POWER
             payload: 'true'
-            retain: true
+            retain: false

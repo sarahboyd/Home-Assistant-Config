@@ -11,6 +11,22 @@
       cards:
         - !include
           - ../includes/section.yaml
+          - title: "Media Server"
+        - type: custom:decluttering-card
+          template: mini_graph_power
+          variables:
+            - entity_id: sensor.media_server_cost_daily
+            - name: Media Server Cost Daily
+            - color: '#b11df5'
+            - hours: 168
+        - type: entities
+          entities:
+            - entity: sensor.media_server_cost_weekly
+            - entity: sensor.media_server_cost_monthly
+    - type: vertical-stack
+      cards:
+        - !include
+          - ../includes/section.yaml
           - title: "Internet"
         - type: horizontal-stack
           cards:

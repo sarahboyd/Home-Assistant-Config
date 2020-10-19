@@ -13,10 +13,10 @@ toggle_printer:
               data_template:
                 topic: cmnd/sonoff-plug-1/POWER
                 payload: 'false'
-                retain: true
+                retain: false
       default:
         - service: mqtt.publish
           data_template:
             topic: cmnd/sonoff-plug-1/POWER
             payload: 'true'
-            retain: true
+            retain: false
