@@ -1,3 +1,11 @@
 ---
 name: Office
 icon: mdi:laptop
+sensors_state:
+  - entity_id: sensor.plex_ghost_s_media
+    name: Plex Media Server
+sensors_power:
+  - entity_id: sensor.media_server_cost_daily
+    name: Media Server Daily Cost
+    hours_to_show: 168
+    color: blue

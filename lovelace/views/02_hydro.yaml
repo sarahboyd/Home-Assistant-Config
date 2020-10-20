@@ -1,0 +1,72 @@
+# lovelace_gen
+
+- title: Hydro
+  icon: mdi:currency-usd
+  path: hydro
+  cards:
+    - !include
+      - ../includes/header.yaml
+      - title: "Hydro Costs"
+    - type: vertical-stack
+      cards:
+        - !include
+          - ../includes/section.yaml
+          - title: "Media Server"
+        - type: custom:decluttering-card
+          template: mini_graph
+          variables:
+            - entity_id: sensor.media_server_cost_daily
+            - name: Media Server Cost Daily
+            - color: '#b11df5'
+            - hours: 168
+            - group_by: date
+            - graph_type: bar
+        - type: entities
+          entities:
+            - entity: sensor.media_server_cost_weekly
+            - entity: sensor.media_server_cost_monthly
+    - type: vertical-stack
+      cards:
+        - !include
+          - ../includes/section.yaml
+          - title: "3D Printer"
+        - type: custom:decluttering-card
+          template: mini_graph
+          variables:
+            - entity_id: sensor.printer_cost_daily
+            - name: Printer Cost Daily
+            - color: '#b11df5'
+            - hours: 168
+            - group_by: date
+            - graph_type: bar
+        - type: entities
+          entities:
+            - entity: sensor.printer_cost_weekly
+            - entity: sensor.printer_cost_monthly
+    - type: vertical-stack
+      cards:
+        - !include
+          - ../includes/section.yaml
+          - title: "Washing Machine"
+        - type: custom:decluttering-card
+          template: mini_graph
+          variables:
+            - entity_id: sensor.washer_cost_daily
+            - name: Washing Machine Cost Daily
+            - color: '#b11df5'
+            - hours: 168
+            - group_by: date
+            - graph_type: bar
+        - type: custom:decluttering-card
+          template: mini_graph
+          variables:
+            - entity_id: sensor.washer_cost_weekly
+            - name: Washing Machine Cost Weekly
+            - color: '#b11df5'
+            - hours: 672
+            - group_by: interval
+        - type: entities
+          entities:
+            - entity: sensor.washer_cost_weekly
+            - entity: sensor.washer_cost_monthly
+

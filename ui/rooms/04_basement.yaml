@@ -1,9 +1,6 @@
 ---
 name: Basement
 icon: mdi:home-floor-b
-media_players:
-  - entity_id: media_player.bedroom
-    name: Basement Chromecast
 sensors_state:
   - entity_id: sensor.washer_state
     name: Washer

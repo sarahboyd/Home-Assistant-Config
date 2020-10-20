@@ -9,6 +9,8 @@ lights:
 media_players:
   - entity_id: media_player.bedroom_mini
     name: Google Mini
+  - entity_id: media_player.bedroom
+    name: Basement Chromecast
 sensors:
   - entity_id: sensor.bedroom_temperature
     name: Temperature

@@ -79,12 +79,14 @@
             - title: Power Usage
       {% for sensor in room.sensors_power %}
         - type: custom:decluttering-card
-          template: mini_graph_power
+          template: mini_graph
           variables:
             - entity_id: {{ sensor.entity_id }}
             - name: {{ sensor.name }}
             - color: '#b11df5'
             - hours: 168
+            - group_by: date
+            - graph_type: bar
       {% endfor %}
   {% endif %}
 

@@ -1,4 +1,9 @@
 mini_graph:
+  default:
+    - group_by: interval
+    - graph_type: line
+    - hours: 24
+    - aggregate: avg
   card:
     type: custom:mini-graph-card
     entities:
@@ -10,3 +15,8 @@ mini_graph:
     name: "[[name]]"
     align_icon: left
     align_header: left
+    aggregate_func: "[[aggregate]]"
+    group_by: "[[group_by]]"
+    show:
+      graph: "[[graph_type]]"
+    hours_to_show: '[[hours]]'
