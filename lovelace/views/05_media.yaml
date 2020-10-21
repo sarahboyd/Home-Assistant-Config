@@ -1,0 +1,103 @@
+# lovelace_gen
+
+- title: Media
+  icon: mdi:plex
+  path: media
+  cards:
+    - type: vertical-stack
+      cards:
+        - !include
+          - ../includes/section.yaml
+          - title: "Plex Media Server"
+        - type: horizontal-stack
+          cards:
+            {% for system_stat in _global.home.media_server_system_stats %}
+            - type: custom:decluttering-card
+              template: mini_graph
+              variables:
+                - name: {{ system_stat.name }}
+                - entity_id: {{ system_stat.entity_id }}
+                - align_state: center
+                - show_fill: false
+            {% endfor %}
+        - type: glance
+          entities:
+            - entity: sensor.plex_online
+            - entity: sensor.qbittorrent_online
+            - entity: sensor.tautulli_online
+        - type: glance
+          entities:
+            - entity: sensor.sonarr_online
+            - entity: sensor.radarr_online
+            - entity: sensor.jackett_online
+    - type: vertical-stack
+      cards:
+        - !include
+          - ../includes/section.yaml
+          - title: "Recently Added"
+        - type: custom:upcoming-media-card
+          entity: sensor.recently_added_tv
+          date: mmdd
+          flag: false
+          flag_color: '#13274b'
+          image_style: fanart
+          line1_text: $empty
+          line2_size: small
+          line2_text: $episode
+          line3_text: $number
+          line4_text: 'Runtime: $runtime'
+          max: 2
+          title: false
+          title_size: large
+          title_text: $title
+        - type: custom:upcoming-media-card
+          entity: sensor.recently_added_movies
+          date: mmdd
+          flag: false
+          flag_color: '#13274b'
+          image_style: fanart
+          line1_text: $empty
+          line2_size: small
+          ine2_text: $rating
+          line3_text: $genres
+          line4_text: 'Runtime: $runtime'
+          max: 2
+          title: false
+          title_size: large
+          title_text: $title
+    - type: vertical-stack
+      cards:
+        - !include
+          - ../includes/section.yaml
+          - title: "Upcoming Media"
+        - type: custom:upcoming-media-card
+          entity: sensor.sonarr_upcoming_media
+          date: mmdd
+          flag: false
+          flag_color: '#13274b'
+          image_style: fanart
+          line1_text: $empty
+          line2_size: small
+          line2_text: $episode - $number
+          line3_text: $date
+          line4_text: 'Runtime: $runtime'
+          max: 2
+          title: false
+          title_size: large
+          title_text: $title
+        - type: custom:upcoming-media-card
+          entity: sensor.radarr_upcoming_media
+          date: mmdd
+          flag: false
+          flag_color: '#13274b'
+          image_style: fanart
+          line1_text: $empty
+          line2_size: small
+          ine2_text: $rating
+          line3_text: $genres
+          line4_text: 'Runtime: $runtime'
+          max: 2
+          title: false
+          title_size: large
+          title_text: $title
+    

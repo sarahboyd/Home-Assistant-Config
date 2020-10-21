@@ -1,0 +1,5 @@
+---
+
+sensor.radarr_online:
+  entity_picture: "/local/images/radarr.png"
+  friendly_name: Radarr

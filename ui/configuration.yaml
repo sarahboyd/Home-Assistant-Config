@@ -32,3 +32,23 @@ media:
   - name: Prime
     service: script.launch_prime
     image: "/local/images/prime.png"
+media_server_system_stats:
+  - name: CPU
+    entity_id: sensor.glances_cpu_used
+  - name: RAM
+    entity_id: sensor.glances_ram_used_percent
+  - name: Disk
+    entity_id: sensor.media_drive_usage
+media_server_service_checker:
+  - name: Plex
+    entity_id: sensor.plex_online
+  - name: qBittorrent
+    entity_id: sensor.qbittorrent_online
+  - name: Tautulli
+    entity_id: sensor.tautulli_online
+  - name: Sonarr
+    entity_id: sensor.sonarr_online
+  - name: Radarr
+    entity_id: sensor.radarr_online
+  - name: Jackett
+    entity_id: sensor.jackett_online

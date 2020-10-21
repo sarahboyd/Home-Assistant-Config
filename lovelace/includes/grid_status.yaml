@@ -9,18 +9,12 @@ card:
   column_width: 33.333%
   cards:
   {% for button in entities %}
-
     - type: custom:decluttering-card
-    {% if button.name == "Ghost Cam" %}
-      template: "hk_button_ghost_cam"
-    {% elif button.name == "Fabricator" %}
-      template: "hk_button_printer"
-    {% else %}
       template: "hk_button"
-    {% endif %}
       variables:
         - entity_id: {{ button.entity_id }}
         - name: {{ button.name }}
+        - show_entity_picture: true
   {% endfor %}
 style: |
   ha-card {

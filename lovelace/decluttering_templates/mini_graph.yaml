@@ -4,6 +4,10 @@ mini_graph:
     - graph_type: line
     - hours: 24
     - aggregate: avg
+    - color: var(--accent-color)
+    - align_icon: left
+    - align_state: left
+    - show_fill: true
   card:
     type: custom:mini-graph-card
     entities:
@@ -13,10 +17,12 @@ mini_graph:
     font_size: 75
     animate: true
     name: "[[name]]"
-    align_icon: left
+    align_icon: "[[align_icon]]"
     align_header: left
+    align_state: "[[align_state]]"
     aggregate_func: "[[aggregate]]"
     group_by: "[[group_by]]"
     show:
       graph: "[[graph_type]]"
+      fill: "[[show_fill]]"
     hours_to_show: '[[hours]]'

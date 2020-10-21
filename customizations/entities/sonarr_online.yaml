@@ -1,0 +1,5 @@
+---
+
+sensor.sonarr_online:
+  entity_picture: "/local/images/sonarr.png"
+  friendly_name: Sonarr

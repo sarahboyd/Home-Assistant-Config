@@ -1,0 +1,9 @@
+---
+
+platform: sonarr_upcoming_media
+api_key: !secret sonarr_api_token
+host: 192.168.1.8
+port: 8989
+days: 7
+ssl: false
+max: 10

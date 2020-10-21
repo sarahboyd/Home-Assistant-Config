@@ -1,0 +1,5 @@
+---
+
+sensor.plex_online:
+  entity_picture: "/local/images/plex.png"
+  friendly_name: Plex

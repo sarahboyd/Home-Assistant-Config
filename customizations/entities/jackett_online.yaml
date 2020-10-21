@@ -1,0 +1,5 @@
+---
+
+sensor.jackett_online:
+  entity_picture: "/local/images/jackett.png"
+  friendly_name: Jackett

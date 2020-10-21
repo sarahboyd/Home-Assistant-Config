@@ -1,0 +1,12 @@
+---
+
+platform: template
+sensors:
+  media_drive_usage:
+    friendly_name: Media Server Drive Usage
+    unit_of_measurement: '%'
+    value_template: >
+            {% set e_drive = (states.sensor.glances_e_used_percent.state | float ) %}
+            {% set f_drive = ( states.sensor.glances_f_used_percent.state | float ) %}
+            {% set total = (e_drive + f_drive) / 2 %}
+            {{ total | round(4) }}

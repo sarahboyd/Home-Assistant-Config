@@ -1,0 +1,5 @@
+---
+
+sensor.qbittorrent_online:
+  entity_picture: "/local/images/qbittorrent.png"
+  friendly_name: qBittorrent

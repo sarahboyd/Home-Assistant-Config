@@ -1,0 +1,5 @@
+---
+
+sensor.tautulli_online:
+  entity_picture: "/local/images/tautulli.png"
+  friendly_name: Tautulli

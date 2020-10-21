@@ -1,0 +1,4 @@
+---
+
+sensor.glances_ram_used_percent:
+  icon: mdi:memory
