@@ -20,8 +20,6 @@ most_used:
     name: Wax Melt
   - entity_id: sensor.globe_plug_2_power
     name: Ghost Cam
-scenes:
-  - entity_id: scene.everything_off
 media:
   - name: Plex
     service: script.launch_plex
@@ -32,6 +30,34 @@ media:
   - name: Prime
     service: script.launch_prime
     image: "/local/images/prime.png"
+restart_services:
+  - name: Home Assistant
+    icon: mdi:home-assistant
+    service: homeassistant.restart
+  - name: Automations
+    icon: mdi:robot
+    service: automation.reload
+  - name: Frontend
+    icon: mdi:format-paint
+    service: frontend.reload_themes
+  - name: Core Config
+    icon: mdi:cog
+    service: homeassistant.reload_core_config
+  - name: Scripts
+    icon: mdi:script-text
+    service: script.reload
+  - name: Groups
+    icon: mdi:group
+    service: group.reload
+system_stats:
+  - name: CPU
+    entity_id: sensor.processor_use
+  - name: RAM
+    entity_id: sensor.memory_use_percent
+  - name: Disk
+    entity_id: sensor.disk_use_percent
+  - name: CPU Temperature
+    entity_id: sensor.cpu_temperature
 media_server_system_stats:
   - name: CPU
     entity_id: sensor.glances_cpu_used

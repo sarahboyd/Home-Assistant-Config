@@ -1,0 +1,16 @@
+---
+
+platform: template
+sensors:
+  # ----- Count Device Trackers
+  count_device_trackers:
+    entity_id: sensor.date
+    value_template: >
+          {%- set domains = ['device_tracker'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}

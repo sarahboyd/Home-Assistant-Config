@@ -1,8 +1,8 @@
 ---
 platform: template
 sensors:
-  scott_phone:
-    friendly_name: Scott's phone
+  scott_phone_battery:
+    friendly_name: Scott's phone battery
     unit_of_measurement: "%"
     value_template: >-
             {%- if states.device_tracker.life360_scott_young.attributes.battery %}

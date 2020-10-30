@@ -1,0 +1,4 @@
+---
+
+sensor.media_drive_usage:
+  icon: mdi:harddisk

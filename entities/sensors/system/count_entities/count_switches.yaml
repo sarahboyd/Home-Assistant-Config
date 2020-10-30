@@ -1,0 +1,16 @@
+---
+
+platform: template
+sensors:
+  # ----- Count Switches
+  count_switches:
+    entity_id: sensor.date
+    value_template: >
+          {%- set domains = ['switch'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}

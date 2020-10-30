@@ -1,0 +1,16 @@
+---
+
+platform: template
+sensors:
+  # ----- Input Texts
+  count_input_texts:
+    entity_id: sensor.date
+    value_template: >
+          {%- set domains = ['input_text'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}

@@ -1,85 +1,107 @@
 # lovelace_gen
 
 - title: System
-  icon: mdi:cog
+  icon: mdi:home-assistant
   path: system
   cards:
-    - !include
-      - ../includes/header.yaml
-      - title: "System"
     - type: vertical-stack
       cards:
         - !include
           - ../includes/section.yaml
-          - title: "Media Server"
-        - type: custom:decluttering-card
-          template: mini_graph
-          variables:
-            - entity_id: sensor.media_server_cost_daily
-            - name: Media Server Cost Daily
-            - color: '#b11df5'
-            - hours: 168
-            - group_by: date
-            - graph_type: bar
-        - type: entities
-          entities:
-            - entity: sensor.media_server_cost_weekly
-            - entity: sensor.media_server_cost_monthly
-    - type: vertical-stack
-      cards:
-        - !include
-          - ../includes/section.yaml
-          - title: "Internet"
+          - title: "Home Assistant"
         - type: horizontal-stack
           cards:
+            - type: glance
+              entities:
+                - entity: sensor.current_version
+                  name: Version
+              show_icon: true
+              show_name: true
+              title: false
+            - type: glance
+              entities:
+                - entity: binary_sensor.updater
+                  name: Update 
+              show_icon: true
+              show_name: true
+              title: false
+        - type: custom:layout-card
+          layout: horizontal
+          min_columns: 2
+          cards:
+            {% for system_stat in _global.home.system_stats %}
             - type: custom:decluttering-card
               template: mini_graph
               variables:
-                - entity_id: sensor.fast_com_download
-                - color: red
-                - name: Download
-    - type: vertical-stack
-      cards:
-        - !include
-          - ../includes/section.yaml
-          - title: "Raspberry Pi"
-        - type: vertical-stack
+                - name: {{ system_stat.name }}
+                - entity_id: {{ system_stat.entity_id }}
+                - align_state: center
+                - show_fill: false
+            {% endfor %}
+        - type: horizontal-stack
           cards:
-            - type: horizontal-stack
-              cards:
-                - type: custom:decluttering-card
-                  template: mini_graph
-                  variables:
-                    - entity_id: sensor.processor_use
-                    - color: '#2980b9'
-                    - name: CPU
-                - type: custom:decluttering-card
-                  template: mini_graph
-                  variables:
-                    - entity_id: sensor.cpu_temperature
-                    - color: '#2980b9'
-                    - name: CPU Temperature 
-            - type: custom:bar-card
-              entity: sensor.memory_use_percent
-              title: RAM
-              title_position: inside
-              align: split
-              show_icon: true
-              positions:
-                icon: outside
-            - type: custom:bar-card
-              entity: sensor.disk_use_percent
-              title: Disk Use
-              title_position: inside
-              align: split
-              show_icon: true
-              positions:
-                icon: outside 
+            - type: glance
+              entities:
+                - entity: sensor.count_binary_sensors
+                  name: Binary Sensors
+                  icon: 'mdi:motion-sensor'
+                - entity: sensor.count_sensors
+                  name: Sensors
+                  icon: 'mdi:home-thermometer'
+                - entity: sensor.count_automations
+                  name: Automations
+                  icon: 'mdi:robot'
+        - type: horizontal-stack
+          cards:
+            - type: glance
+              entities:
+                - entity: sensor.count_device_trackers
+                  name: Device Trackers
+                  icon: 'mdi:radar'
+                - entity: sensor.count_switches
+                  name: Switches
+                  icon: 'mdi:light-switch'
+                - entity: sensor.count_scripts
+                  name: Scripts
+                  icon: 'mdi:script-text'
     - type: vertical-stack
       cards:
         - !include
           - ../includes/section.yaml
-          - title: "PiHole"
+          - title: "Restart Services"
+        - type: custom:layout-card
+          layout: horizontal
+          min_columns: 3
+          justify_content: left
+          column_width: 33.333%
+          cards:
+            {% for service in _global.home.restart_services %}
+            - type: custom:decluttering-card
+              template: hk_glance
+              variables:
+                - name: {{ service.name }}
+                - icon: {{ service.icon }}
+                - service: {{ service.service }}
+            {% endfor %}
+    - type: vertical-stack
+      cards:
+        - !include
+          - ../includes/section.yaml
+          - title: "Battery Levels"
+        - type: custom:battery-state-card
+          sort_by_level: asc
+          title: false
+          collapse: 3
+          entities:
+            - sensor.front_door_battery
+            - sensor.hue_dimmer_switch_1_battery_level
+            - sensor.sarah_phone_battery
+            - sensor.scott_phone_battery
+    - type: vertical-stack
+      cards:
+        - !include
+          - ../includes/section.yaml
+          - title: "Automations"
 
         - type: entities
           entities:
@@ -91,7 +113,7 @@
 
         - !include
           - ../includes/section.yaml
-          - title: "Printer"
+          - title: "Push Notifications"
         - type: custom:auto-entities
           show_empty: false
           card:
