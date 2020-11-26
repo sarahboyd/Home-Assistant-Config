@@ -21,8 +21,8 @@ action:
       hvac_mode: >
         {% if states('sensor.season') == 'summer' %}
           cool
-        {% elif states('sensor.season') == 'spring' or states('sensor.season') == 'autumn' %}
-          auto
-        {% else %}
+        {% elif states('sensor.season') == 'winter' or states('sensor.season') == 'autumn' %}
           heat
+        {% else %}
+          auto
         {% endif %}

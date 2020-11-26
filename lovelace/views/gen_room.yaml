@@ -113,17 +113,18 @@
       {% endfor %}
   {% endif %}
 
-  {% if room.additional_buttons or room.additional_switches %}
+  {% if room.additional_buttons or room.additional_inputs %}
     - type: vertical-stack
       cards:
         - !include 
           - ../includes/section.yaml
           - title: Also
         - type: entities
+          show_header_toggle: false
           entities:
-          {% if room.additional_switches %}
-          {% for switch in room.additional_switches %}
-            - {{ switch.entity_id }}
+          {% if room.additional_inputs %}
+          {% for input in room.additional_inputs %}
+            - {{ input.entity_id }}
           {% endfor %}
           {% endif %}
           {% if room.additional_buttons %}

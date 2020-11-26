@@ -1,0 +1,12 @@
+---
+alias: Turn on outside light automations when Christmas lights are not up
+trigger:
+  - entity_id: input_boolean.christmas_lights
+    platform: state
+    to: "off"
+condition: []
+action:
+  - service: automation.turn_on
+    entity_id: automation.turn_on_outside_lights_after_dark_when_door_is_unlocked
+  - service: automation.turn_on
+    entity_id: automation.turn_on_outside_lights_after_dark_when_someone_is_away

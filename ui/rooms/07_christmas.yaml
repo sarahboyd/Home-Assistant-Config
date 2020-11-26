@@ -1,0 +1,8 @@
+---
+name: Christmas
+icon: mdi:string-lights
+additional_inputs:
+  - entity_id: input_boolean.christmas_lights
+    name: Christmas Lights
+  - entity_id: input_boolean.christmas_automations
+    name: Christmas Automations

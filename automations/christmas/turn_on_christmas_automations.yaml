@@ -1,0 +1,12 @@
+---
+alias: Turn on Christmas automations
+trigger:
+  - entity_id: input_boolean.christmas_automations
+    platform: state
+    to: "on"
+condition: []
+action:
+  - service: automation.turn_on
+    entity_id: automation.turn_off_tree
+  - service: automation.turn_on
+    entity_id: automation.turn_on_tree
