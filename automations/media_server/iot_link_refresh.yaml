@@ -1,0 +1,11 @@
+---
+
+# IOTLink Startup Refresh
+trigger:
+  - platform: homeassistant
+    event: start
+action:
+  - service: mqtt.publish
+    data:
+      topic: "iotlink/young-pc/refresh"
+      payload: ""

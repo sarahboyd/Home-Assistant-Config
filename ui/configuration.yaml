@@ -60,9 +60,9 @@ system_stats:
     entity_id: sensor.cpu_temperature
 media_server_system_stats:
   - name: CPU
-    entity_id: sensor.glances_cpu_used
+    entity_id: sensor.media_server_pc_cpu_usage
   - name: RAM
-    entity_id: sensor.glances_ram_used_percent
+    entity_id: sensor.media_server_pc_ram_usage
   - name: Disk
     entity_id: sensor.media_drive_usage
 media_server_service_checker:
