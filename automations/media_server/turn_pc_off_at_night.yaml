@@ -1,0 +1,14 @@
+---
+alias: Turn off media PC every night when not used
+trigger:
+  - at: "22:30:00"
+    platform: time
+condition:
+  - condition: state
+    entity_id: group.inside_lights
+    state: "off"
+  - condition: state
+    entity_id: sensor.plex_ghost_s_media
+    state: "0"
+action:
+  service: script.media_server_shutdown

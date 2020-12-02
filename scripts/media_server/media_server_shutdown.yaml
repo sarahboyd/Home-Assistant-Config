@@ -1,0 +1,9 @@
+---
+
+media_server_shutdown:
+  alias: "Media Server PC - Shutdown"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/young-pc/commands/shutdown"
+        payload: ""

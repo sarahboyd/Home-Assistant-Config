@@ -1,0 +1,9 @@
+---
+
+media_server_hibernate:
+  alias: "Media Server PC - Hibernate"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/young-pc/commands/hibernate"
+        payload: ""
