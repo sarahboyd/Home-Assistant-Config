@@ -2,7 +2,7 @@
 
 platform: mqtt
 name: "Media Server PC - RAM Usage"
-state_topic: "iotlink/workgroup/young-pc/windows-monitor/stats/ram/usage"
+state_topic: "iotlink/workgroup/young-pc/windows-monitor/stats/memory/usage"
 unit_of_measurement: '%'
 icon: mdi:memory
 value_template: "{{ value }}"
