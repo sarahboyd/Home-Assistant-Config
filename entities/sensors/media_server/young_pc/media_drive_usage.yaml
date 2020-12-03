@@ -6,7 +6,7 @@ sensors:
     friendly_name: Media Server Drive Usage
     unit_of_measurement: '%'
     value_template: >
-            {% set e_drive = (states.sensor.glances_e_used_percent.state | float ) %}
-            {% set f_drive = ( states.sensor.glances_f_used_percent.state | float ) %}
+            {% set e_drive = (states.sensor.young_pc_storage_e_usage.state | float ) %}
+            {% set f_drive = ( states.sensor.young_pc_storage_f_usage.state | float ) %}
             {% set total = (e_drive + f_drive) / 2 %}
-            {{ total | round(4) }}
+            {{ total | round(0) }}

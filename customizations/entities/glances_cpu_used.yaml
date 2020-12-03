@@ -1,4 +1,0 @@
----
-
-sensor.glances_cpu_used:
-  icon: mdi:chip
