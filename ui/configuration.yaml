@@ -64,7 +64,7 @@ media_server_system_stats:
   - name: CPU
     entity_id: sensor.young_pc_cpu_usage
   - name: RAM
-    entity_id: sensor.young_pc_ram_usage
+    entity_id: sensor.young_pc_memory_usage
   - name: Disk
     entity_id: sensor.media_drive_usage
 media_server_service_checker:
