@@ -1,0 +1,9 @@
+---
+
+toggle_globe_plug_2:
+  alias: 'Toggle Globe Plug 2'
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: cmnd/globeplug2/Power
+        payload: Toggle

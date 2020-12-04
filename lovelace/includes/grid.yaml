@@ -15,9 +15,7 @@ card:
       template: "hk_button_washer"
     {% elif button.name == "Fabricator" %}
       template: "hk_button_printer"
-    {% elif button.name == "Ghost Cam" %}
-      template: "hk_button_ghost_cam"
-    {% elif button.name == "Wax Melt" %}
+    {% elif button.plug %}
       template: "hk_button_globe_1"
     {% else %}
       template: "hk_button"
@@ -25,6 +23,9 @@ card:
       variables:
         - entity_id: {{ button.entity_id }}
         - name: {{ button.name }}
+        {% if button.plug %}
+        - plug: {{ button.plug }}
+        {% endif %}
   {% endfor %}
 style: |
   ha-card {

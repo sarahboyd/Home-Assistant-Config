@@ -12,9 +12,11 @@ trigger:
     to: Just Arrived
     for:
       minutes: 5
-condition: []
+condition:
+  - condition: state
+    entity_id: sensor.globe_plug_3_power
+    state: "off"
 action:
-  - service: mqtt.publish
+  - service: script.toggle_globe_plug
     data:
-      topic: cmnd/sonoff-plug-1/POWER
-      payload: "ON"
+      plug: globeplug3

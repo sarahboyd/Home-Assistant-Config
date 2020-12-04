@@ -3,7 +3,7 @@
 platform: mqtt
 name: "Globe Plug 3 Power"
 state_topic: "stat/globeplug3/POWER"
-icon: mdi:power-socket-us
+icon: mdi:string-lights
 availability_topic: "tele/globeplug3/LWT"
 payload_available: "Online"
 payload_not_available: "Offline"

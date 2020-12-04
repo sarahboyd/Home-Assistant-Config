@@ -9,16 +9,16 @@ trigger:
     platform: state
     to: Away
 condition:
-  condition: and
-  conditions:
-    - condition: state
-      entity_id: sensor.sarah_status
-      state: Away
-    - condition: state
-      entity_id: sensor.scott_status
-      state: Away
+  - condition: state
+    entity_id: sensor.globe_plug_3_power
+    state: "on"
+  - condition: state
+    entity_id: sensor.sarah_status
+    state: Away
+  - condition: state
+    entity_id: sensor.scott_status
+    state: Away
 action:
-  - service: mqtt.publish
+  - service: script.toggle_globe_plug
     data:
-      topic: cmnd/sonoff-plug-1/POWER
-      payload: "OFF"
+      plug: globeplug3

@@ -6,8 +6,6 @@ rooms: !include_dir_list ./rooms
 most_used:
   - entity_id: sensor.plug_1_power_state
     name: Fabricator
-  - entity_id: light.living_room_main_lights
-    name: Living Room
   - entity_id: switch.pi_hole
     name: Pi-hole
   - entity_id: lock.front_door
@@ -18,10 +16,15 @@ most_used:
     name: TV
   - entity_id: sensor.globe_plug_1_power
     name: Wax Melt
+    plug: globeplug1
   - entity_id: sensor.globe_plug_2_power
     name: Ghost Cam
+    plug: globeplug2
   - entity_id: binary_sensor.young_pc_power_status
     name: Media PC
+  - entity_id: sensor.globe_plug_3_power
+    name: Christmas Tree
+    plug: globeplug3
 media:
   - name: Plex
     service: script.launch_plex

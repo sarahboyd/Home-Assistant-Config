@@ -76,6 +76,9 @@
                 {% if e.name %}
                 name: {{ e.name }}
                 {% endif %}
+                {% if e.plug %}
+                plug: {{ e.plug }}
+                {% endif %}
             {% endfor %}
     {% endif %}
     - type: vertical-stack

@@ -1,0 +1,13 @@
+---
+
+toggle_globe_plug:
+  alias: 'Toggle Globe Plug'
+  fields:
+    plug:
+      description: plug to toggle
+      example: globeplug1
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: cmnd/{{plug}}/Power
+        payload: Toggle
