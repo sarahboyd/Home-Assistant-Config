@@ -16,7 +16,7 @@ card:
     {% elif button.name == "Fabricator" %}
       template: "hk_button_printer"
     {% elif button.plug %}
-      template: "hk_button_globe_1"
+      template: "hk_button_globe_plug"
     {% else %}
       template: "hk_button"
     {% endif %}

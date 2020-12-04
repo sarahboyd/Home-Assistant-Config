@@ -1,4 +1,4 @@
-hk_button_globe_1:
+hk_button_globe_plug:
   default:
     - aspect_ratio: "1/1"
   card:
