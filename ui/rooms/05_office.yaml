@@ -2,6 +2,8 @@
 name: Office
 icon: mdi:laptop
 sensors_state:
+  - entity_id: binary_sensor.young_pc_power_status
+    name: Media PC
   - entity_id: sensor.plex_ghost_s_media
     name: Plex Media Server
 sensors_power:
