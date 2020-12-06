@@ -1,7 +1,7 @@
 ---
 alias: Turn off media PC every night when not used
 trigger:
-  - at: "22:30:00"
+  - at: "22:15:00"
     platform: time
 condition:
   - condition: state
