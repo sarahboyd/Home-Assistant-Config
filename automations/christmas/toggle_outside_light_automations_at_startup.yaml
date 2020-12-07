@@ -8,5 +8,5 @@ condition:
     entity_id: input_boolean.christmas_lights
     state: "on"
 action:
-  - service: automations.trigger
+  - service: automation.trigger
     entity_id: automation.turn_off_outside_lights
