@@ -1,8 +1,0 @@
----
-
-platform: group
-name: Main Floor Lights
-entities:
-  - light.living_room
-  - light.dining_room_chandelier
-  - light.front_foyer_main_lights
