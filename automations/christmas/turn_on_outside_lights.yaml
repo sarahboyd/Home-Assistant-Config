@@ -1,5 +1,6 @@
 ---
 alias: Turn on outside light automations when Christmas lights are not up
+initial_state: false
 trigger:
   - entity_id: input_boolean.christmas_lights
     platform: state
