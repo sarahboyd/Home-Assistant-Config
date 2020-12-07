@@ -1,5 +1,5 @@
 ---
-alias: Set Christmas Tree automations at startup
+alias: Set Christmas Light automations at startup
 trigger:
   - platform: homeassistant
     event: start
