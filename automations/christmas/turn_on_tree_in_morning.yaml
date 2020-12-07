@@ -1,0 +1,23 @@
+---
+alias: Turn on Christmas Tree when we get up
+initial_state: false
+trigger:
+  - entity_id: lights.main_floor_lights
+    platform: state
+    to: 'on'
+  - entity_id: lights.bedroom_lights
+    platform: state
+    to: 'on'
+    for:
+      minutes: 10
+condition:
+  - condition: state
+    entity_id: sensor.globe_plug_3_power
+    state: "off"
+  - condition: time
+    after: '06:00:00'
+    before: '11:00:00'
+action:
+  - service: script.toggle_globe_plug
+    data:
+      plug: globeplug3

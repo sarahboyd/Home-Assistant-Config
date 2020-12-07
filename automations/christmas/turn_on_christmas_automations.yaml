@@ -10,3 +10,7 @@ action:
     entity_id: automation.turn_off_christmas_tree_when_we_both_leave
   - service: automation.turn_on
     entity_id: automation.turn_on_christmas_tree_when_we_get_home
+  - service: automation.turn_on
+    entity_id: automation.turn_on_christmas_tree_when_we_get_up
+  - service: automation.turn_on
+    entity_id: automation.turn_off_christmas_tree_at_night

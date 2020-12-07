@@ -1,0 +1,7 @@
+---
+
+platform: group
+name: Main Floor Lights
+entities:
+  - light.bedroom
+  - light.bedroom_1
