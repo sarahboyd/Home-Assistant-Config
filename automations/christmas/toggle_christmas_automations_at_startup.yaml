@@ -1,0 +1,12 @@
+---
+alias: Set Christmas Tree automations at startup
+trigger:
+  - platform: homeassistant
+    event: start
+condition:
+  - condition: state
+    entity_id: input_boolean.christmas_automations
+    state: "on"
+action:
+  - service: automations.trigger
+    entity_id: automation.turn_on_christmas_automations
