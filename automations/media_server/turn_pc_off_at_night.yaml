@@ -10,5 +10,11 @@ condition:
   - condition: state
     entity_id: sensor.plex_ghost_s_media
     state: "0"
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.young_pc_power_status
+        state: "unavailable"
 action:
-  service: script.media_server_shutdown
+  - service: script.media_server_shutdown
+  - service: script.media_server_media_server_nightly_shutdown

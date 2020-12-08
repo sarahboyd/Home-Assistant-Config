@@ -1,0 +1,18 @@
+---
+
+media_server_media_server_nightly_shutdown:
+  alias: "Media Server PC - turn off on delay"
+  sequence:
+    - alias: Repeat the sequence AS LONG AS the conditions are true
+      repeat:
+        while:
+          - condition: state
+            entity_id: binary_sensor.young_pc_power_status
+            state: 'on'
+          # Don't do it too many times
+          - condition: template
+            value_template: "{{ repeat.index <= 10 }}"
+        sequence:
+          - delay:
+              minutes: 10
+          - service: script.media_server_shutdown
