@@ -2,7 +2,7 @@
 alias: Turn on Christmas Tree when we get up
 initial_state: false
 trigger:
-  - entity_id: light.living_room
+  - entity_id: light.living_room_main_lights
     platform: state
     to: 'on'
   - entity_id: light.dining_room_chandelier
@@ -11,16 +11,11 @@ trigger:
   - entity_id: light.front_foyer_main_lights
     platform: state
     to: 'on'
-  - entity_id: light.bedroom
+  - entity_id: light.hue_color_lamp_1
     platform: state
     to: 'on'
     for:
-      minutes: 10
-  - entity_id: light.bedroom_1
-    platform: state
-    to: 'on'
-    for:
-      minutes: 10
+      minutes: 20
 condition:
   - condition: state
     entity_id: sensor.globe_plug_3_power
