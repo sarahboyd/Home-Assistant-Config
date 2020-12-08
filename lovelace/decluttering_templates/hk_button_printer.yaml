@@ -29,7 +29,7 @@ hk_button_printer:
       icon:
         - color: var(--button-card-light-color)
     state:
-      - value: 'off'
+      - value: 'OFF'
         styles:
           card:
             - filter: opacity(50%)
