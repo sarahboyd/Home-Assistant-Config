@@ -1,0 +1,12 @@
+---
+
+media_server_shutdown_check:
+  alias: "Media Server PC - turn off if not used"
+  sequence:
+    - condition: state
+      entity_id: group.inside_lights
+      state: "off"
+    - condition: state
+      entity_id: sensor.plex_ghost_s_media
+      state: "0"
+    - service: script.media_server_shutdown

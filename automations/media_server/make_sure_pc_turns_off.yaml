@@ -10,4 +10,4 @@ condition:
         entity_id: binary_sensor.young_pc_power_status
         state: "unavailable"
 action:
-  - service: script.media_server_media_server_nightly_shutdown
+  - service: script.media_server_media_server_nightly_shutdown_loop
