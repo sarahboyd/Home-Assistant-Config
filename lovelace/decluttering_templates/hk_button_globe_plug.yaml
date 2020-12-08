@@ -43,5 +43,5 @@ hk_button_globe_plug:
             - filter: opacity(50%)
           icon:
             - filter: grayscale(100%)
-      - value: "on"
+      - value: "ON"
         color: rgb(35, 63, 166)
