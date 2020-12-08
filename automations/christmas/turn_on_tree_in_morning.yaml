@@ -19,7 +19,7 @@ trigger:
 condition:
   - condition: state
     entity_id: sensor.globe_plug_3_power
-    state: "off"
+    state: "OFF"
 action:
   - service: script.toggle_globe_plug
     data:
