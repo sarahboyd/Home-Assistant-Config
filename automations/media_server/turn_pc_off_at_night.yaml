@@ -17,4 +17,3 @@ condition:
         state: "unavailable"
 action:
   - service: script.media_server_shutdown
-  - service: script.media_server_media_server_nightly_shutdown
