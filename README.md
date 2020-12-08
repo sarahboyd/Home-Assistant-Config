@@ -9,6 +9,6 @@
 				alt="Branch">
 		</a>
 		<img src="https://img.shields.io/badge/haversion-0.116.4-blue.svg">
-		<img src="https://img.shields.io/badge/automations-64-purple.svg">
+		<img src="https://img.shields.io/badge/automations-65-purple.svg">
 	</p>
 </p>
