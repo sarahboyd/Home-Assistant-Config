@@ -16,13 +16,7 @@ trigger:
     to: 'on'
     for:
       minutes: 20
-condition:
-  - condition: state
-    entity_id: sensor.globe_plug_3_power
-    state: "off"
-  - condition: time
-    after: '06:00:00'
-    before: '11:00:00'
+condition: []
 action:
   - service: script.toggle_globe_plug
     data:
