@@ -1,0 +1,13 @@
+---
+alias: Make sure media PC turns off every night when not used
+trigger:
+  - at: "22:30:00"
+    platform: time
+condition:
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.young_pc_power_status
+        state: "unavailable"
+action:
+  - service: script.media_server_media_server_nightly_shutdown_loop

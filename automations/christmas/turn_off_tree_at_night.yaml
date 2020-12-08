@@ -2,7 +2,7 @@
 alias: Turn off Christmas Tree at night
 initial_state: false
 trigger:
-  - entity_id: light.living_room
+  - entity_id: light.living_room_main_lights
     platform: state
     to: 'off'
 condition:

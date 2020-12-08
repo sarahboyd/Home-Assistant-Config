@@ -9,4 +9,4 @@ condition:
     state: "on"
 action:
   - service: automation.trigger
-    entity_id: automation.turn_off_outside_lights
+    entity_id: automation.turn_off_outside_light_automations_when_christmas_lights_are_up

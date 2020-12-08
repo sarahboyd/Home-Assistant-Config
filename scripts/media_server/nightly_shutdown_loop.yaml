@@ -1,6 +1,6 @@
 ---
 
-media_server_media_server_nightly_shutdown:
+media_server_nightly_shutdown_loop:
   alias: "Media Server PC - turn off on delay"
   sequence:
     - alias: Repeat the sequence AS LONG AS the conditions are true
@@ -13,6 +13,6 @@ media_server_media_server_nightly_shutdown:
           - condition: template
             value_template: "{{ repeat.index <= 10 }}"
         sequence:
+          - service: script.media_server_shutdown_check
           - delay:
               minutes: 10
-          - service: script.media_server_shutdown
