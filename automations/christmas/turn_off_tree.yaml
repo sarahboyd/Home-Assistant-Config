@@ -11,7 +11,7 @@ trigger:
 condition:
   - condition: state
     entity_id: sensor.globe_plug_3_power
-    state: "on"
+    state: "ON"
   - condition: state
     entity_id: sensor.sarah_status
     state: Away
