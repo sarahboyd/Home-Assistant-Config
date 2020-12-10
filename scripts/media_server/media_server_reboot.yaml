@@ -1,9 +1,9 @@
 ---
 
-media_server_hibernate:
-  alias: "Media Server PC - Hibernate"
+media_server_reboot:
+  alias: "Media Server PC - Reboot"
   sequence:
     - service: mqtt.publish
       data:
-        topic: "iotlink/workgroup/young-pc/commands/hibernate"
+        topic: "iotlink/workgroup/young-pc/commands/reboot"
         payload: ""
