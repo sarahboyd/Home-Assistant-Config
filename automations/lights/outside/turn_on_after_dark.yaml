@@ -6,7 +6,7 @@ trigger:
   to: unlocked
 condition:
   - condition: state
-    entity_id: light.outside
+    entity_id: switch.front_porch_sconces
     state: "off"
   - condition: or
     conditions:
@@ -16,5 +16,5 @@ condition:
         before: sunrise
         before_offset: "-00:30:00"
 action:
-  service: homeassistant.turn_on
-  entity_id: light.outside
+  service: switch.turn_on
+  entity_id: switch.front_porch_sconces

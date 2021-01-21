@@ -7,7 +7,7 @@ condition:
   - condition: sun
     before: sunrise
   - condition: state
-    entity_id: light.outside
+    entity_id: switch.front_porch_sconces
     state: "off"
   - condition: or
     conditions:
@@ -22,5 +22,5 @@ condition:
         entity_id: calendar.off_work
         state: "on"
 action:
-  service: homeassistant.turn_on
-  entity_id: light.outside
+  service: switch.turn_on
+  entity_id: switch.front_porch_sconces

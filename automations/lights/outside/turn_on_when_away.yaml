@@ -26,5 +26,5 @@ condition:
         before: sunrise
         before_offset: "-01:00:00"
 action:
-  service: homeassistant.turn_on
-  entity_id: light.outside
+  service: switch.turn_on
+  entity_id: switch.front_porch_sconces

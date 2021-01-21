@@ -7,7 +7,7 @@ trigger:
     from: unlocked
 condition:
   - condition: state
-    entity_id: light.outside
+    entity_id: switch.front_porch_sconces
     state: "on"
   - condition: or
     conditions:

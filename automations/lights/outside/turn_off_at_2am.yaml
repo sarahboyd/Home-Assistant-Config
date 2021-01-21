@@ -5,5 +5,5 @@ trigger:
     platform: time
 condition: []
 action:
-  service: homeassistant.turn_off
-  entity_id: light.outside
+  service: switch.turn_off
+  entity_id: switch.front_porch_sconces

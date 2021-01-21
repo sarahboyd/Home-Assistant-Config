@@ -2,7 +2,5 @@
 name: Outside
 icon: mdi:pine-tree
 lights:
-  - entity_id: light.front_door
-    name: Front Door
-  - entity_id: light.garage
-    name: Garage
+  - entity_id: switch.front_porch_sconces
+    name: Front Porch Lights
