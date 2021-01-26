@@ -2,6 +2,6 @@
 
 lutron_caseta:
   host: 192.168.1.19
-  keyfile: /home/homeassistant/.homeassistant/ssl/lutron/caseta.key
-  certfile: /home/homeassistant/.homeassistant/ssl/lutron/caseta.crt
-  ca_certs: /home/homeassistant/.homeassistant/ssl/lutron/caseta-bridge.crt
+  keyfile: ssl/lutron/caseta.key
+  certfile: ssl/lutron/caseta.crt
+  ca_certs: ssl/lutron/caseta-bridge.crt

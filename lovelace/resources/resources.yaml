@@ -22,7 +22,7 @@
   type: module
 - url: /hacsfiles/decluttering-card/decluttering-card.js
   type: module
-- url: /local/custom-lovelace/upcoming-media-card/upcoming-media-card.js?v=0.4.3
-  type: js
+- url: /hacsfiles/upcoming-media-card/upcoming-media-card.js
+  type: module
 - url: /hacsfiles/battery-state-card/battery-state-card.js
   type: module

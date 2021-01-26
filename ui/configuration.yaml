@@ -6,8 +6,8 @@ rooms: !include_dir_list ./rooms
 most_used:
   - entity_id: sensor.plug_1_power_state
     name: Fabricator
-  - entity_id: switch.pi_hole
-    name: Pi-hole
+  - entity_id: switch.adguard_protection
+    name: AdGuard
   - entity_id: lock.front_door
     name: Front Door
   - entity_id: sensor.washer_state

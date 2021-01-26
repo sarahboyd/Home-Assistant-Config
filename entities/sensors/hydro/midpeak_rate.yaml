@@ -2,4 +2,4 @@
 
 platform: command_line
 name: MidPeak Hydro Rate
-command: "cat /home/homeassistant/.homeassistant/hydro_rates/midpeak"
+command: "cat hydro_rates/midpeak"
