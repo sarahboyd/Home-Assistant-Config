@@ -5,4 +5,4 @@ turn_lights_off_delay:
   sequence:
     - delay: '00:30:00'
     - service: switch.turn_off
-      entity_id: switch.front_porch_sconces
+      entity_id: switch.front_porch_lights

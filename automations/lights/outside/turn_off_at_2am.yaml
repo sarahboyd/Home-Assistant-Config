@@ -6,4 +6,4 @@ trigger:
 condition: []
 action:
   service: switch.turn_off
-  entity_id: switch.front_porch_sconces
+  entity_id: switch.front_porch_lights
