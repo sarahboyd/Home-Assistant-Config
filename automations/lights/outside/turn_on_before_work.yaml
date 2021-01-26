@@ -7,7 +7,7 @@ condition:
   - condition: sun
     before: sunrise
   - condition: state
-    entity_id: switch.front_porch_sconces
+    entity_id: switch.front_porch_lights
     state: "off"
   - condition: or
     conditions:
@@ -23,4 +23,4 @@ condition:
         state: "on"
 action:
   service: switch.turn_on
-  entity_id: switch.front_porch_sconces
+  entity_id: switch.front_porch_lights
