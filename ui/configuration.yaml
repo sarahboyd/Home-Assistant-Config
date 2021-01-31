@@ -17,14 +17,13 @@ most_used:
   - entity_id: sensor.globe_plug_1_power
     name: Wax Melt
     plug: globeplug1
+  - entity_id: light.bedroom
+    name: Bedroom
   - entity_id: sensor.globe_plug_2_power
     name: Ghost Cam
     plug: globeplug2
   - entity_id: binary_sensor.young_pc_power_status
     name: Media PC
-  - entity_id: sensor.globe_plug_3_power
-    name: Christmas Tree
-    plug: globeplug3
 media:
   - name: Plex
     service: script.launch_plex

@@ -1,0 +1,14 @@
+---
+alias: "Turn on wax melter every afternoon"
+trigger:
+  - at: "13:00:00"
+    platform: time
+condition:
+  - platform: state
+    entity_id: group.family
+    states: "not_home"
+action:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/globeplug1/Power
+      payload: "Om"
