@@ -4,7 +4,7 @@ trigger:
   - at: "13:00:00"
     platform: time
 condition:
-  - platform: state
+  - condition: state
     entity_id: group.family
     state: "not_home"
 action:
