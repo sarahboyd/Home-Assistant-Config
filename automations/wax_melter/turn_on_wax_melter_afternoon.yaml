@@ -6,7 +6,7 @@ trigger:
 condition:
   - platform: state
     entity_id: group.family
-    states: "not_home"
+    state: "not_home"
 action:
   - service: mqtt.publish
     data:
