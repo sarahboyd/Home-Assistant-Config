@@ -6,9 +6,9 @@ trigger:
 condition:
   - condition: state
     entity_id: group.family
-    state: "not_home"
+    state: "home"
 action:
   - service: mqtt.publish
     data:
       topic: cmnd/globeplug1/Power
-      payload: "Om"
+      payload: "On"
